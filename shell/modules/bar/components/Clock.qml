@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import "root:styled"
 
 Item {
     id: clock
@@ -8,18 +9,13 @@ Item {
     implicitWidth: 200
     implicitHeight: 30
 
-    Rectangle {
+    StyledLabel {
         anchors.fill: parent
-        color: "#333"
-        opacity: 0.5
-        radius: 5
     }
 
-    Text {
+    StyledText {
         id: text
         anchors.centerIn: parent
-
-        color: "white"
 
         Process {
             // give the process object an id so we can talk
