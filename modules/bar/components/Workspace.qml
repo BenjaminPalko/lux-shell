@@ -30,7 +30,7 @@ Item {
 
         rotation: workspace.modelData.active ? 0 : 180
 
-        icon.source: "/home/baobeld/dotfiles/quickshell/shell/assets/triangle.svg"
+        icon.source: "/home/baobeld/dotfiles/quickshell/assets/triangle.svg"
         icon.color: workspace.modelData.active ? Theme.palette.primary : Theme.palette.basecontent
 
         onClicked: workspace.modelData.activate()
