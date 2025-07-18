@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
 import "components"
-import "../../config"
+import "../../config/"
 
 Scope {
     PanelWindow {
@@ -13,13 +13,14 @@ Scope {
             right: true
         }
 
-        implicitHeight: 30
+        implicitHeight: 40
 
         color: 'transparent'
 
         Rectangle {
+            id: background
             anchors.fill: parent
-            color: Colours.palette.base100
+            color: Theme.palette.base300
         }
 
         Row {
