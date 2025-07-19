@@ -15,9 +15,28 @@ Item {
 
     Rectangle {
         id: rectangle
-        anchors.fill: button
+        anchors.fill: parent
         color: Theme.palette.base100
         radius: Dimensions.radius
+        states: State {
+            name: "hovered"
+            when: button.hovered
+            PropertyChanges {
+                rectangle {
+                    color: Theme.palette.primary
+                }
+            }
+        }
+        transitions: Transition {
+            from: ""
+            to: "hovered"
+            reversible: true
+            ColorAnimation {
+                properties: "color"
+                duration: 300
+                easing.type: Easing.InOutCubic
+            }
+        }
     }
 
     Button {
@@ -27,12 +46,10 @@ Item {
         verticalPadding: Dimensions.workspace.verticalPadding
         horizontalPadding: Dimensions.workspace.horizontalPadding
 
-        background: null
+        background: undefined
 
         icon.source: "/home/baobeld/dotfiles/quickshell/assets/triangle.svg"
         icon.color: Theme.palette.basecontent
-
-        onClicked: workspace.modelData.activate()
 
         states: State {
             name: "active"
@@ -40,7 +57,7 @@ Item {
             PropertyChanges {
                 button {
                     rotation: 180
-                    icon.color: Theme.palette.primary
+                    icon.color: button.hovered ? Theme.palette.basecontent : Theme.palette.primary
                 }
             }
         }
@@ -49,11 +66,25 @@ Item {
             from: ""
             to: "active"
             reversible: true
-            NumberAnimation {
-                properties: "rotation"
-                duration: 250
-                easing.type: Easing.InOutQuad
+            ParallelAnimation {
+                RotationAnimation {
+                    duration: 300
+                    easing.type: Easing.InOutCubic
+                }
+                ColorAnimation {
+                    duration: 300
+                    easing.type: Easing.OutCubic
+                }
             }
         }
+    }
+
+    MouseArea {
+        id: mouseArea
+
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked: workspace.modelData.activate()
     }
 }
