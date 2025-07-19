@@ -1,40 +1,35 @@
+import Quickshell
 import Quickshell.Io
 import QtQuick
-import "root:styled"
+import "../../../styled/"
 import "../../../config/"
 
 Item {
-    id: clock
+    id: root
 
     implicitWidth: Dimensions.clock.width
     implicitHeight: Dimensions.clock.height
 
     StyledLabel {
-      anchors.fill: text
+        anchors.fill: parent
+        anchors.centerIn: parent
     }
 
     StyledText {
         id: text
         anchors.centerIn: parent
+        topPadding: Dimensions.clock.verticalPadding
+        bottomPadding: Dimensions.clock.verticalPadding
+        leftPadding: Dimensions.clock.horizontalPadding
+        rightPadding: Dimensions.clock.horizontalPadding
 
         font.pixelSize: Dimensions.clock.fontSize
 
-        Process {
-            id: dateProc
+        text: ` ${Qt.formatDateTime(clock.date, "hh:mm:ss AP")}`
 
-            command: ["date"]
-            running: true
-
-            stdout: StdioCollector {
-                onStreamFinished: text.text = ` ${this.text}`
-            }
-        }
-
-        Timer {
-            interval: 1000
-            running: true
-            repeat: true
-            onTriggered: dateProc.running = true
+        SystemClock {
+            id: clock
+            precision: SystemClock.Seconds
         }
     }
 }

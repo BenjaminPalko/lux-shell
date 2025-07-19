@@ -64,14 +64,12 @@ Scope {
                 anchors.bottomMargin: Dimensions.bar.verticalPadding
 
                 spacing: Dimensions.bar.spacing
-
-                Clock {}
             }
 
             Row {
                 id: rightbar
 
-                anchors.right: parent.left
+                anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
 
                 anchors.rightMargin: Dimensions.bar.horizontalPadding
@@ -79,6 +77,8 @@ Scope {
                 anchors.bottomMargin: Dimensions.bar.verticalPadding
 
                 spacing: Dimensions.bar.spacing
+
+                Clock {}
             }
         }
     }

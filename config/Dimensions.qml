@@ -19,17 +19,19 @@ Singleton {
         property int border: 2
         property int height: 50
         property int verticalMargins: 4
-        property int horizontalMargins: 6
+        property int horizontalMargins: 8
         property int verticalPadding: 2
-        property int horizontalPadding: 6
+        property int horizontalPadding: 8
     }
 
     component Clock: QtObject {
         id: clock
 
         property int fontSize: 14
-        property int width: 230
+        property int width: 130
         property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
     }
 
     component Workspace: QtObject {
