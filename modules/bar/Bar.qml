@@ -13,47 +13,73 @@ Scope {
             right: true
         }
 
-        implicitHeight: 40
-
+        implicitHeight: Dimensions.bar.height
         color: 'transparent'
 
-        Rectangle {
-            id: background
+        Item {
+
             anchors.fill: parent
-            color: Theme.palette.base300
-        }
+            anchors.leftMargin: Dimensions.bar.horizontalMargins
+            anchors.rightMargin: Dimensions.bar.horizontalMargins
+            anchors.topMargin: Dimensions.bar.verticalMargins
+            anchors.bottomMargin: Dimensions.bar.verticalMargins
 
-        Row {
-            id: leftbar
+            Rectangle {
+                id: background
+                anchors.fill: parent
+                color: Theme.palette.base300
+                radius: Dimensions.radius
 
-            spacing: 6
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            anchors.margins: 2
-
-            Workspaces {
-                anchors.verticalCenter: parent.verticalCenter
+                border {
+                    color: Theme.palette.base100
+                    width: Dimensions.bar.border
+                    pixelAligned: true
+                }
             }
-        }
 
-        Row {
-            id: centerbar
+            Row {
+                id: leftbar
 
-            spacing: 6
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
 
-            Clock {}
-        }
+                anchors.leftMargin: Dimensions.bar.horizontalPadding
+                anchors.topMargin: Dimensions.bar.verticalPadding
+                anchors.bottomMargin: Dimensions.bar.verticalPadding
 
-        Row {
-            id: rightbar
+                spacing: Dimensions.bar.spacing
 
-            anchors.top: parent.top
-            anchors.right: parent.left
-            anchors.bottom: parent.bottom
+                Workspaces {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+
+            Row {
+                id: centerbar
+
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+
+                anchors.topMargin: Dimensions.bar.verticalPadding
+                anchors.bottomMargin: Dimensions.bar.verticalPadding
+
+                spacing: Dimensions.bar.spacing
+
+                Clock {}
+            }
+
+            Row {
+                id: rightbar
+
+                anchors.right: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+
+                anchors.rightMargin: Dimensions.bar.horizontalPadding
+                anchors.topMargin: Dimensions.bar.verticalPadding
+                anchors.bottomMargin: Dimensions.bar.verticalPadding
+
+                spacing: Dimensions.bar.spacing
+            }
         }
     }
 }

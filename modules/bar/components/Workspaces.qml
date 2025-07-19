@@ -1,11 +1,12 @@
 import QtQuick
 import QtQuick.Controls
 import Quickshell.Hyprland
+import "../../../config/"
 
 Row {
     id: root
 
-    spacing: 4
+    spacing: Dimensions.workspace.spacing
 
     Repeater {
 

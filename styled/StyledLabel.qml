@@ -1,8 +1,8 @@
 import QtQuick
-import "root:config"
+import "../config/"
 
 Rectangle {
     color: Theme.palette.base100
 
-    radius: 5
+    radius: Dimensions.radius
 }

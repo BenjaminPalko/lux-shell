@@ -10,29 +10,50 @@ Item {
 
     visible: modelData.id > 0
 
-    width: 30
-    height: 30
+    width: Dimensions.workspace.width
+    height: Dimensions.workspace.height
+
+    Rectangle {
+        id: rectangle
+        anchors.fill: button
+        color: Theme.palette.base100
+        radius: Dimensions.radius
+    }
 
     Button {
         id: button
         anchors.centerIn: parent
 
-        padding: 6
-        leftPadding: 7
-        rightPadding: 7
+        verticalPadding: Dimensions.workspace.verticalPadding
+        horizontalPadding: Dimensions.workspace.horizontalPadding
 
-        background: Rectangle {
-            id: rectangle
-            anchors.fill: parent
-            color: "#161212"
-            radius: 8
-        }
-
-        rotation: workspace.modelData.active ? 0 : 180
+        background: null
 
         icon.source: "/home/baobeld/dotfiles/quickshell/assets/triangle.svg"
-        icon.color: workspace.modelData.active ? Theme.palette.primary : Theme.palette.basecontent
+        icon.color: Theme.palette.basecontent
 
         onClicked: workspace.modelData.activate()
+
+        states: State {
+            name: "active"
+            when: workspace.modelData.active
+            PropertyChanges {
+                button {
+                    rotation: 180
+                    icon.color: Theme.palette.primary
+                }
+            }
+        }
+
+        transitions: Transition {
+            from: ""
+            to: "active"
+            reversible: true
+            NumberAnimation {
+                properties: "rotation"
+                duration: 250
+                easing.type: Easing.InOutQuad
+            }
+        }
     }
 }
