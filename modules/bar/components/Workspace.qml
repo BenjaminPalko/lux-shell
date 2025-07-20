@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Effects
 import Quickshell.Hyprland
 import "../../../config"
+import "../../../styled/"
 
 Item {
     id: workspace
@@ -20,7 +22,7 @@ Item {
         radius: Dimensions.radius
         states: State {
             name: "hovered"
-            when: button.hovered
+            when: mouseArea.containsMouse
             PropertyChanges {
                 rectangle {
                     color: Theme.palette.primary
@@ -39,25 +41,21 @@ Item {
         }
     }
 
-    Button {
-        id: button
+    Icon {
+        id: icon
+
+        source: "/home/baobeld/dotfiles/quickshell/assets/triangle.svg"
+
         anchors.centerIn: parent
-
-        verticalPadding: Dimensions.workspace.verticalPadding
-        horizontalPadding: Dimensions.workspace.horizontalPadding
-
-        background: undefined
-
-        icon.source: "/home/baobeld/dotfiles/quickshell/assets/triangle.svg"
-        icon.color: Theme.palette.basecontent
+        size: Dimensions.workspace.iconSize
 
         states: State {
             name: "active"
             when: workspace.modelData.active
             PropertyChanges {
-                button {
+                icon {
                     rotation: 180
-                    icon.color: button.hovered ? Theme.palette.basecontent : Theme.palette.primary
+                    color: mouseArea.containsMouse ? Theme.palette.basecontent : Theme.palette.primary
                 }
             }
         }
@@ -85,6 +83,7 @@ Item {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
 
+        hoverEnabled: true
         onClicked: workspace.modelData.activate()
     }
 }
