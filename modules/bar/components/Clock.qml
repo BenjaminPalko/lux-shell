@@ -7,12 +7,11 @@ import "../../../config/"
 Item {
     id: root
 
-    implicitWidth: Dimensions.clock.width
+    implicitWidth: childrenRect.width
     implicitHeight: Dimensions.clock.height
 
     StyledLabel {
         anchors.fill: parent
-        anchors.centerIn: parent
     }
 
     StyledText {

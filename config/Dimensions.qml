@@ -28,7 +28,6 @@ Singleton {
         id: clock
 
         property int fontSize: 14
-        property int width: 130
         property int height: 30
         property int horizontalPadding: 8
         property int verticalPadding: 6
@@ -38,6 +37,7 @@ Singleton {
         id: workspace
 
         property int spacing: 5
+        property int iconSize: 18
         property int width: 30
         property int height: 30
         property int verticalPadding: 6
