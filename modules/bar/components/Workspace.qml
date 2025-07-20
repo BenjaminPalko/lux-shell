@@ -35,7 +35,7 @@ Item {
             reversible: true
             ColorAnimation {
                 properties: "color"
-                duration: 300
+                duration: 200
                 easing.type: Easing.InOutCubic
             }
         }
@@ -66,11 +66,11 @@ Item {
             reversible: true
             ParallelAnimation {
                 RotationAnimation {
-                    duration: 300
+                    duration: 200
                     easing.type: Easing.InOutCubic
                 }
                 ColorAnimation {
-                    duration: 300
+                    duration: 200
                     easing.type: Easing.OutCubic
                 }
             }
