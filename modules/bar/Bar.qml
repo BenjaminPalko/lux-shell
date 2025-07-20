@@ -49,6 +49,11 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
+                SystemLogo {
+                    anchors.verticalCenter: parent.verticalCenter
+                    implicitSize: 22
+                }
+
                 Workspaces {
                     anchors.verticalCenter: parent.verticalCenter
                 }

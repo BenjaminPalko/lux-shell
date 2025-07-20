@@ -15,7 +15,7 @@ Singleton {
     component Bar: QtObject {
         id: bar
 
-        property int spacing: 6
+        property int spacing: 8
         property int border: 2
         property int height: 50
         property int verticalMargins: 4
