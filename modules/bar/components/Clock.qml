@@ -16,7 +16,7 @@ Item {
 
     StyledText {
         id: text
-        anchors.centerIn: parent
+        anchors.verticalCenter: parent.verticalCenter
         topPadding: Dimensions.clock.verticalPadding
         bottomPadding: Dimensions.clock.verticalPadding
         leftPadding: Dimensions.clock.horizontalPadding
