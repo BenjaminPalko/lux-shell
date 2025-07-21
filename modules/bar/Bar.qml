@@ -7,11 +7,9 @@ Scope {
     PanelWindow {
         id: root
 
-        anchors {
-            top: true
-            left: true
-            right: true
-        }
+        anchors.top: true
+        anchors.left: true
+        anchors.right: true
 
         implicitHeight: Dimensions.bar.height
         color: 'transparent'
