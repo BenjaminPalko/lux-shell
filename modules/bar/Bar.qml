@@ -67,6 +67,8 @@ Scope {
                 anchors.bottomMargin: Dimensions.bar.verticalPadding
 
                 spacing: Dimensions.bar.spacing
+
+                Mpris {}
             }
 
             Row {

@@ -9,6 +9,7 @@ Singleton {
     property int radius: 8
 
     property Bar bar: Bar {}
+    property Mpris mpris: Mpris {}
     property Clock clock: Clock {}
     property Workspace workspace: Workspace {}
 
@@ -22,6 +23,15 @@ Singleton {
         property int horizontalMargins: 8
         property int verticalPadding: 2
         property int horizontalPadding: 8
+    }
+
+    component Mpris: QtObject {
+        id: clock
+
+        property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
     }
 
     component Clock: QtObject {
