@@ -3,6 +3,7 @@ import Quickshell
 import "components"
 import "components/hyprland"
 import "components/mpris"
+import "components/tray"
 import "../../config/"
 
 Scope {
@@ -55,6 +56,10 @@ Scope {
                 }
 
                 Workspaces {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                Tray {
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }

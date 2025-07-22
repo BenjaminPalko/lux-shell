@@ -12,6 +12,7 @@ Singleton {
     property Mpris mpris: Mpris {}
     property Clock clock: Clock {}
     property Workspace workspace: Workspace {}
+    property Tray tray: Tray {}
 
     component Bar: QtObject {
         id: bar
@@ -48,6 +49,17 @@ Singleton {
 
         property int spacing: 5
         property int iconSize: 16
+        property int width: 30
+        property int height: 30
+        property int verticalPadding: 6
+        property int horizontalPadding: 7
+    }
+
+    component Tray: QtObject {
+        id: tray
+
+        property int spacing: 5
+        property int iconSize: 18
         property int width: 30
         property int height: 30
         property int verticalPadding: 6
