@@ -34,6 +34,8 @@ Item {
     MouseArea {
         anchors.fill: text
 
+        cursorShape: Qt.PointingHandCursor
+
         onClicked: {
             if (!modelData.canTogglePlaying) {
                 return;
