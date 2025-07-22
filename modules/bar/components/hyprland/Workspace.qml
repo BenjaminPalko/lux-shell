@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Hyprland
 import "../../../../config"
+import "../../../../constants/"
 import "../../../../styled/"
 
 Loader {
@@ -17,28 +18,43 @@ Loader {
 
         onClicked: modelData.activate()
 
-        Icon {
+        Text {
             id: icon
 
-            source: "/home/baobeld/dotfiles/quickshell/assets/triangle.svg"
+            font.family: Theme.lucide.font.family
+            font.pixelSize: Dimensions.workspace.iconSize
+            font.bold: true
+            text: Icons.triangle
+
+            color: Theme.palette.basecontent
 
             anchors.centerIn: parent
-            size: Dimensions.workspace.iconSize
 
-            states: State {
-                name: "active"
-                when: modelData.active
-                PropertyChanges {
-                    icon {
-                        rotation: 180
-                        color: clickable.hovered ? Theme.palette.basecontent : Theme.palette.primary
+            states: [
+                State {
+                    name: "focused"
+                    when: modelData.focused
+                    PropertyChanges {
+                        icon {
+                            rotation: 180
+                            color: clickable.hovered ? Theme.palette.basecontent : Theme.palette.primary
+                        }
+                    }
+                },
+                State {
+                    name: "active"
+                    when: modelData.active
+                    PropertyChanges {
+                        icon {
+                            text: Icons.triangleDashed
+                            rotation: 180
+                            color: clickable.hovered ? Theme.palette.basecontent : Theme.palette.primary
+                        }
                     }
                 }
-            }
+            ]
 
             transitions: Transition {
-                from: ""
-                to: "active"
                 reversible: true
                 ParallelAnimation {
                     RotationAnimation {

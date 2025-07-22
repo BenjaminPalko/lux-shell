@@ -6,6 +6,9 @@ import Quickshell
 Singleton {
     id: root
 
+    property var lucide: FontLoader {
+        source: "../assets/lucide.woff"
+    }
     property string fontFamily: "JetBrainsMono Nerd Font"
     property Palette palette: Palette {}
 
