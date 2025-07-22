@@ -16,8 +16,8 @@ Item {
 
         Player {
 
-          anchors.horizontalCenter: parent.horizontalCenter
-          anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
 
             visible: index === root.currentIndex && modelData.canControl
 

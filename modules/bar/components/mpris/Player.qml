@@ -1,40 +1,21 @@
-import Quickshell
 import Quickshell.Services.Mpris
 import QtQuick
 import "../../../../styled/"
 import "../../../../config/"
 
-Item {
+Loader {
     required property MprisPlayer modelData
     required property int index
 
     signal nextPlayer
     signal previousPlayer
 
-    implicitWidth: text.width
-    implicitHeight: Dimensions.mpris.height
+    sourceComponent: player
+    property Component player: Clickable {
+        id: clickable
 
-    StyledLabel {
-        anchors.fill: text
-    }
-
-    StyledText {
-        id: text
-        text: `${modelData.isPlaying ? "" : ""} ${modelData.trackTitle} - ${modelData.trackArtist}`
-
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.mpris.verticalPadding
-        bottomPadding: Dimensions.mpris.verticalPadding
-        leftPadding: Dimensions.mpris.horizontalPadding
-        rightPadding: Dimensions.mpris.horizontalPadding
-
-        font.pixelSize: Dimensions.mpris.fontSize
-    }
-
-    MouseArea {
-        anchors.fill: text
-
-        cursorShape: Qt.PointingHandCursor
+        implicitWidth: text.width
+        implicitHeight: Dimensions.mpris.height
 
         onClicked: {
             if (!modelData.canTogglePlaying) {
@@ -46,11 +27,39 @@ Item {
                 modelData.play();
             }
         }
-        onWheel: event => {
-            if (event.angleDelta.y > 0) {
-                parent.nextPlayer();
-            } else if (event.angleDelta.y < 0) {
-                parent.previousPlayer();
+        onScrolledUp: parent.nextPlayer()
+        onScrolledDown: parent.previousPlayer()
+
+        StyledText {
+            id: text
+            text: `${modelData.isPlaying ? "" : ""} ${modelData.trackTitle} - ${modelData.trackArtist}`
+
+            anchors.verticalCenter: parent.verticalCenter
+            topPadding: Dimensions.mpris.verticalPadding
+            bottomPadding: Dimensions.mpris.verticalPadding
+            leftPadding: Dimensions.mpris.horizontalPadding
+            rightPadding: Dimensions.mpris.horizontalPadding
+
+            font.pixelSize: Dimensions.mpris.fontSize
+
+            states: State {
+                name: "hovered"
+                when: clickable.hovered
+                PropertyChanges {
+                    text {
+                        color: Theme.palette.base300
+                    }
+                }
+            }
+            transitions: Transition {
+                from: ""
+                to: "hovered"
+                reversible: true
+                ColorAnimation {
+                    properties: "color"
+                    duration: 200
+                    easing.type: Easing.InOutCubic
+                }
             }
         }
     }
