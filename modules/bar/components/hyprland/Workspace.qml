@@ -2,8 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Effects
 import Quickshell.Hyprland
-import "../../../config"
-import "../../../styled/"
+import "../../../../config"
+import "../../../../styled/"
 
 Item {
     id: workspace
