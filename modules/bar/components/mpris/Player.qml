@@ -1,15 +1,15 @@
 import Quickshell
 import Quickshell.Services.Mpris
 import QtQuick
-import "../../../styled/"
-import "../../../config/"
+import "../../../../styled/"
+import "../../../../config/"
 
 Item {
     required property MprisPlayer modelData
     required property int index
 
-    signal nextPlayer()
-    signal previousPlayer()
+    signal nextPlayer
+    signal previousPlayer
 
     anchors.horizontalCenter: parent.horizontalCenter
     implicitWidth: childrenRect.width

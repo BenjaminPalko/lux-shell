@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import "components"
+import "components/mpris"
 import "../../config/"
 
 Scope {
