@@ -6,15 +6,18 @@ Item {
     id: root
 
     property int currentIndex: 0
+    property var players: Mpris.players
 
-    implicitWidth: childrenRect.width
-    implicitHeight: childrenRect.height
+    anchors.horizontalCenter: parent.horizontalCenter
 
     Repeater {
         id: players
         model: Mpris.players.values.filter(item => item != null)
 
         Player {
+
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.verticalCenter: parent.verticalCenter
 
             visible: index === root.currentIndex && modelData.canControl
 

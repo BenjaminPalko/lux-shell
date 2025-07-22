@@ -11,15 +11,15 @@ Item {
     signal nextPlayer
     signal previousPlayer
 
-    anchors.horizontalCenter: parent.horizontalCenter
-    implicitWidth: childrenRect.width
+    implicitWidth: text.width
     implicitHeight: Dimensions.mpris.height
 
     StyledLabel {
-        anchors.fill: parent
+        anchors.fill: text
     }
 
     StyledText {
+        id: text
         text: `${modelData.isPlaying ? "" : ""} ${modelData.trackTitle} - ${modelData.trackArtist}`
 
         anchors.verticalCenter: parent.verticalCenter
@@ -32,7 +32,7 @@ Item {
     }
 
     MouseArea {
-        anchors.fill: parent
+        anchors.fill: text
 
         onClicked: {
             if (!modelData.canTogglePlaying) {
