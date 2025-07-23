@@ -6,8 +6,11 @@ MouseArea {
 
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
+    property alias color: rectangle.color
+    property alias border: rectangle.border
 
     Rectangle {
+        id: rectangle
         anchors.fill: parent
 
         radius: Dimensions.radius

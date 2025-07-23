@@ -75,7 +75,9 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
-                Mpris {}
+                Mpris {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             Row {
@@ -90,7 +92,13 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
-                Clock {}
+                Caffeine {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                Clock {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
         }
     }

@@ -11,6 +11,7 @@ Singleton {
     property Bar bar: Bar {}
     property Mpris mpris: Mpris {}
     property Clock clock: Clock {}
+    property Caffeine caffeine: Caffeine {}
     property Workspace workspace: Workspace {}
     property Tray tray: Tray {}
     property TrayMenu trayMenu: TrayMenu {}
@@ -40,6 +41,15 @@ Singleton {
         id: clock
 
         property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+    }
+
+    component Caffeine: QtObject {
+        id: clock
+
+        property int iconSize: 14
         property int height: 30
         property int horizontalPadding: 8
         property int verticalPadding: 6
