@@ -1,13 +1,13 @@
 import QtQuick
 import "../config/"
 
-Item {
-    id: root
+MouseArea {
+    id: mouseArea
+
     property bool disabled: false
-    property alias hovered: mouseArea.containsMouse
-    signal clicked
-    signal scrolledUp
-    signal scrolledDown
+
+    hoverEnabled: !disabled
+    cursorShape: Qt.PointingHandCursor
 
     StyledLabel {
         id: background
@@ -29,24 +29,6 @@ Item {
                 properties: "color"
                 duration: 200
                 easing.type: Easing.InOutCubic
-            }
-        }
-    }
-
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-
-        hoverEnabled: !disabled
-        cursorShape: Qt.PointingHandCursor
-
-        onClicked: root.clicked()
-
-        onWheel: event => {
-            if (event.angleDelta.y > 0) {
-                root.scrolledUp();
-            } else if (event.angleDelta.y < 0) {
-                root.scrolledDown();
             }
         }
     }

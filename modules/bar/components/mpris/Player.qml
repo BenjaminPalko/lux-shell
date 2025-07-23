@@ -27,8 +27,14 @@ Loader {
                 modelData.play();
             }
         }
-        onScrolledUp: parent.nextPlayer()
-        onScrolledDown: parent.previousPlayer()
+
+        onWheel: event => {
+            if (event.angleDelta.y > 0) {
+                parent.nextPlayer();
+            } else if (event.angleDelta.y < 0) {
+                parent.previousPlayer();
+            }
+        }
 
         StyledText {
             id: text
@@ -44,7 +50,7 @@ Loader {
 
             states: State {
                 name: "hovered"
-                when: clickable.hovered
+                when: clickable.containsMouse
                 PropertyChanges {
                     text {
                         color: Theme.palette.base300
