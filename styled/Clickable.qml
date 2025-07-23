@@ -4,31 +4,19 @@ import "../config/"
 MouseArea {
     id: mouseArea
 
-    property bool disabled: false
-
-    hoverEnabled: !disabled
+    hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
 
-    StyledLabel {
-        id: background
+    Rectangle {
         anchors.fill: parent
-        states: State {
-            name: "hovered"
-            when: mouseArea.containsMouse
-            PropertyChanges {
-                background {
-                    color: Theme.palette.primary
-                }
-            }
-        }
-        transitions: Transition {
-            from: ""
-            to: "hovered"
-            reversible: true
+
+        radius: Dimensions.radius
+        color: mouseArea.containsMouse ? Theme.palette.primary : Theme.palette.base100
+        Behavior on color {
             ColorAnimation {
                 properties: "color"
                 duration: 200
-                easing.type: Easing.InOutCubic
+                easing.type: Easing.InOutQuad
             }
         }
     }
