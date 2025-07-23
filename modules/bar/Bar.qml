@@ -92,6 +92,10 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
+                Pipewire {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 Caffeine {
                     anchors.verticalCenter: parent.verticalCenter
                 }
