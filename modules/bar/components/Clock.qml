@@ -1,18 +1,10 @@
 import Quickshell
-import Quickshell.Io
-import QtQuick
 import "../../../styled/"
 import "../../../config/"
 
-Item {
-    id: root
-
+StyledLabel {
     implicitWidth: childrenRect.width
     implicitHeight: Dimensions.clock.height
-
-    StyledLabel {
-        anchors.fill: parent
-    }
 
     StyledText {
         id: text
