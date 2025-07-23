@@ -8,7 +8,7 @@ import "../../config/"
 
 Scope {
     PanelWindow {
-        id: root
+        id: parentWindow
 
         anchors.top: true
         anchors.left: true

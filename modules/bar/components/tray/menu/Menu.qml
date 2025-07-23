@@ -1,23 +1,29 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import "../../../../../config/"
 import "../../../../../styled/"
 
 ColumnLayout {
-    property QsMenuOpener menu
+    id: menu
+    property QsMenuOpener menuOpener
+
+    anchors.margins: 8
 
     Repeater {
-        model: modelData.children
-
-        Loader {
-            id: loader
+        model: menuOpener.children
+        delegate: Loader {
             required property QsMenuEntry modelData
+            active: true
 
-            active: modelData.enabled
-
-            sourceComponent: menuItem
+            sourceComponent: modelData.isSeparator ? menuSeperator : menuItem
+            property Component menuSeperator: Rectangle {
+                implicitHeight: 1
+                implicitWidth: menu.width
+                color: Theme.palette.basecontent
+            }
             property Component menuItem: MenuItem {
-                menuEntry: loader.modelData
+                menuEntry: modelData
             }
         }
     }

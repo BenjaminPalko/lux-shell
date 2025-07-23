@@ -10,6 +10,14 @@ Row {
     Repeater {
         model: SystemTray.items
 
-        TrayItem {}
+        Loader {
+            required property SystemTrayItem modelData
+            active: true
+
+            sourceComponent: item
+            property Component item: TrayItem {
+              trayItem: modelData
+            }
+        }
     }
 }

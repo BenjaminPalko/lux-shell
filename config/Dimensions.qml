@@ -13,6 +13,7 @@ Singleton {
     property Clock clock: Clock {}
     property Workspace workspace: Workspace {}
     property Tray tray: Tray {}
+    property TrayMenu trayMenu: TrayMenu {}
 
     component Bar: QtObject {
         id: bar
@@ -60,6 +61,16 @@ Singleton {
 
         property int spacing: 5
         property int iconSize: 18
+        property int width: 30
+        property int height: 30
+        property int verticalPadding: 6
+        property int horizontalPadding: 7
+    }
+
+    component TrayMenu: QtObject {
+        id: trayItem
+
+        property int fontSize: 10
         property int width: 30
         property int height: 30
         property int verticalPadding: 6

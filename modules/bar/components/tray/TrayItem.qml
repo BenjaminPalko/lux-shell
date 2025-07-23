@@ -7,50 +7,62 @@ import "../../../../config/"
 import "../../../../styled/"
 import "menu/"
 
-Loader {
-    required property SystemTrayItem modelData
+Clickable {
+    id: root
 
-    active: modelData.hasMenu
+    property SystemTrayItem trayItem
+    property bool menuOpened: false
 
-    onLoaded: console.log(modelData.icon)
-    sourceComponent: item
-    property Component item: Clickable {
-        id: clickable
+    implicitWidth: Dimensions.tray.width
+    implicitHeight: Dimensions.tray.height
 
-        property bool menuOpen
+    onClicked: toggleMenu()
 
-        width: Dimensions.tray.width
-        height: Dimensions.tray.height
+    function toggleMenu() {
+        menuOpened = !menuOpened;
+    }
 
-        onClicked: menuOpen = !menuOpen
-
-        IconImage {
-            id: icon
-            anchors.margins: 6
-            anchors.fill: parent
-            asynchronous: true
-            source: {
-                let icon = modelData.icon;
-                if (icon.includes("?path=")) {
-                    const [name, path] = icon.split("?path=");
-                    icon = `file://${path}/${name.slice(name.lastIndexOf("/") + 1)}`;
-                }
-                return icon;
+    IconImage {
+        id: icon
+        anchors.margins: 6
+        anchors.fill: parent
+        asynchronous: true
+        source: {
+            let icon = modelData.icon;
+            if (icon.includes("?path=")) {
+                const [name, path] = icon.split("?path=");
+                icon = `file://${path}/${name.slice(name.lastIndexOf("/") + 1)}`;
             }
-            anchors.centerIn: parent
+            return icon;
+        }
+        anchors.centerIn: parent
+    }
+
+    PopupWindow {
+        id: popup
+
+        visible: root.menuOpened
+
+        color: 'transparent'
+
+        anchor.item: root
+        anchor.rect.x: root.width / 2 - width / 2
+        anchor.rect.y: root.height + 8
+
+        implicitWidth: menu.width
+        implicitHeight: menu.height
+
+        Rectangle {
+            anchors.fill: parent
+            color: Theme.palette.base300
+            radius: 8
         }
 
-        // Loader {
-        //     active: menuOpen && modelData.hasMenu
-        //
-        //     property Component menu: Menu {
-        //         menu: modelData.menu
-        //     }
-        // }
-        PopupWindow {
+        Menu {
+            id: menu
 
-            Menu {
-                menu: modelData.menu
+            menuOpener: QsMenuOpener {
+                menu: trayItem.menu
             }
         }
     }
