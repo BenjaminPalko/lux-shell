@@ -26,17 +26,17 @@ Clickable {
         id: text
 
         font.family: Theme.lucide.font.family
-        font.pixelSize: Dimensions.workspace.iconSize
+        font.pixelSize: Dimensions.caffeine.fontSize
         font.bold: true
         text: Icons.coffee
 
         color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
 
         anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.mpris.verticalPadding
-        bottomPadding: Dimensions.mpris.verticalPadding
-        leftPadding: Dimensions.mpris.horizontalPadding
-        rightPadding: Dimensions.mpris.horizontalPadding
+        topPadding: Dimensions.caffeine.verticalPadding
+        bottomPadding: Dimensions.caffeine.verticalPadding
+        leftPadding: Dimensions.caffeine.horizontalPadding
+        rightPadding: Dimensions.caffeine.horizontalPadding
     }
 
     Process {

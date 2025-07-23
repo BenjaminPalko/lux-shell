@@ -38,32 +38,17 @@ Clickable {
         anchors.centerIn: parent
     }
 
-    PopupWindow {
-        id: popup
+    Menu {
+        id: menu
 
-        visible: root.menuOpened
-
-        color: 'transparent'
+        opened: root.menuOpened
 
         anchor.item: root
         anchor.rect.x: root.width / 2 - width / 2
         anchor.rect.y: root.height + 8
 
-        implicitWidth: menu.width
-        implicitHeight: menu.height
-
-        Rectangle {
-            anchors.fill: parent
-            color: Theme.palette.base300
-            radius: 8
-        }
-
-        Menu {
-            id: menu
-
-            menuOpener: QsMenuOpener {
-                menu: trayItem.menu
-            }
+        menuOpener: QsMenuOpener {
+            menu: trayItem.menu
         }
     }
 }

@@ -49,7 +49,7 @@ Singleton {
     component Caffeine: QtObject {
         id: clock
 
-        property int iconSize: 14
+        property int fontSize: 16
         property int height: 30
         property int horizontalPadding: 8
         property int verticalPadding: 6

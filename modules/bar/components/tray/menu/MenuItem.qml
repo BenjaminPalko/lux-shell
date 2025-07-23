@@ -16,6 +16,8 @@ Clickable {
     StyledText {
         id: text
 
+        opacity: item.opacity
+
         font.pixelSize: Dimensions.clock.fontSize
         anchors.verticalCenter: parent.verticalCenter
         topPadding: Dimensions.clock.verticalPadding

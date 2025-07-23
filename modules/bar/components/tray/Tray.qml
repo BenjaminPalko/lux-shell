@@ -16,7 +16,7 @@ Row {
 
             sourceComponent: item
             property Component item: TrayItem {
-              trayItem: modelData
+                trayItem: modelData
             }
         }
     }
