@@ -17,11 +17,14 @@ Clickable {
     }
 
     onClicked: mouse => {
-        if (mouse.button == Qt.LeftButton) {
-            sink.audio.muted = !sink.audio.muted;
-        } else if (mouse.button == Qt.RightButton) {
-            // show menu
+        if (!sink) {
+          return
         }
+        if (mouse.button == Qt.LeftButton) {
+            sink.audio.muted = !sink?.audio.muted;
+        } else if (mouse.button == Qt.RightButton)
+        // show menu
+        {}
     }
 
     onWheel: event => {
@@ -35,7 +38,7 @@ Clickable {
     states: [
         State {
             name: "muted"
-            when: clickable.sink.audio.muted
+            when: clickable.sink?.audio.muted ?? false
             PropertyChanges {
                 text {
                     icon: " "
@@ -44,7 +47,7 @@ Clickable {
         },
         State {
             name: "off"
-            when: clickable.sink.audio.volume <= 0
+            when: clickable.sink?.audio.volume <= 0
             PropertyChanges {
                 text {
                     icon: " "
@@ -58,7 +61,7 @@ Clickable {
 
         property string icon: " "
 
-        text: `${icon} ${(Pipewire.defaultAudioSink.audio.volume * 100).toFixed()}%`
+        text: `${icon} ${(clickable.sink?.audio.volume * 100).toFixed()}%`
         font.pixelSize: Dimensions.pipewire.fontSize
 
         color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
