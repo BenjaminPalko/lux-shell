@@ -12,6 +12,7 @@ Singleton {
     property Mpris mpris: Mpris {}
     property Clock clock: Clock {}
     property Pipewire pipewire: Pipewire {}
+    property Network network: Network {}
     property Storage storage: Storage {}
     property Memory memory: Memory {}
     property Cpu cpu: Cpu {}
@@ -52,6 +53,14 @@ Singleton {
         property int verticalPadding: 6
     }
 
+    component Network: QtObject {
+        property int iconSize: 14
+        property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+    }
+
     component Storage: QtObject {
         property int iconSize: 14
         property int fontSize: 14
@@ -74,9 +83,9 @@ Singleton {
         property int height: 30
         property int horizontalPadding: 8
         property int verticalPadding: 6
-      }
+    }
 
-      component Gpu: QtObject {
+    component Gpu: QtObject {
         property int iconSize: 14
         property int fontSize: 14
         property int height: 30

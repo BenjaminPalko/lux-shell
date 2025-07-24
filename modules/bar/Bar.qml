@@ -104,6 +104,10 @@ Scope {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
+                Network {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 Storage {
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -114,9 +118,9 @@ Scope {
 
                 Cpu {
                     anchors.verticalCenter: parent.verticalCenter
-                  }
+                }
 
-                  Gpu {
+                Gpu {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
