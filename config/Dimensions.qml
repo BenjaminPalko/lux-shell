@@ -15,6 +15,7 @@ Singleton {
     property Storage storage: Storage {}
     property Memory memory: Memory {}
     property Cpu cpu: Cpu {}
+    property Gpu gpu: Gpu {}
     property Caffeine caffeine: Caffeine {}
     property Workspace workspace: Workspace {}
     property Tray tray: Tray {}
@@ -68,6 +69,14 @@ Singleton {
     }
 
     component Cpu: QtObject {
+        property int iconSize: 14
+        property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+      }
+
+      component Gpu: QtObject {
         property int iconSize: 14
         property int fontSize: 14
         property int height: 30

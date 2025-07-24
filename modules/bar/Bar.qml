@@ -114,6 +114,10 @@ Scope {
 
                 Cpu {
                     anchors.verticalCenter: parent.verticalCenter
+                  }
+
+                  Gpu {
+                    anchors.verticalCenter: parent.verticalCenter
                 }
 
                 Clock {

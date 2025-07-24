@@ -6,6 +6,7 @@ Singleton {
     property string brickWall: "\u{E586}"
     property string coffee: "\u{E09a}"
     property string cpu: "\u{E0ad}"
+    property string gpu: "\u{E66f}"
     property string hardDrive: "\u{E0f1}"
     property string memoryStick: "\u{E44a}"
     property string triangle: "\u{E192}"
