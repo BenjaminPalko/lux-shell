@@ -108,6 +108,10 @@ Scope {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
+                Memory {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 Cpu {
                     anchors.verticalCenter: parent.verticalCenter
                 }
