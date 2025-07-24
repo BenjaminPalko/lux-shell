@@ -92,6 +92,10 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
+                Pywal {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 Pipewire {
                     anchors.verticalCenter: parent.verticalCenter
                 }
