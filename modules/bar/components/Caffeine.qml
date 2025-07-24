@@ -1,4 +1,3 @@
-import QtQuick
 import Quickshell.Io
 import "../../../config/"
 import "../../../constants/"
@@ -41,6 +40,6 @@ Clickable {
 
     Process {
         id: process
-        command: ["sh", "-c", "systemd-inhibit --what=idle --who=Caffeine --why=Caffeine --mode=block sleep inf"]
+        command: ["sh", "-c", "systemd-inhibit --what=idle --who=Caffeine --why='Caffeine module is active' --mode=block sleep inf"]
     }
 }
