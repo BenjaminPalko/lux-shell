@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import "root:styled"
+import "../../styled/"
 
 Variants {
     model: Quickshell.screens
