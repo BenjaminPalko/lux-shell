@@ -13,6 +13,7 @@ Singleton {
     property Clock clock: Clock {}
     property Pipewire pipewire: Pipewire {}
     property Storage storage: Storage {}
+    property Cpu cpu: Cpu {}
     property Caffeine caffeine: Caffeine {}
     property Workspace workspace: Workspace {}
     property Tray tray: Tray {}
@@ -58,6 +59,16 @@ Singleton {
     }
 
     component Storage: QtObject {
+        id: clock
+
+        property int iconSize: 14
+        property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+    }
+
+    component Cpu: QtObject {
         id: clock
 
         property int iconSize: 14
