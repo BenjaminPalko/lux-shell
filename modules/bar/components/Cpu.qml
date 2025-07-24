@@ -9,10 +9,10 @@ import "../../../utils/"
 Clickable {
     id: root
 
-    property bool showTemp: true
+    property bool showTemp: false
 
     implicitWidth: row.width
-    implicitHeight: Dimensions.storage.height
+    implicitHeight: Dimensions.cpu.height
 
     Ref {
         service: SystemInfo
@@ -28,24 +28,24 @@ Clickable {
             id: icon
 
             font.family: Theme.lucide.font.family
-            font.pixelSize: Dimensions.storage.iconSize
+            font.pixelSize: Dimensions.cpu.iconSize
             font.bold: true
             text: Icons.cpu
 
             anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.storage.verticalPadding
-            bottomPadding: Dimensions.storage.verticalPadding
-            leftPadding: Dimensions.storage.horizontalPadding
+            topPadding: Dimensions.cpu.verticalPadding
+            bottomPadding: Dimensions.cpu.verticalPadding
+            leftPadding: Dimensions.cpu.horizontalPadding
         }
 
         StyledText {
             id: text
             anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.storage.verticalPadding
-            bottomPadding: Dimensions.storage.verticalPadding
-            rightPadding: Dimensions.storage.horizontalPadding
+            topPadding: Dimensions.cpu.verticalPadding
+            bottomPadding: Dimensions.cpu.verticalPadding
+            rightPadding: Dimensions.cpu.horizontalPadding
 
-            font.pixelSize: Dimensions.storage.fontSize
+            font.pixelSize: Dimensions.cpu.fontSize
 
             text: ` ${(SystemInfo.cpuPerc * 100).toFixed()}%`
 
