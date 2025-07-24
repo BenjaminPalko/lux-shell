@@ -18,6 +18,7 @@ Singleton {
     property Cpu cpu: Cpu {}
     property Gpu gpu: Gpu {}
     property Caffeine caffeine: Caffeine {}
+    property Notifications notifications: Notifications {}
     property Workspace workspace: Workspace {}
     property Tray tray: Tray {}
     property TrayMenu trayMenu: TrayMenu {}
@@ -94,6 +95,13 @@ Singleton {
     }
 
     component Caffeine: QtObject {
+        property int fontSize: 16
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+    }
+
+    component Notifications: QtObject {
         property int fontSize: 16
         property int height: 30
         property int horizontalPadding: 8

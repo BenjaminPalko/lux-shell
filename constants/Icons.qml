@@ -3,6 +3,8 @@ pragma Singleton
 import Quickshell
 
 Singleton {
+    property string bell: "\u{E05d}"
+    property string bellRing: "\u{E224}"
     property string brickWall: "\u{E586}"
     property string coffee: "\u{E09a}"
     property string cpu: "\u{E0ad}"

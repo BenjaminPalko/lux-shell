@@ -59,9 +59,9 @@ Scope {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
-                Tray {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                // Tray {
+                //     anchors.verticalCenter: parent.verticalCenter
+                // }
             }
 
             Row {
@@ -125,6 +125,10 @@ Scope {
                 }
 
                 Clock {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                Notifications {
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
