@@ -104,6 +104,10 @@ Scope {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
+                Storage {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 Clock {
                     anchors.verticalCenter: parent.verticalCenter
                 }

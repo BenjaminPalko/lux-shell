@@ -12,6 +12,7 @@ Singleton {
     property Mpris mpris: Mpris {}
     property Clock clock: Clock {}
     property Pipewire pipewire: Pipewire {}
+    property Storage storage: Storage {}
     property Caffeine caffeine: Caffeine {}
     property Workspace workspace: Workspace {}
     property Tray tray: Tray {}
@@ -50,6 +51,16 @@ Singleton {
     component Pipewire: QtObject {
         id: clock
 
+        property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+    }
+
+    component Storage: QtObject {
+        id: clock
+
+        property int iconSize: 14
         property int fontSize: 14
         property int height: 30
         property int horizontalPadding: 8
