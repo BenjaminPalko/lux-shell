@@ -6,7 +6,7 @@ PopupWindow {
     id: root
     property bool opened: false
     property int animationDuration: 200
-    property int margins: 10
+    property alias margins: background.margin
     property alias backgroundColor: background.color
     property alias radius: background.radius
     required property Component content
@@ -16,11 +16,8 @@ PopupWindow {
     implicitWidth: background.width
     implicitHeight: background.height
 
-    Rectangle {
+    WrapperRectangle {
         id: background
-
-        implicitWidth: margins.width
-        implicitHeight: margins.height
 
         opacity: 0
         Behavior on opacity {
@@ -61,15 +58,9 @@ PopupWindow {
             }
         ]
 
-        WrapperItem {
-            id: margins
-
-            margin: root.margins
-
-            Loader {
-                active: root.visible
-                sourceComponent: content
-            }
+        Loader {
+            active: root.visible
+            sourceComponent: content
         }
     }
 }
