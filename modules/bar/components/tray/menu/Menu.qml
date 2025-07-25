@@ -10,33 +10,25 @@ StyledPopupWindow {
     id: window
 
     backgroundColor: Theme.palette.base300
+    margins: 8
     radius: 8
 
     property QsMenuOpener menuOpener
 
     content: ColumnLayout {
-        id: menu
-
-        anchors.margins: 30
-
+        spacing: 8
         Repeater {
-            id: repeater
             model: window.menuOpener.children
             delegate: Loader {
-                id: loader
-
                 required property QsMenuEntry modelData
-                required property int index
 
                 active: true
 
-                opacity: 0
-
+                Layout.fillWidth: true
                 Layout.minimumWidth: 120
 
                 sourceComponent: modelData.isSeparator ? menuSeperator : menuItem
                 property Component menuSeperator: Rectangle {
-                    implicitWidth: menu.width
                     implicitHeight: 2
 
                     color: Theme.palette.base100
@@ -44,45 +36,6 @@ StyledPopupWindow {
                 property Component menuItem: MenuItem {
                     menuEntry: modelData
                 }
-
-                states: State {
-                    name: "opened"
-                    when: window.opened
-                    PropertyChanges {
-                        loader {
-                            opacity: 1
-                        }
-                    }
-                }
-
-                transitions: [
-                    Transition {
-                        from: ""
-                        to: "opened"
-                        SequentialAnimation {
-                            PauseAnimation {
-                                duration: (repeater.count / root.animationDuration) * loader.index
-                            }
-                            NumberAnimation {
-                                property: "opacity"
-                                duration: 100
-                            }
-                        }
-                    },
-                    Transition {
-                        from: "opened"
-                        to: ""
-                        SequentialAnimation {
-                            PauseAnimation {
-                                duration: 15 * (repeater.count - loader.index)
-                            }
-                            NumberAnimation {
-                                property: "opacity"
-                                duration: 200
-                            }
-                        }
-                    }
-                ]
             }
         }
     }
