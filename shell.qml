@@ -1,4 +1,5 @@
 import Quickshell
+import "modules"
 import "modules/background"
 import "modules/bar"
 
@@ -7,4 +8,6 @@ ShellRoot {
 
     // Background {}
     Bar {}
+
+    Shortcuts {}
 }
