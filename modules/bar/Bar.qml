@@ -108,6 +108,10 @@ Scope {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
+                Bluetooth {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 Storage {
                     anchors.verticalCenter: parent.verticalCenter
                 }

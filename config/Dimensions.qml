@@ -13,6 +13,7 @@ Singleton {
     property Clock clock: Clock {}
     property Pipewire pipewire: Pipewire {}
     property Network network: Network {}
+    property Bluetooth bluetooth: Bluetooth {}
     property Storage storage: Storage {}
     property Memory memory: Memory {}
     property Cpu cpu: Cpu {}
@@ -57,6 +58,13 @@ Singleton {
     component Network: QtObject {
         property int iconSize: 14
         property int fontSize: 14
+        property int height: 30
+        property int horizontalPadding: 8
+        property int verticalPadding: 6
+    }
+
+    component Bluetooth: QtObject {
+        property int fontSize: 16
         property int height: 30
         property int horizontalPadding: 8
         property int verticalPadding: 6
