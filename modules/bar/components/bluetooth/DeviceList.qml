@@ -26,19 +26,14 @@ ColumnLayout {
                     topPadding: 8
                     bottomPadding: 8
                     leftPadding: 8
-                    text: device.modelData.deviceName
-                }
-                StyledText {
-                    font.family: Theme.lucide.font.family
-                    font.pixelSize: 10
-                    font.bold: true
-                    text: device.modelData.connected ? Icons.bluetoothConnected : Icons.bluetooth
-
-                    topPadding: 8
-                    bottomPadding: 8
                     rightPadding: 8
-
+                    text: device.modelData.deviceName
                     color: device.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
+                    Behavior on color {
+                        ColorAnimation {
+                            duration: 200
+                        }
+                    }
                 }
             }
         }
