@@ -1,18 +1,10 @@
+import qs.config
+import qs.widgets
 import Quickshell
-import "../../../styled/"
-import "../../../config/"
 
 StyledLabel {
-    implicitWidth: childrenRect.width
-    implicitHeight: Dimensions.clock.height
-
     StyledText {
         id: text
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.clock.verticalPadding
-        bottomPadding: Dimensions.clock.verticalPadding
-        leftPadding: Dimensions.clock.horizontalPadding
-        rightPadding: Dimensions.clock.horizontalPadding
 
         font.pixelSize: Dimensions.clock.fontSize
 
