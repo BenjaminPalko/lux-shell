@@ -1,29 +1,25 @@
+import qs.config
+import qs.constants
+import qs.services
+import qs.utils
+import qs.widgets
 import QtQuick
-import Quickshell
-import "../../../config/"
-import "../../../constants/"
-import "../../../services/"
-import "../../../styled/"
-import "../../../utils/"
+import QtQuick.Layouts
 
-Clickable {
+StyledButton {
     id: root
 
     property bool showTemp: false
 
-    implicitWidth: row.width
-    implicitHeight: Dimensions.cpu.height
-
-    Ref {
-        service: SystemInfo
-    }
-
     onClicked: {
-        root.showTemp = !root.showTemp;
+        showTemp = !showTemp;
     }
 
-    Row {
+    content: RowLayout {
         id: row
+        Ref {
+            service: SystemInfo
+        }
         StyledText {
             id: icon
 
@@ -32,26 +28,20 @@ Clickable {
             font.bold: true
             text: Icons.cpu
 
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.cpu.verticalPadding
-            bottomPadding: Dimensions.cpu.verticalPadding
-            leftPadding: Dimensions.cpu.horizontalPadding
+            color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
         }
 
         StyledText {
             id: text
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.cpu.verticalPadding
-            bottomPadding: Dimensions.cpu.verticalPadding
-            rightPadding: Dimensions.cpu.horizontalPadding
 
             font.pixelSize: Dimensions.cpu.fontSize
-
             text: ` ${(SystemInfo.cpuPerc * 100).toFixed()}%`
+
+            color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
 
             states: [
                 State {
-                    name: "temp"
+                    name: "showTemp"
                     when: root.showTemp
                     PropertyChanges {
                         text {
