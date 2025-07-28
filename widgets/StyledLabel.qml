@@ -14,4 +14,8 @@ WrapperRectangle {
             easing.type: Easing.InOutQuad
         }
     }
+    Loader {
+        active: true
+        sourceComponent: content
+    }
 }
