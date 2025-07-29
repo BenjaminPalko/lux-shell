@@ -62,10 +62,12 @@ StyledPopupWindow {
                     text: "Paired Devices"
                 }
 
-                DeviceList {
-                    devices: Bluetooth.pairedDevices
-                    onDeviceActivated: device => {
-                        device.connect();
+                ColumnLayout {
+                    Repeater {
+                        model: Bluetooth.pairedDevices
+                        delegate: PairedDevice {
+                            Layout.fillWidth: true
+                        }
                     }
                 }
 
