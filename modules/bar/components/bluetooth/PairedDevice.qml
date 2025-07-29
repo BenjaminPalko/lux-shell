@@ -9,7 +9,7 @@ import Quickshell.Bluetooth
 import Quickshell.Widgets
 
 StyledLabel {
-    id: device
+    id: root
     required property BluetoothDevice modelData
 
     RowLayout {
@@ -18,44 +18,46 @@ StyledLabel {
         spacing: 8
 
         Loader {
-            active: modelData.icon != undefined
+            active: root.modelData?.icon != undefined
             sourceComponent: IconImage {
-                implicitSize: 18
-                source: Quickshell.iconPath(device.modelData.icon)
+                implicitSize: 22
+                source: Quickshell.iconPath(root.modelData.icon, "device-support-unknown-symbolic")
             }
         }
 
         StyledText {
-            text: device.modelData.deviceName
+            text: root.modelData.deviceName
         }
 
         RowLayout {
             Layout.alignment: Qt.AlignRight
             StyledButton {
-                hoverEnabled: device.modelData.state == BluetoothDeviceState.Disconnected
-                color: containsMouse ? Theme.palette.info : Theme.palette.base200
+                hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
+                color: containsMouse ? Theme.palette.primary : Theme.palette.base200
                 content: StyledText {
                     text: 'Connect'
+                    font.pixelSize: 12
                 }
                 onClicked: {
                     if (!hoverEnabled) {
                         return;
                     }
-                    device.modelData.connect();
+                    root.modelData.connect();
                 }
             }
 
             StyledButton {
-                hoverEnabled: device.modelData.state == BluetoothDeviceState.Disconnected
+                hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
                 color: containsMouse ? Theme.palette.error : Theme.palette.base200
                 content: StyledText {
                     text: 'Unpair'
+                    font.pixelSize: 12
                 }
                 onClicked: {
                     if (!hoverEnabled) {
                         return;
                     }
-                    device.modelData.forget();
+                    root.modelData.forget();
                 }
             }
         }

@@ -23,14 +23,28 @@ StyledPopupWindow {
             radius: 8
             Layout.fillWidth: true
             RowLayout {
-                StyledText {
-                    text: "Bluetooth"
+                RowLayout {
+                    StyledText {
+                        text: "Enabled"
+                    }
+
+                    Switch {
+                        checked: Bluetooth.defaultAdapter.enabled
+                        onClicked: Bluetooth.defaultAdapter.enabled = checked
+                    }
                 }
 
-                Switch {
+                RowLayout {
                     Layout.alignment: Qt.AlignRight
-                    checked: Bluetooth.defaultAdapter.enabled
-                    onClicked: Bluetooth.defaultAdapter.enabled = checked
+                    StyledText {
+                        text: "Scan"
+                    }
+
+                    Switch {
+                        checked: Bluetooth.defaultAdapter.discovering
+                        onClicked: Bluetooth.defaultAdapter.discovering = true;
+
+                    }
                 }
             }
         }
@@ -76,10 +90,12 @@ StyledPopupWindow {
                     text: "Available Devices"
                 }
 
-                DeviceList {
-                    devices: Bluetooth.availableDevices
-                    onDeviceActivated: device => {
-                        device.pair();
+                ColumnLayout {
+                    Repeater {
+                        model: Bluetooth.availableDevices
+                        delegate: AvailableDevice {
+                            Layout.fillWidth: true
+                        }
                     }
                 }
             }
