@@ -26,7 +26,7 @@ WrapperMouseArea {
         }
         Loader {
             active: true
-            sourceComponent: content
+            sourceComponent: root.content
         }
     }
 }
