@@ -1,5 +1,6 @@
 import qs.config
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import "components"
 import "components/bluetooth"
@@ -39,7 +40,7 @@ Scope {
                 }
             }
 
-            Row {
+            RowLayout {
                 id: leftbar
 
                 anchors.left: parent.left
@@ -52,20 +53,15 @@ Scope {
                 spacing: Dimensions.bar.spacing
 
                 SystemLogo {
-                    anchors.verticalCenter: parent.verticalCenter
                     implicitSize: 22
                 }
 
-                Workspaces {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Workspaces {}
 
-                Tray {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Tray {}
             }
 
-            Row {
+            RowLayout {
                 id: centerbar
 
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -76,12 +72,10 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
-                Mpris {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Mpris {}
             }
 
-            Row {
+            RowLayout {
                 id: rightbar
 
                 anchors.right: parent.right
@@ -93,49 +87,27 @@ Scope {
 
                 spacing: Dimensions.bar.spacing
 
-                Pywal {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Pywal {}
 
-                Pipewire {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Pipewire {}
 
-                Caffeine {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Caffeine {}
 
-                Network {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Network {}
 
-                Bluetooth {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Bluetooth {}
 
-                Storage {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Storage {}
 
-                Memory {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Memory {}
 
-                Cpu {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Cpu {}
 
-                Gpu {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Gpu {}
 
-                Clock {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Clock {}
 
-                Notifications {
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Notifications {}
             }
         }
     }
