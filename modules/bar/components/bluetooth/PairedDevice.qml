@@ -10,7 +10,7 @@ import Quickshell.Widgets
 
 StyledLabel {
     id: root
-    required property BluetoothDevice modelData
+    required property BluetoothDevice device
 
     RowLayout {
         id: row
@@ -18,21 +18,21 @@ StyledLabel {
         spacing: 8
 
         Loader {
-            active: root.modelData?.icon != undefined
+            active: root.device?.icon != undefined
             sourceComponent: IconImage {
                 implicitSize: 22
-                source: Quickshell.iconPath(root.modelData.icon, "device-support-unknown-symbolic")
+                source: Quickshell.iconPath(root.device.icon, "device-support-unknown-symbolic")
             }
         }
 
         StyledText {
-            text: root.modelData.deviceName
+            text: root.device.deviceName
         }
 
         RowLayout {
             Layout.alignment: Qt.AlignRight
             StyledButton {
-                hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
+                hoverEnabled: root.device.state == BluetoothDeviceState.Disconnected
                 color: containsMouse ? Theme.palette.primary : Theme.palette.base200
                 content: StyledText {
                     text: 'Connect'
@@ -42,12 +42,12 @@ StyledLabel {
                     if (!hoverEnabled) {
                         return;
                     }
-                    root.modelData.connect();
+                    root.device.connect();
                 }
             }
 
             StyledButton {
-                hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
+                hoverEnabled: root.device.state == BluetoothDeviceState.Disconnected
                 color: containsMouse ? Theme.palette.error : Theme.palette.base200
                 content: StyledText {
                     text: 'Unpair'
@@ -57,7 +57,7 @@ StyledLabel {
                     if (!hoverEnabled) {
                         return;
                     }
-                    root.modelData.forget();
+                    root.device.forget();
                 }
             }
         }

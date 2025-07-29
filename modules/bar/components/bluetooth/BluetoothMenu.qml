@@ -42,8 +42,7 @@ StyledPopupWindow {
 
                     Switch {
                         checked: Bluetooth.defaultAdapter.discovering
-                        onClicked: Bluetooth.defaultAdapter.discovering = true;
-
+                        onClicked: Bluetooth.defaultAdapter.discovering = checked
                     }
                 }
             }
@@ -57,44 +56,89 @@ StyledPopupWindow {
                 spacing: 8
 
                 StyledText {
+                    Layout.topMargin: 8
                     Layout.minimumWidth: 320
                     font.bold: true
+                    font.pixelSize: 14
                     text: "Connected Devices"
                 }
 
                 ColumnLayout {
+                    Loader {
+                        active: Bluetooth.connectedDevices.length == 0
+                        sourceComponent: StyledText {
+                            font.italic: true
+                            text: "No devices connected..."
+                        }
+                    }
                     Repeater {
                         model: Bluetooth.connectedDevices
-                        delegate: ConnectedDevice {
+                        delegate: Loader {
+                            id: connectedDeviceLoader
+                            required property var modelData
                             Layout.fillWidth: true
+                            active: modelData != null
+                            sourceComponent: ConnectedDevice {
+                                device: connectedDeviceLoader.modelData
+                            }
                         }
                     }
                 }
 
                 StyledText {
+                    Layout.topMargin: 8
                     font.bold: true
+                    font.pixelSize: 14
                     text: "Paired Devices"
                 }
 
                 ColumnLayout {
+                    Loader {
+                        active: Bluetooth.availableDevices.length == 0
+                        sourceComponent: StyledText {
+                            font.italic: true
+                            text: "No paired devices..."
+                        }
+                    }
                     Repeater {
                         model: Bluetooth.pairedDevices
-                        delegate: PairedDevice {
+                        delegate: Loader {
+                            id: pairedDeviceLoader
+                            required property var modelData
                             Layout.fillWidth: true
+                            active: modelData != null
+                            sourceComponent: PairedDevice {
+                                device: pairedDeviceLoader.modelData
+                            }
                         }
                     }
                 }
 
                 StyledText {
+                    Layout.topMargin: 8
                     font.bold: true
+                    font.pixelSize: 14
                     text: "Available Devices"
                 }
 
                 ColumnLayout {
+                    Loader {
+                        active: Bluetooth.availableDevices.length == 0
+                        sourceComponent: StyledText {
+                            font.italic: true
+                            text: Bluetooth.defaultAdapter.discovering ? "No devices found..." : "Scan to find devices..."
+                        }
+                    }
                     Repeater {
                         model: Bluetooth.availableDevices
-                        delegate: AvailableDevice {
+                        delegate: Loader {
+                            id: availableDeviceLoader
+                            required property var modelData
                             Layout.fillWidth: true
+                            active: modelData != null
+                            sourceComponent: AvailableDevice {
+                                device: availableDeviceLoader.modelData
+                            }
                         }
                     }
                 }

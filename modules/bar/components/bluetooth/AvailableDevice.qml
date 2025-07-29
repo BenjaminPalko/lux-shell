@@ -10,7 +10,7 @@ import Quickshell.Widgets
 
 StyledLabel {
     id: root
-    required property BluetoothDevice modelData
+    property BluetoothDevice device
 
     RowLayout {
         id: row
@@ -18,20 +18,20 @@ StyledLabel {
         spacing: 8
 
         Loader {
-            active: root.modelData?.icon != undefined
+            active: root.device?.icon != undefined
             sourceComponent: IconImage {
                 implicitSize: 22
-                source: Quickshell.iconPath(root.modelData.icon, "device-support-unknown-symbolic")
+                source: Quickshell.iconPath(root.device.icon, "device-support-unknown-symbolic")
             }
         }
 
         StyledText {
-            text: root.modelData.deviceName
+            text: root.device.deviceName
         }
 
         StyledButton {
             Layout.alignment: Qt.AlignRight
-            hoverEnabled: !root.modelData.pairing
+            hoverEnabled: !root.device.pairing
             color: containsMouse ? Theme.palette.primary : Theme.palette.base200
             content: StyledText {
                 text: 'Pair'
@@ -41,8 +41,8 @@ StyledLabel {
                 if (!hoverEnabled) {
                     return;
                 }
-                root.modelData.trusted = true;
-                root.modelData.pair();
+                root.device.trusted = true;
+                root.device.pair();
             }
         }
     }

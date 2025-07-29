@@ -11,7 +11,7 @@ import Quickshell.Widgets
 
 StyledLabel {
     id: root
-    required property BluetoothDevice modelData
+    required property BluetoothDevice device
 
     RowLayout {
         id: row
@@ -19,19 +19,19 @@ StyledLabel {
         spacing: 8
 
         Loader {
-            active: root.modelData?.icon != undefined
+            active: root.device?.icon != undefined
             sourceComponent: IconImage {
                 implicitSize: 22
-                source: Quickshell.iconPath(root.modelData.icon, "device-support-unknown-symbolic")
+                source: Quickshell.iconPath(root.device.icon, "device-support-unknown-symbolic")
             }
         }
 
         StyledText {
-            text: root.modelData.deviceName
+            text: root.device.deviceName
         }
 
         Loader {
-            active: root.modelData.batteryAvailable
+            active: root.device.batteryAvailable
             sourceComponent: RowLayout {
                 StyledText {
                     id: icon
@@ -42,11 +42,11 @@ StyledLabel {
                     states: [
                         State {
                             name: "full"
-                            when: root.modelData.battery > 0.66
+                            when: root.device.battery > 0.66
                         },
                         State {
                             name: "medium"
-                            when: root.modelData.battery > 0.33
+                            when: root.device.battery > 0.33
                             PropertyChanges {
                                 icon {
                                     text: Icons.batteryFull
@@ -55,7 +55,7 @@ StyledLabel {
                         },
                         State {
                             name: "low"
-                            when: root.modelData.battery > 0.10
+                            when: root.device.battery > 0.10
                             PropertyChanges {
                                 icon {
                                     text: Icons.batteryFull
@@ -64,7 +64,7 @@ StyledLabel {
                         },
                         State {
                             name: "critical"
-                            when: root.modelData.battery > 0.10
+                            when: root.device.battery > 0.10
                             PropertyChanges {
                                 icon {
                                     text: Icons.batteryWarning
@@ -85,10 +85,10 @@ StyledLabel {
                 font.pixelSize: 12
             }
             onClicked: {
-                if (root.modelData.state != BluetoothDeviceState.Connected) {
+                if (root.device.state != BluetoothDeviceState.Connected) {
                     return;
                 }
-                root.modelData.connected = false;
+                root.device.connected = false;
             }
         }
     }
