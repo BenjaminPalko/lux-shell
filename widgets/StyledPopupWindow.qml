@@ -14,7 +14,17 @@ PopupWindow {
     color: "transparent"
 
     implicitWidth: background.width
+    Behavior on implicitWidth {
+        NumberAnimation {
+            duration: 100
+        }
+    }
     implicitHeight: background.height
+    Behavior on implicitHeight {
+        NumberAnimation {
+            duration: 100
+        }
+    }
 
     WrapperRectangle {
         id: background
