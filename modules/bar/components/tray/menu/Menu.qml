@@ -10,7 +10,7 @@ StyledPopupWindow {
     id: window
 
     backgroundColor: Theme.palette.base300
-    margins: 8
+    margins: 14
     radius: 8
 
     property QsMenuOpener menuOpener
@@ -25,7 +25,7 @@ StyledPopupWindow {
                 active: true
 
                 Layout.fillWidth: true
-                Layout.minimumWidth: 120
+                Layout.minimumWidth: 160
 
                 sourceComponent: modelData.isSeparator ? menuSeperator : menuItem
                 property Component menuSeperator: Rectangle {

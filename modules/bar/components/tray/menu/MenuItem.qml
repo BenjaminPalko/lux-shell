@@ -1,28 +1,12 @@
+import qs.widgets
 import Quickshell
-import "../../../../../config/"
-import "../../../../../styled/"
 
-Clickable {
-    id: item
+StyledButton {
+    id: root
     property QsMenuEntry menuEntry
-
-    implicitWidth: text.width
-    implicitHeight: 30
-
     onClicked: menuEntry.triggered()
-
-    StyledText {
-        id: text
-
-        opacity: item.opacity
-
-        font.pixelSize: Dimensions.clock.fontSize
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.clock.verticalPadding
-        bottomPadding: Dimensions.clock.verticalPadding
-        leftPadding: Dimensions.clock.horizontalPadding
-        rightPadding: Dimensions.clock.horizontalPadding
-
-        text: item.menuEntry.text
+    content: StyledText {
+        font.pixelSize: 14
+        text: root.menuEntry.text 
     }
 }
