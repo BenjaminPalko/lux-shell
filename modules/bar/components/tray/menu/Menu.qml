@@ -1,10 +1,10 @@
 pragma ComponentBehavior: Bound
 
+import qs.config
+import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "../../../../../config/"
-import "../../../../../styled/"
 
 StyledPopupWindow {
     id: window

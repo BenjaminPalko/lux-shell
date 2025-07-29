@@ -60,7 +60,7 @@ PopupWindow {
 
         Loader {
             active: root.visible
-            sourceComponent: content
+            sourceComponent: root.content
         }
     }
 }
