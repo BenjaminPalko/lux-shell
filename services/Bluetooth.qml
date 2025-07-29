@@ -8,7 +8,7 @@ Singleton {
 
     property BluetoothAdapter defaultAdapter: Bluetooth.defaultAdapter
     property list<BluetoothDevice> connectedDevices: defaultAdapter.devices.values.filter(device => device.connected)
-    property list<BluetoothDevice> pairedDevices: defaultAdapter.devices.values.filter(device => device.paired)
+    property list<BluetoothDevice> pairedDevices: defaultAdapter.devices.values.filter(device => device.paired && !device.connected)
     property list<BluetoothDevice> availableDevices: defaultAdapter.devices.values.filter(device => !device.paired)
 
     function isConnected(BluetoothDevice: device) {
