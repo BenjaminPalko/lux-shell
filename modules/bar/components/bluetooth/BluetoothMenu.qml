@@ -29,6 +29,7 @@ StyledPopupWindow {
                 }
 
                 Switch {
+                    Layout.alignment: Qt.AlignRight
                     checked: Bluetooth.defaultAdapter.enabled
                     onClicked: Bluetooth.defaultAdapter.enabled = checked
                 }
@@ -43,12 +44,18 @@ StyledPopupWindow {
                 spacing: 8
 
                 StyledText {
+                    Layout.minimumWidth: 320
                     font.bold: true
                     text: "Connected Devices"
                 }
 
-                DeviceList {
-                    devices: Bluetooth.connectedDevices
+                ColumnLayout {
+                    Repeater {
+                        model: Bluetooth.connectedDevices
+                        delegate: ConnectedDevice {
+                            Layout.fillWidth: true
+                        }
+                    }
                 }
 
                 StyledText {
@@ -58,6 +65,9 @@ StyledPopupWindow {
 
                 DeviceList {
                     devices: Bluetooth.pairedDevices
+                    onDeviceActivated: device => {
+                        device.connect();
+                    }
                 }
 
                 StyledText {
@@ -67,6 +77,9 @@ StyledPopupWindow {
 
                 DeviceList {
                     devices: Bluetooth.availableDevices
+                    onDeviceActivated: device => {
+                        device.pair();
+                    }
                 }
             }
         }

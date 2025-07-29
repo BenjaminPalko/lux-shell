@@ -1,16 +1,18 @@
+pragma ComponentBehavior: Bound
+
 import qs.config
-import qs.constants
-import qs.services
 import qs.styled
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Bluetooth
 
 ColumnLayout {
     id: root
     required property var devices
+    signal deviceActivated(device: BluetoothDevice)
 
     Repeater {
-        model: devices
+        model: root.devices
         delegate: Clickable {
             id: device
             required property var modelData
@@ -18,6 +20,9 @@ ColumnLayout {
             implicitWidth: row.width
             implicitHeight: row.height
             Layout.fillWidth: true
+            onClicked: {
+                root.deviceActivated(modelData);
+            }
 
             RowLayout {
                 id: row

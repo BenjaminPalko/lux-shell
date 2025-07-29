@@ -3,6 +3,10 @@ pragma Singleton
 import Quickshell
 
 Singleton {
+    property string batteryFull: "\u{E059}"
+    property string batteryMedium: "\u{E05b}"
+    property string batteryLow: "\u{E05a}"
+    property string batteryWarning: "\u{E3b0}"
     property string bell: "\u{E05d}"
     property string bellRing: "\u{E224}"
     property string bluetooth: "\u{E060}"
