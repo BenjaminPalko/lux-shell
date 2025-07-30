@@ -5,7 +5,6 @@ import Quickshell
 import "components"
 import "components/bluetooth"
 import "components/hyprland"
-import "components/mpris"
 import "components/tray"
 
 Scope {
