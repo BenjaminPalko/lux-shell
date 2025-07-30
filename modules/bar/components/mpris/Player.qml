@@ -1,9 +1,10 @@
+import qs.config
+import qs.widgets
 import Quickshell.Services.Mpris
 import QtQuick
-import "../../../../styled/"
-import "../../../../config/"
 
 Loader {
+    id: root
     required property MprisPlayer modelData
     required property int index
 
@@ -11,46 +12,37 @@ Loader {
     signal previousPlayer
 
     sourceComponent: player
-    property Component player: Clickable {
-        id: clickable
-
-        implicitWidth: text.width
-        implicitHeight: Dimensions.mpris.height
+    property Component player: StyledButton {
+        id: button
 
         onClicked: {
-            if (!modelData.canTogglePlaying) {
+            if (!root.modelData.canTogglePlaying) {
                 return;
             }
-            if (modelData.isPlaying) {
-                modelData.pause();
+            if (root.modelData.isPlaying) {
+                root.modelData.pause();
             } else {
-                modelData.play();
+                root.modelData.play();
             }
         }
 
         onWheel: event => {
             if (event.angleDelta.y > 0) {
-                parent.nextPlayer();
+                root.nextPlayer();
             } else if (event.angleDelta.y < 0) {
-                parent.previousPlayer();
+                root.previousPlayer();
             }
         }
 
-        StyledText {
+        content: StyledText {
             id: text
-            text: `${modelData.isPlaying ? "" : ""} ${modelData.trackTitle} - ${modelData.trackArtist}`
-
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.mpris.verticalPadding
-            bottomPadding: Dimensions.mpris.verticalPadding
-            leftPadding: Dimensions.mpris.horizontalPadding
-            rightPadding: Dimensions.mpris.horizontalPadding
+            text: `${root.modelData.isPlaying ? "" : ""} ${root.modelData.trackTitle} - ${root.modelData.trackArtist}`
 
             font.pixelSize: Dimensions.mpris.fontSize
 
             states: State {
                 name: "hovered"
-                when: clickable.containsMouse
+                when: button.containsMouse
                 PropertyChanges {
                     text {
                         color: Theme.palette.base300
