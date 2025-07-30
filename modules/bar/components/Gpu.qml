@@ -1,29 +1,25 @@
+import qs.config
+import qs.constants
+import qs.services
+import qs.utils
+import qs.widgets
 import QtQuick
-import Quickshell
-import "../../../config/"
-import "../../../constants/"
-import "../../../services/"
-import "../../../styled/"
-import "../../../utils/"
+import QtQuick.Layouts
 
-Clickable {
+StyledButton {
     id: root
 
     property bool showTemp: false
-
-    implicitWidth: row.width
-    implicitHeight: Dimensions.gpu.height
-
-    Ref {
-        service: SystemInfo
-    }
 
     onClicked: {
         root.showTemp = !root.showTemp;
     }
 
-    Row {
+    content: RowLayout {
         id: row
+        Ref {
+            service: SystemInfo
+        }
         StyledText {
             id: icon
 
@@ -31,19 +27,10 @@ Clickable {
             font.pixelSize: Dimensions.gpu.iconSize
             font.bold: true
             text: Icons.gpu
-
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.gpu.verticalPadding
-            bottomPadding: Dimensions.gpu.verticalPadding
-            leftPadding: Dimensions.gpu.horizontalPadding
         }
 
         StyledText {
             id: text
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.gpu.verticalPadding
-            bottomPadding: Dimensions.gpu.verticalPadding
-            rightPadding: Dimensions.gpu.horizontalPadding
 
             font.pixelSize: Dimensions.gpu.fontSize
 
