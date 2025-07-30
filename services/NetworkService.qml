@@ -9,6 +9,7 @@ Singleton {
 
     readonly property list<AccessPoint> networks: []
     readonly property AccessPoint active: networks.find(n => n.active) ?? null
+    property int refCount
 
     reloadableId: "network"
 
