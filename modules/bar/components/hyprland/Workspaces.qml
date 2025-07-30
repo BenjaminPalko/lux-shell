@@ -1,7 +1,7 @@
+import qs.config
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
-import "../../../../config/"
 
 RowLayout {
     id: root
