@@ -1,20 +1,16 @@
+import qs.config
+import qs.constants
+import qs.services
+import qs.utils
+import qs.widgets
 import QtQuick
-import Quickshell
-import "../../../config/"
-import "../../../constants/"
-import "../../../services/"
-import "../../../styled/"
-import "../../../utils/"
+import QtQuick.Layouts
 
 StyledLabel {
-    implicitWidth: childrenRect.width
-    implicitHeight: Dimensions.storage.height
-
-    Ref {
-        service: SystemInfo
-    }
-
-    Row {
+    RowLayout {
+        Ref {
+            service: SystemInfo
+        }
         StyledText {
             id: icon
 
@@ -22,22 +18,11 @@ StyledLabel {
             font.pixelSize: Dimensions.storage.iconSize
             font.bold: true
             text: Icons.hardDrive
-
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.storage.verticalPadding
-            bottomPadding: Dimensions.storage.verticalPadding
-            leftPadding: Dimensions.storage.horizontalPadding
         }
 
         StyledText {
             id: text
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.storage.verticalPadding
-            bottomPadding: Dimensions.storage.verticalPadding
-            rightPadding: Dimensions.storage.horizontalPadding
-
             font.pixelSize: Dimensions.storage.fontSize
-
             text: ` ${(SystemInfo.storagePerc * 100).toFixed()}%`
         }
     }
