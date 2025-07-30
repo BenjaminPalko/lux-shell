@@ -1,21 +1,17 @@
+import qs.config
+import qs.constants
+import qs.services
+import qs.widgets
 import QtQuick
-import Quickshell.Io
-import "../../../config/"
-import "../../../constants/"
-import "../../../services/"
-import "../../../styled/"
 
-Clickable {
+StyledButton {
     id: clickable
-
-    implicitWidth: text.width
-    implicitHeight: Dimensions.notifications.height
 
     onClicked: {
         Notifications.clear();
     }
 
-    StyledText {
+    content: StyledText {
         id: text
 
         font.family: Theme.lucide.font.family
@@ -25,18 +21,12 @@ Clickable {
 
         color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
 
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.notifications.verticalPadding
-        bottomPadding: Dimensions.notifications.verticalPadding
-        leftPadding: Dimensions.notifications.horizontalPadding
-        rightPadding: Dimensions.notifications.horizontalPadding
-
         states: State {
             when: Notifications.hasNotifications
             PropertyChanges {
                 text {
-                  text: Icons.bellRing
-                  color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.secondary
+                    text: Icons.bellRing
+                    color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.secondary
                 }
             }
         }
