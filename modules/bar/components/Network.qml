@@ -1,24 +1,16 @@
+import qs.config
+import qs.constants
+import qs.services
+import qs.utils
+import qs.widgets
 import QtQuick
-import Quickshell
-import "../../../config/"
-import "../../../constants/"
-import "../../../services/"
-import "../../../styled/"
-import "../../../utils/"
+import QtQuick.Layouts
 
 StyledLabel {
-    id: root
-
-    implicitWidth: row.width
-    implicitHeight: Dimensions.network.height
-
-    Ref {
-        id: ref
-        service: NetworkService
-    }
-
-    Row {
-        id: row
+    RowLayout {
+        Ref {
+            service: NetworkService
+        }
         StyledText {
             id: icon
 
@@ -26,11 +18,6 @@ StyledLabel {
             font.pixelSize: Dimensions.network.iconSize
             font.bold: true
             text: Icons.wifiOff
-
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.network.verticalPadding
-            bottomPadding: Dimensions.network.verticalPadding
-            leftPadding: Dimensions.network.horizontalPadding
 
             states: [
                 State {
@@ -65,13 +52,7 @@ StyledLabel {
 
         StyledText {
             id: text
-            anchors.verticalCenter: parent.verticalCenter
-            topPadding: Dimensions.network.verticalPadding
-            bottomPadding: Dimensions.network.verticalPadding
-            rightPadding: Dimensions.network.horizontalPadding
-
             font.pixelSize: Dimensions.network.fontSize
-
             text: ` ${(NetworkService.active?.strength ?? 0).toFixed()}%`
         }
     }
