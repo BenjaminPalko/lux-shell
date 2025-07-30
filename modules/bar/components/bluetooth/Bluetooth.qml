@@ -1,18 +1,15 @@
 import qs.config
 import qs.constants
-import qs.styled
+import qs.widgets
 
-Clickable {
+StyledButton {
     id: root
-
-    implicitWidth: text.width
-    implicitHeight: Dimensions.bluetooth.height
 
     onClicked: {
         popup.opened = !popup.opened;
     }
 
-    StyledText {
+    content: StyledText {
         id: text
 
         font.family: Theme.lucide.font.family
@@ -21,12 +18,6 @@ Clickable {
         text: Icons.bluetooth
 
         color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.bluetooth.verticalPadding
-        bottomPadding: Dimensions.bluetooth.verticalPadding
-        leftPadding: Dimensions.bluetooth.horizontalPadding
-        rightPadding: Dimensions.bluetooth.horizontalPadding
     }
 
     BluetoothMenu {
