@@ -1,15 +1,12 @@
+import qs.config
+import qs.widgets
 import QtQuick
 import Quickshell.Services.Pipewire
-import "../../../config/"
-import "../../../styled/"
 
-Clickable {
+StyledButton {
     id: clickable
 
     property var sink: Pipewire.defaultAudioSink
-
-    implicitWidth: text.width
-    implicitHeight: Dimensions.pipewire.height
 
     PwObjectTracker {
         id: bound
@@ -18,7 +15,7 @@ Clickable {
 
     onClicked: mouse => {
         if (!sink) {
-          return
+            return;
         }
         if (mouse.button == Qt.LeftButton) {
             sink.audio.muted = !sink?.audio.muted;
@@ -56,20 +53,11 @@ Clickable {
         }
     ]
 
-    StyledText {
+    content: StyledText {
         id: text
-
         property string icon: " "
-
         text: `${icon} ${(clickable.sink?.audio.volume * 100).toFixed()}%`
         font.pixelSize: Dimensions.pipewire.fontSize
-
         color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.pipewire.verticalPadding
-        bottomPadding: Dimensions.pipewire.verticalPadding
-        leftPadding: Dimensions.pipewire.horizontalPadding
-        rightPadding: Dimensions.pipewire.horizontalPadding
     }
 }
