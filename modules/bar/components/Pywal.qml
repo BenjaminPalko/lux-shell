@@ -1,20 +1,17 @@
+import qs.config
+import qs.constants
+import qs.widgets
 import QtQuick
 import Quickshell.Io
-import "../../../config/"
-import "../../../constants/"
-import "../../../styled/"
 
-Clickable {
+StyledButton {
     id: clickable
-
-    implicitWidth: text.width
-    implicitHeight: Dimensions.caffeine.height
 
     onClicked: {
         process.running = true;
     }
 
-    StyledText {
+    content: StyledText {
         id: text
 
         font.family: Theme.lucide.font.family
@@ -23,12 +20,6 @@ Clickable {
         text: Icons.brickWall
 
         color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-
-        anchors.verticalCenter: parent.verticalCenter
-        topPadding: Dimensions.caffeine.verticalPadding
-        bottomPadding: Dimensions.caffeine.verticalPadding
-        leftPadding: Dimensions.caffeine.horizontalPadding
-        rightPadding: Dimensions.caffeine.horizontalPadding
     }
 
     Process {
