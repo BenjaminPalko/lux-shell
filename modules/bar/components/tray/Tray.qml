@@ -1,8 +1,11 @@
-import QtQuick
-import Quickshell.Services.SystemTray
-import "../../../../config/"
+pragma ComponentBehavior: Bound
 
-Row {
+import qs.config
+import QtQuick
+import QtQuick.Layouts
+import Quickshell.Services.SystemTray
+
+RowLayout {
     id: root
 
     spacing: Dimensions.tray.spacing
@@ -11,12 +14,13 @@ Row {
         model: SystemTray.items
 
         Loader {
+            id: loader
             required property SystemTrayItem modelData
             active: true
 
             sourceComponent: item
             property Component item: TrayItem {
-                trayItem: modelData
+                trayItem: loader.modelData
             }
         }
     }
