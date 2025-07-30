@@ -1,9 +1,9 @@
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Layouts
 import Quickshell.Hyprland
 import "../../../../config/"
 
-Row {
+RowLayout {
     id: root
 
     spacing: Dimensions.workspace.spacing

@@ -1,8 +1,8 @@
+import qs.config
+import qs.constants
+import qs.widgets
 import QtQuick
 import Quickshell.Hyprland
-import "../../../../config"
-import "../../../../constants/"
-import "../../../../styled/"
 
 Loader {
     required property HyprlandWorkspace modelData
@@ -10,15 +10,12 @@ Loader {
     active: modelData.id > 0
 
     sourceComponent: workspace
-    property Component workspace: Clickable {
+    property Component workspace: StyledButton {
         id: clickable
-
-        width: Dimensions.workspace.width
-        height: Dimensions.workspace.height
 
         onClicked: modelData.activate()
 
-        Text {
+        content: Text {
             id: icon
 
             font.family: Theme.lucide.font.family
@@ -27,8 +24,6 @@ Loader {
             text: Icons.triangle
 
             color: Theme.palette.basecontent
-
-            anchors.centerIn: parent
 
             states: [
                 State {
