@@ -1,11 +1,12 @@
 pragma ComponentBehavior: Bound
 
 import qs.config
-import qs.services
 import qs.widgets
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Quickshell
+import Quickshell.Bluetooth
 import Quickshell.Widgets
 
 StyledPopupWindow {
@@ -65,14 +66,17 @@ StyledPopupWindow {
 
                 ColumnLayout {
                     Loader {
-                        active: Bluetooth.connectedDevices.length == 0
+                        active: repeater1.count == 0
                         sourceComponent: StyledText {
                             font.italic: true
                             text: "No devices connected..."
                         }
                     }
                     Repeater {
-                        model: Bluetooth.connectedDevices
+                        id: repeater1
+                        model: ScriptModel {
+                            values: Bluetooth.devices.values.filter(device => device.state == BluetoothDeviceState.Connected)
+                        }
                         delegate: Loader {
                             id: connectedDeviceLoader
                             required property var modelData
@@ -94,14 +98,17 @@ StyledPopupWindow {
 
                 ColumnLayout {
                     Loader {
-                        active: Bluetooth.availableDevices.length == 0
+                        active: repeater2.count == 0
                         sourceComponent: StyledText {
                             font.italic: true
                             text: "No paired devices..."
                         }
                     }
                     Repeater {
-                        model: Bluetooth.pairedDevices
+                        id: repeater2
+                        model: ScriptModel {
+                            values: Bluetooth.devices.values.filter(device => device.bonded && device.state == BluetoothDeviceState.Disconnected)
+                        }
                         delegate: Loader {
                             id: pairedDeviceLoader
                             required property var modelData
@@ -123,14 +130,17 @@ StyledPopupWindow {
 
                 ColumnLayout {
                     Loader {
-                        active: Bluetooth.availableDevices.length == 0
+                        active: repeater3.count == 0
                         sourceComponent: StyledText {
                             font.italic: true
                             text: Bluetooth.defaultAdapter.discovering ? "No devices found..." : "Scan to find devices..."
                         }
                     }
                     Repeater {
-                        model: Bluetooth.availableDevices
+                        id: repeater3
+                        model: ScriptModel {
+                            values: Bluetooth.devices.values.filter(device => !device.bonded && device.deviceName != "")
+                        }
                         delegate: Loader {
                             id: availableDeviceLoader
                             required property var modelData
