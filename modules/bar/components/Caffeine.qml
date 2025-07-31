@@ -1,11 +1,10 @@
 import qs.config
 import qs.constants
-import qs.styled
 import qs.widgets
 import Quickshell.Io
 
 StyledButton {
-    id: clickable
+    id: root
 
     border.color: process.running ? Theme.palette.secondary : 'transparent'
     border.width: 2
@@ -27,7 +26,7 @@ StyledButton {
         font.bold: true
         text: Icons.coffee
 
-        color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
+        color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
     }
 
     Process {
