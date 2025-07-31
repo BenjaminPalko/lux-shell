@@ -4,13 +4,13 @@ import QtQuick
 import Quickshell.Services.Pipewire
 
 StyledButton {
-    id: clickable
+    id: button
 
     property var sink: Pipewire.defaultAudioSink
 
     PwObjectTracker {
         id: bound
-        objects: [clickable.sink]
+        objects: [button.sink]
     }
 
     onClicked: mouse => {
@@ -35,7 +35,7 @@ StyledButton {
     states: [
         State {
             name: "muted"
-            when: clickable.sink?.audio.muted ?? false
+            when: button.sink?.audio.muted ?? false
             PropertyChanges {
                 text {
                     icon: " "
@@ -44,7 +44,7 @@ StyledButton {
         },
         State {
             name: "off"
-            when: clickable.sink?.audio.volume <= 0
+            when: button.sink?.audio.volume <= 0
             PropertyChanges {
                 text {
                     icon: " "
@@ -56,8 +56,8 @@ StyledButton {
     content: StyledText {
         id: text
         property string icon: " "
-        text: `${icon} ${(clickable.sink?.audio.volume * 100).toFixed()}%`
+        text: `${icon} ${(button.sink?.audio.volume * 100).toFixed()}%`
         font.pixelSize: Dimensions.pipewire.fontSize
-        color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
+        color: button.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
     }
 }
