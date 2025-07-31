@@ -1,3 +1,4 @@
+import qs.services
 import QtQuick
 import Quickshell
 import Quickshell.Widgets
@@ -9,9 +10,14 @@ PopupWindow {
     property alias margins: background.margin
     property alias backgroundColor: background.color
     property alias radius: background.radius
+    property alias state: background.state
     required property Component content
 
     color: "transparent"
+
+    function toggle() {
+        Visibility.togglePopup(this);
+    }
 
     implicitWidth: background.width
     Behavior on implicitWidth {

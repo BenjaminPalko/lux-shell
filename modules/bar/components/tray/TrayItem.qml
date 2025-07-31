@@ -11,13 +11,8 @@ StyledButton {
     id: root
 
     property SystemTrayItem trayItem
-    property bool menuOpened: false
 
-    onClicked: toggleMenu()
-
-    function toggleMenu() {
-        menuOpened = !menuOpened;
-    }
+    onClicked: menu.toggle()
 
     content: IconImage {
         id: icon
@@ -35,8 +30,6 @@ StyledButton {
 
     Menu {
         id: menu
-
-        opened: root.menuOpened
 
         anchor.item: root
         anchor.rect.x: root.width / 2 - width / 2

@@ -5,9 +5,7 @@ import qs.widgets
 StyledButton {
     id: root
 
-    onClicked: {
-        popup.opened = !popup.opened;
-    }
+    onClicked: popup.toggle()
 
     content: StyledText {
         id: text
