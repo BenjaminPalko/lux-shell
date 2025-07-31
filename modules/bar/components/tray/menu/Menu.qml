@@ -20,6 +20,7 @@ StyledPopupWindow {
         Repeater {
             model: window.menuOpener.children
             delegate: Loader {
+                id: loader
                 required property QsMenuEntry modelData
 
                 active: true
@@ -34,7 +35,7 @@ StyledPopupWindow {
                     color: Theme.palette.base100
                 }
                 property Component menuItem: MenuItem {
-                    menuEntry: modelData
+                    menuEntry: loader.modelData
                 }
             }
         }

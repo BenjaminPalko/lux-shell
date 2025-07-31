@@ -1,20 +1,17 @@
+pragma ComponentBehavior: Bound
+
+import qs.widgets
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
-import "../../../../config/"
-import "../../../../styled/"
 import "menu/"
 
-Clickable {
+StyledButton {
     id: root
 
     property SystemTrayItem trayItem
     property bool menuOpened: false
-
-    implicitWidth: Dimensions.tray.width
-    implicitHeight: Dimensions.tray.height
 
     onClicked: toggleMenu()
 
@@ -22,20 +19,18 @@ Clickable {
         menuOpened = !menuOpened;
     }
 
-    IconImage {
+    content: IconImage {
         id: icon
-        anchors.margins: 6
-        anchors.fill: parent
         asynchronous: true
+        implicitSize: 18
         source: {
-            let icon = modelData.icon;
+            let icon = root.trayItem.icon;
             if (icon.includes("?path=")) {
                 const [name, path] = icon.split("?path=");
                 icon = `file://${path}/${name.slice(name.lastIndexOf("/") + 1)}`;
             }
             return icon;
         }
-        anchors.centerIn: parent
     }
 
     Menu {
@@ -48,7 +43,7 @@ Clickable {
         anchor.rect.y: root.height + 8
 
         menuOpener: QsMenuOpener {
-            menu: trayItem.menu
+            menu: root.trayItem.menu
         }
     }
 }
