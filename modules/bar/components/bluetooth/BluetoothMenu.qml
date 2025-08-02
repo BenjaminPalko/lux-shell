@@ -30,7 +30,8 @@ StyledPopupWindow {
                     }
 
                     Switch {
-                        checked: Bluetooth.defaultAdapter.enabled
+                        checkable: !!Bluetooth.defaultAdapter
+                        checked: Bluetooth.defaultAdapter?.enabled ?? false
                         onClicked: Bluetooth.defaultAdapter.enabled = checked
                     }
                 }
@@ -42,7 +43,8 @@ StyledPopupWindow {
                     }
 
                     Switch {
-                        checked: Bluetooth.defaultAdapter.discovering
+                        checkable: !!Bluetooth.defaultAdapter
+                        checked: Bluetooth.defaultAdapter?.discovering ?? false
                         onClicked: Bluetooth.defaultAdapter.discovering = checked
                     }
                 }
@@ -64,28 +66,28 @@ StyledPopupWindow {
                     text: "Connected Devices"
                 }
 
-                ColumnLayout {
-                    Loader {
-                        active: repeater1.count == 0
-                        sourceComponent: StyledText {
-                            font.italic: true
-                            text: "No devices connected..."
-                        }
-                    }
-                    Repeater {
-                        id: repeater1
-                        model: ScriptModel {
-                            values: Bluetooth.devices.values.filter(device => device.state == BluetoothDeviceState.Connected)
-                        }
-                        delegate: Loader {
-                            id: connectedDeviceLoader
-                            required property var modelData
-                            Layout.fillWidth: true
-                            active: modelData != null
-                            sourceComponent: ConnectedDevice {
-                                device: connectedDeviceLoader.modelData
+                StyledListView {
+                    id: list1
+                    Layout.fillWidth: true
+                    spacing: 8
+                    implicitHeight: 20 + Math.min(40 * count, 160)
+                    header: Loader {
+                        active: list1.count == 0
+                        sourceComponent: Loader {
+                            active: list1.count == 0
+                            sourceComponent: StyledText {
+                                font.italic: true
+                                text: "No devices connected..."
                             }
                         }
+                    }
+                    clip: true
+                    model: ScriptModel {
+                        values: Bluetooth.devices.values.filter(device => device.state == BluetoothDeviceState.Connected)
+                    }
+                    delegate: ConnectedDevice {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                     }
                 }
 
@@ -96,28 +98,25 @@ StyledPopupWindow {
                     text: "Paired Devices"
                 }
 
-                ColumnLayout {
-                    Loader {
-                        active: repeater2.count == 0
+                StyledListView {
+                    id: list2
+                    Layout.fillWidth: true
+                    spacing: 8
+                    implicitHeight: 20 + Math.min(40 * count, 160)
+                    header: Loader {
+                        active: list2.count == 0
                         sourceComponent: StyledText {
                             font.italic: true
                             text: "No paired devices..."
                         }
                     }
-                    Repeater {
-                        id: repeater2
-                        model: ScriptModel {
-                            values: Bluetooth.devices.values.filter(device => device.bonded && device.state == BluetoothDeviceState.Disconnected)
-                        }
-                        delegate: Loader {
-                            id: pairedDeviceLoader
-                            required property var modelData
-                            Layout.fillWidth: true
-                            active: modelData != null
-                            sourceComponent: PairedDevice {
-                                device: pairedDeviceLoader.modelData
-                            }
-                        }
+                    clip: true
+                    model: ScriptModel {
+                        values: Bluetooth.defaultAdapter.devices.values.filter(device => device.bonded && device.state == BluetoothDeviceState.Disconnected)
+                    }
+                    delegate: PairedDevice {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                     }
                 }
 
@@ -128,28 +127,25 @@ StyledPopupWindow {
                     text: "Available Devices"
                 }
 
-                ColumnLayout {
-                    Loader {
-                        active: repeater3.count == 0
+                StyledListView {
+                    id: list3
+                    Layout.fillWidth: true
+                    spacing: 8
+                    clip: true
+                    implicitHeight: 20 + Math.min(40 * count, 160)
+                    header: Loader {
+                        active: list3.count == 0
                         sourceComponent: StyledText {
                             font.italic: true
                             text: Bluetooth.defaultAdapter.discovering ? "No devices found..." : "Scan to find devices..."
                         }
                     }
-                    Repeater {
-                        id: repeater3
-                        model: ScriptModel {
-                            values: Bluetooth.devices.values.filter(device => !device.bonded && device.deviceName != "")
-                        }
-                        delegate: Loader {
-                            id: availableDeviceLoader
-                            required property var modelData
-                            Layout.fillWidth: true
-                            active: modelData != null
-                            sourceComponent: AvailableDevice {
-                                device: availableDeviceLoader.modelData
-                            }
-                        }
+                    model: ScriptModel {
+                        values: Bluetooth.devices.values.filter(device => !device.bonded && device.deviceName != "")
+                    }
+                    delegate: AvailableDevice {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                     }
                 }
             }
