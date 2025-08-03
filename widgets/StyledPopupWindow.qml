@@ -32,51 +32,71 @@ PopupWindow {
         }
     }
 
-    WrapperRectangle {
-        id: background
-
-        opacity: 0
-        Behavior on opacity {
-            NumberAnimation {
-                duration: root.animationDuration
+    Timer {
+        id: timer
+        interval: 750
+        onTriggered: {
+            if (!root.visible) {
+                return;
             }
+            root.toggle();
         }
+    }
 
-        states: State {
-            name: "opened"
-            when: root.opened
-            PropertyChanges {
-                background {
-                    opacity: 1
+    WrapperMouseArea {
+        hoverEnabled: true
+        onExited: {
+            timer.start();
+        }
+        onEntered: {
+            timer.stop();
+        }
+        WrapperRectangle {
+            id: background
+
+            opacity: 0
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: root.animationDuration
                 }
             }
-        }
 
-        transitions: [
-            Transition {
-                from: ""
-                to: "opened"
-                ScriptAction {
-                    script: root.visible = true
-                }
-            },
-            Transition {
-                from: "opened"
-                to: ""
-                SequentialAnimation {
-                    PauseAnimation {
-                        duration: root.animationDuration
+            states: State {
+                name: "opened"
+                when: root.opened
+                PropertyChanges {
+                    background {
+                        opacity: 1
                     }
+                }
+            }
+
+            transitions: [
+                Transition {
+                    from: ""
+                    to: "opened"
                     ScriptAction {
-                        script: root.visible = false
+                        script: root.visible = true
+                    }
+                },
+                Transition {
+                    from: "opened"
+                    to: ""
+                    SequentialAnimation {
+                        PauseAnimation {
+                            duration: root.animationDuration
+                        }
+                        ScriptAction {
+                            script: root.visible = false
+                        }
                     }
                 }
-            }
-        ]
+            ]
 
-        Loader {
-            active: root.visible
-            sourceComponent: root.content
+            Loader {
+                active: root.visible
+                sourceComponent: root.content
+            }
         }
     }
 }
