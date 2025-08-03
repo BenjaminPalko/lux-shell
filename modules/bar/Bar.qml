@@ -5,6 +5,7 @@ import Quickshell
 import "components"
 import "components/bluetooth"
 import "components/hyprland"
+import "components/notifications"
 import "components/tray"
 
 Scope {

@@ -5,10 +5,10 @@ import qs.widgets
 import QtQuick
 
 StyledButton {
-    id: clickable
+    id: root
 
     onClicked: {
-        Notifications.clear();
+        menu.toggle();
     }
 
     content: StyledText {
@@ -19,16 +19,24 @@ StyledButton {
         font.bold: true
         text: Icons.bell
 
-        color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
+        color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
 
         states: State {
             when: Notifications.hasNotifications
             PropertyChanges {
                 text {
                     text: Icons.bellRing
-                    color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.secondary
+                    color: root.containsMouse ? Theme.palette.base300 : Theme.palette.secondary
                 }
             }
         }
+    }
+
+    NotificationMenu {
+        id: menu
+
+        anchor.item: root
+        anchor.rect.x: root.width / 2 - width / 2
+        anchor.rect.y: root.height + 8
     }
 }

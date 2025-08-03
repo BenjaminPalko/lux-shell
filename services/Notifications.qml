@@ -6,20 +6,34 @@ import Quickshell.Services.Notifications
 Singleton {
     id: root
 
-    property bool hasNotifications: notifications.length > 0
-    property list<Notification> notifications: []
+    property bool enabled: true
+    property bool hasNotifications: list.length > 0
+    property list<Notification> list: []
 
     function clear() {
-        notifications.forEach(notification => {
-            notification.dismiss();
+        list.forEach(notification => {
+            notification?.dismiss();
         });
-        notifications = [];
+        list = [];
     }
 
     NotificationServer {
+        id: server
+
+        keepOnReload: false
+        actionsSupported: true
+        bodyHyperlinksSupported: true
+        bodyImagesSupported: true
+        bodyMarkupSupported: true
+        imageSupported: true
+
         onNotification: event => {
+            if (!root.enabled) {
+                return;
+            }
             event.tracked = true;
-            root.notifications.push(event);
+            root.list = root.list.filter(item => item.id != event.id);
+            root.list.push(event);
         }
     }
 }
