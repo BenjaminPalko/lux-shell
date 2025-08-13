@@ -8,107 +8,105 @@ import "components/hyprland"
 import "components/notifications"
 import "components/tray"
 
-Scope {
-    PanelWindow {
-        id: parentWindow
+PanelWindow {
+    id: parentWindow
 
-        anchors.top: true
-        anchors.left: true
-        anchors.right: true
+    anchors.top: true
+    anchors.left: true
+    anchors.right: true
 
-        implicitHeight: Dimensions.bar.height
-        color: 'transparent'
+    implicitHeight: Dimensions.bar.height
+    color: 'transparent'
 
-        Item {
+    Item {
 
+        anchors.fill: parent
+        anchors.leftMargin: Dimensions.bar.horizontalMargins
+        anchors.rightMargin: Dimensions.bar.horizontalMargins
+        anchors.topMargin: Dimensions.bar.verticalMargins
+        anchors.bottomMargin: Dimensions.bar.verticalMargins
+
+        Rectangle {
+            id: background
             anchors.fill: parent
-            anchors.leftMargin: Dimensions.bar.horizontalMargins
-            anchors.rightMargin: Dimensions.bar.horizontalMargins
-            anchors.topMargin: Dimensions.bar.verticalMargins
-            anchors.bottomMargin: Dimensions.bar.verticalMargins
+            color: Theme.palette.base300
+            radius: Dimensions.radius
 
-            Rectangle {
-                id: background
-                anchors.fill: parent
-                color: Theme.palette.base300
-                radius: Dimensions.radius
+            border {
+                color: Theme.palette.base100
+                width: Dimensions.bar.border
+                pixelAligned: true
+            }
+        }
 
-                border {
-                    color: Theme.palette.base100
-                    width: Dimensions.bar.border
-                    pixelAligned: true
-                }
+        RowLayout {
+            id: leftbar
+
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+
+            anchors.leftMargin: Dimensions.bar.horizontalPadding
+            anchors.topMargin: Dimensions.bar.verticalPadding
+            anchors.bottomMargin: Dimensions.bar.verticalPadding
+
+            spacing: Dimensions.bar.spacing
+
+            SystemLogo {
+                implicitSize: 22
             }
 
-            RowLayout {
-                id: leftbar
+            Workspaces {}
 
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
+            Tray {}
+        }
 
-                anchors.leftMargin: Dimensions.bar.horizontalPadding
-                anchors.topMargin: Dimensions.bar.verticalPadding
-                anchors.bottomMargin: Dimensions.bar.verticalPadding
+        RowLayout {
+            id: centerbar
 
-                spacing: Dimensions.bar.spacing
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
 
-                SystemLogo {
-                    implicitSize: 22
-                }
+            anchors.topMargin: Dimensions.bar.verticalPadding
+            anchors.bottomMargin: Dimensions.bar.verticalPadding
 
-                Workspaces {}
+            spacing: Dimensions.bar.spacing
 
-                Tray {}
-            }
+            Mpris {}
+        }
 
-            RowLayout {
-                id: centerbar
+        RowLayout {
+            id: rightbar
 
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
 
-                anchors.topMargin: Dimensions.bar.verticalPadding
-                anchors.bottomMargin: Dimensions.bar.verticalPadding
+            anchors.rightMargin: Dimensions.bar.horizontalPadding
+            anchors.topMargin: Dimensions.bar.verticalPadding
+            anchors.bottomMargin: Dimensions.bar.verticalPadding
 
-                spacing: Dimensions.bar.spacing
+            spacing: Dimensions.bar.spacing
 
-                Mpris {}
-            }
+            Pywal {}
 
-            RowLayout {
-                id: rightbar
+            Pipewire {}
 
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
+            Caffeine {}
 
-                anchors.rightMargin: Dimensions.bar.horizontalPadding
-                anchors.topMargin: Dimensions.bar.verticalPadding
-                anchors.bottomMargin: Dimensions.bar.verticalPadding
+            Network {}
 
-                spacing: Dimensions.bar.spacing
+            Bluetooth {}
 
-                Pywal {}
+            Storage {}
 
-                Pipewire {}
+            Memory {}
 
-                Caffeine {}
+            Cpu {}
 
-                Network {}
+            Gpu {}
 
-                Bluetooth {}
+            Clock {}
 
-                Storage {}
-
-                Memory {}
-
-                Cpu {}
-
-                Gpu {}
-
-                Clock {}
-
-                Notifications {}
-            }
+            Notifications {}
         }
     }
 }

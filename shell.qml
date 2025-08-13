@@ -2,12 +2,11 @@
 
 import Quickshell
 import "modules"
-import "modules/bar"
 
 ShellRoot {
     ReloadPopup {}
 
-    Bar {}
+    Shell {}
 
     Shortcuts {}
 }
