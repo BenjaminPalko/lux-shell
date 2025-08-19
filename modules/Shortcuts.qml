@@ -1,3 +1,4 @@
+import qs.services
 import qs.widgets
 import Quickshell
 
@@ -10,5 +11,11 @@ Scope {
         onPressed: {
             console.log("Launcher shortcut pressed");
         }
+    }
+
+    LuxShortcut {
+        name: 'power-menu'
+        description: 'Open the Power Menu'
+        onPressed: Visibility.powermenu = !Visibility.powermenu
     }
 }

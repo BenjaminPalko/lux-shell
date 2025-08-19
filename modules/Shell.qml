@@ -1,4 +1,5 @@
 import "bar"
+import "powermenu"
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
@@ -14,5 +15,6 @@ Variants {
         required property ShellScreen modelData
 
         Bar {}
+        PowerMenu {}
     }
 }

@@ -4,6 +4,7 @@ import qs.widgets
 import Quickshell
 
 Singleton {
+    property bool powermenu
     property StyledPopupWindow activePopup
 
     function togglePopup(popup: StyledPopupWindow) {
