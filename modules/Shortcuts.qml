@@ -8,9 +8,7 @@ Scope {
     LuxShortcut {
         name: 'launcher'
         description: 'Open the application launcher'
-        onPressed: {
-            console.log("Launcher shortcut pressed");
-        }
+        onPressed: Visibility.launcher = !Visibility.launcher
     }
 
     LuxShortcut {

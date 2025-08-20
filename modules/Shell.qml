@@ -1,8 +1,8 @@
 import "bar"
+import "launcher"
 import "powermenu"
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Effects
 
@@ -15,6 +15,7 @@ Variants {
         required property ShellScreen modelData
 
         Bar {}
+        Launcher {}
         PowerMenu {}
     }
 }

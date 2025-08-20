@@ -4,6 +4,7 @@ import qs.widgets
 import Quickshell
 
 Singleton {
+    property bool launcher
     property bool powermenu
     property StyledPopupWindow activePopup
 

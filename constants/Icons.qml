@@ -17,6 +17,7 @@ Singleton {
     property string gpu: "\u{E66f}"
     property string hardDrive: "\u{E0f1}"
     property string memoryStick: "\u{E44a}"
+    property string search: "\u{E155}"
     property string wifiOff: "\u{E1af}"
     property string wifiLow: "\u{E5fd}"
     property string wifiHigh: "\u{E5fc}"
