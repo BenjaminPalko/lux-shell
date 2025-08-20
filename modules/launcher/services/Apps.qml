@@ -10,12 +10,12 @@ FuzzySearch {
     function launch(entry: DesktopEntry): void {
         if (entry.runInTerminal)
             Quickshell.execDetached({
-                command: ["kitty", "exec", ...entry.command],
+                command: ["app2unit", "--", "kitty", "exec", ...entry.command],
                 workingDirectory: entry.workingDirectory
             });
         else
             Quickshell.execDetached({
-                command: [...entry.command],
+                command: ["app2unit", "--", ...entry.command],
                 workingDirectory: entry.workingDirectory
             });
     }

@@ -21,3 +21,4 @@ quickshell -c launcher
 ## Dependencies
 
 - `quickshell`
+- `app2unit`
