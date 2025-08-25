@@ -61,34 +61,7 @@ StyledPopupWindow {
                     }
                 }
                 model: Notifications.list
-                delegate: StyledLabel {
-                    required property var modelData
-                    margin: 16
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    RowLayout {
-                        ClippingRectangle {
-                            implicitWidth: icon.implicitSize
-                            implicitHeight: icon.implicitSize
-                            IconImage {
-                                id: icon
-                                implicitSize: 20
-                                source: modelData.image == "" ? Quickshell.iconPath(modelData.appIcon, "device-support-unknown-symbolic") : modelData.image
-                            }
-                        }
-                        ColumnLayout {
-
-                            StyledText {
-                                font.bold: true
-                                font.pixelSize: 12
-                                text: modelData.summary ?? modelData.appName
-                            }
-                            StyledText {
-                                text: modelData.body
-                            }
-                        }
-                    }
-                }
+                delegate: NotificationItem {}
             }
         }
     }
