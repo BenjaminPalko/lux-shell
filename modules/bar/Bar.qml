@@ -1,12 +1,13 @@
-import qs.config
-import QtQuick
-import QtQuick.Layouts
-import Quickshell
 import "components"
 import "components/bluetooth"
 import "components/hyprland"
 import "components/notifications"
 import "components/tray"
+import qs.config
+import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Wayland
 
 PanelWindow {
     id: parentWindow
@@ -17,6 +18,8 @@ PanelWindow {
 
     implicitHeight: Dimensions.bar.height
     color: 'transparent'
+
+    WlrLayershell.layer: WlrLayer.Top
 
     Item {
 
