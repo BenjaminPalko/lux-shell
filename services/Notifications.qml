@@ -1,5 +1,6 @@
 pragma Singleton
 
+import QtQuick
 import Quickshell
 import Quickshell.Services.Notifications
 
@@ -31,9 +32,14 @@ Singleton {
             if (!root.enabled) {
                 return;
             }
+
+            if (event == null) {
+                console.log("Event is null?");
+                return;
+            }
+
             event.tracked = true;
-            root.list = root.list.filter(item => item.id != event.id);
-            root.list.push(event);
+            root.list = root.list.filter(item => item != null && item.id != event.id).push(event);
         }
     }
 }
