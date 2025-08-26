@@ -1,21 +1,16 @@
 import qs.config
 import qs.constants
+import qs.services
 import qs.widgets
-import Quickshell.Io
 
 StyledButton {
     id: root
 
-    border.color: process.running ? Theme.palette.secondary : 'transparent'
+    border.color: Caffeine.enabled ? Theme.palette.secondary : 'transparent'
     border.width: 2
 
     onClicked: {
-        if (process.running) {
-            process.signal(888);
-            process.running = false;
-        } else {
-            process.running = true;
-        }
+        Caffeine.toggle();
     }
 
     content: StyledText {
@@ -27,10 +22,5 @@ StyledButton {
         text: Icons.coffee
 
         color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-    }
-
-    Process {
-        id: process
-        command: ["sh", "-c", "systemd-inhibit --what=idle --who=Caffeine --why='Caffeine module is active' --mode=block sleep inf"]
     }
 }
