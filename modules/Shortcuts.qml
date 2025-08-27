@@ -22,4 +22,10 @@ Scope {
         description: 'Open the Power Menu'
         onPressed: Visibility.powermenu = !Visibility.powermenu
     }
+
+    LuxShortcut {
+        name: 'storybook'
+        description: 'Open the Component Storybook'
+        onPressed: Visibility.storybook = !Visibility.storybook
+    }
 }

@@ -7,6 +7,7 @@ Singleton {
     property alias launcher: properties.launcher
     property alias pomodoro: properties.pomodoro
     property alias powermenu: properties.powermenu
+    property alias storybook: properties.storybook
     property StyledPopupWindow activePopup
 
     function togglePopup(popup: StyledPopupWindow) {
@@ -23,5 +24,6 @@ Singleton {
         property bool launcher
         property bool pomodoro
         property bool powermenu
+        property bool storybook
     }
 }

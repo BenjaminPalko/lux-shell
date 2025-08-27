@@ -2,10 +2,9 @@ import "bar"
 import "launcher"
 import "pomodoro"
 import "powermenu"
+import "storybook"
 import Quickshell
-import Quickshell.Wayland
 import QtQuick
-import QtQuick.Effects
 
 Variants {
     model: Quickshell.screens
@@ -19,5 +18,6 @@ Variants {
         Launcher {}
         Pomodoro {}
         PowerMenu {}
+        Storybook {}
     }
 }
