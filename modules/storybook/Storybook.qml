@@ -41,6 +41,7 @@ StyledWindow {
         }
 
         ColumnLayout {
+            StyledSwitch {}
             Button {
                 id: toolTipButton
                 text: "Hello world!"
