@@ -8,8 +8,7 @@ Drawer {
     background: Rectangle {
         Component.onCompleted: {
             if (control.edge == Qt.TopEdge) {
-                bottomLeftRadius = 8;
-                bottomRightRadius = 8;
+                radius = 8;
             } else if (control.edge == Qt.LeftEdge) {
                 topRightRadius = 8;
                 bottomRightRadius = 8;
