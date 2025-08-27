@@ -20,13 +20,14 @@ Singleton {
         if (players.length == 0) {
             return;
         }
-        properties.currentIndex = properties.currentIndex + 1 % players.length;
+        properties.currentIndex = (properties.currentIndex + 1) % players.length;
     }
 
     function previousPlayer() {
         if (players.length == 0) {
             return;
         }
-        properties.currentIndex = properties.currentIndex - 1 % players.length;
+        const newIndex = properties.currentIndex - 1;
+        properties.currentIndex = newIndex >= 0 ? newIndex : players.length - 1;
     }
 }
