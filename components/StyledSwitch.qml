@@ -6,13 +6,13 @@ Switch {
     id: control
     indicator: Item {
         implicitWidth: 48
-        implicitHeight: 26
+        implicitHeight: 22
         Rectangle {
             implicitWidth: parent.width
             implicitHeight: parent.height - 4
             x: control.leftPadding
             y: parent.height / 2 - height / 2
-            radius: 8
+            radius: 6
             color: control.checked ? Theme.palette.primary : Theme.palette.base100
             Behavior on color {
                 ColorAnimation {
@@ -29,9 +29,9 @@ Switch {
                     duration: 150
                 }
             }
-            width: 26
-            height: 26
-            radius: 8
+            width: 22
+            height: 22
+            radius: 6
             color: Theme.palette.basecontent
         }
     }
