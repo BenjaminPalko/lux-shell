@@ -19,6 +19,8 @@ Singleton {
     property string memoryStick: "\u{E44a}"
     property string play: "\u{E140}"
     property string search: "\u{E155}"
+    property string skipBack: "\u{E163}"
+    property string skipForward: "\u{E164}"
     property string stop: "\u{E132}"
     property string square: "\u{E16B}"
     property string wifiOff: "\u{E1af}"
