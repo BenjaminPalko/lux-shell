@@ -8,6 +8,7 @@ import Quickshell.Hyprland
 import Quickshell.Wayland
 import Quickshell.Widgets
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 
 StyledWindow {
@@ -39,6 +40,15 @@ StyledWindow {
             }
         }
 
-        ColumnLayout {}
+        ColumnLayout {
+            Button {
+                id: toolTipButton
+                text: "Hello world!"
+                StyledToolTip {
+                    visible: toolTipButton.hovered
+                    text: qsTr("Save the active project")
+                }
+            }
+        }
     }
 }
