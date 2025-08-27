@@ -13,6 +13,8 @@ Singleton {
     property string bluetoothConnected: "\u{E1b8}"
     property string brickWall: "\u{E586}"
     property string coffee: "\u{E09a}"
+    property string chevronLeft: "\u{E072}"
+    property string chevronRight: "\u{E073}"
     property string cpu: "\u{E0ad}"
     property string gpu: "\u{E66f}"
     property string hardDrive: "\u{E0f1}"

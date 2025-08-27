@@ -1,4 +1,5 @@
 import "bar"
+import "drawers"
 import "launcher"
 import "pomodoro"
 import "powermenu"
@@ -19,5 +20,6 @@ Variants {
         Pomodoro {}
         PowerMenu {}
         Storybook {}
+        Drawers {}
     }
 }

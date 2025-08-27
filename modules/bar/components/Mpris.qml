@@ -10,17 +10,8 @@ import QtQuick.Layouts
 StyledButton {
     id: root
 
-    padding: 6
-
     onClicked: {
-        if (!Mpris.active.canTogglePlaying) {
-            return;
-        }
-        if (Mpris.active.isPlaying) {
-            Mpris.active.pause();
-        } else {
-            Mpris.active.play();
-        }
+        Visibility.dashboard = !Visibility.dashboard;
     }
 
     content: ColumnLayout {
@@ -54,23 +45,6 @@ StyledButton {
                     duration: 100
                     easing.type: Easing.InOutCubic
                 }
-            }
-        }
-        StyledSlider {
-            from: 0
-            to: Mpris.active?.length ?? 0
-            value: Mpris.active?.position
-            implicitHeight: 6
-            Layout.fillWidth: true
-            onMoved: {
-                Mpris.active.position = value;
-            }
-
-            Timer {
-                running: Mpris.active?.isPlaying
-                interval: 1000
-                repeat: true
-                onTriggered: Mpris.active?.positionChanged()
             }
         }
     }
