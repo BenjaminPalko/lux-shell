@@ -71,6 +71,19 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
+                    text: "Slider"
+                    font.pixelSize: 18
+                }
+                StyledSlider {
+                    id: slider
+                    from: 0
+                    to: 100
+                    value: 50
+                }
+            }
+
+            ColumnLayout {
+                StyledText {
                     text: "Drawer"
                     font.pixelSize: 18
                 }
