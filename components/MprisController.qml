@@ -24,19 +24,6 @@ WrapperRectangle {
         implicitWidth: 800
 
         StyledText {
-            Layout.alignment: Qt.AlignHCenter
-            text: {
-                if (root.player.identity) {
-                    const words = root.player.identity.split("-");
-                    const capitalized = words.map(val => String(val).charAt(0).toUpperCase() + String(val).slice(1));
-                    return capitalized.join(" ");
-                }
-                return root.player.desktopEntry ?? root.player.dbusName ?? "unknown";
-            }
-            font.pixelSize: 20
-        }
-
-        StyledText {
             id: text
             Layout.alignment: Qt.AlignHCenter
             text: `${root.player.trackTitle} - ${root.player.trackArtist}`
@@ -75,6 +62,17 @@ WrapperRectangle {
                     root.player.next();
                 }
             }
+        }
+
+        StyledText {
+            Layout.alignment: Qt.AlignHCenter
+            text: {
+                function formatTime(num) {
+                    return Math.floor(num).toString().padStart(2, "0");
+                }
+                return `${formatTime(root.player.position / 60)}:${formatTime(root.player.position % 60)} - ${formatTime(root.player.length / 60)}:${formatTime(root.player.length % 60)}`;
+            }
+            font.pixelSize: Dimensions.mpris.fontSize
         }
 
         StyledSlider {
