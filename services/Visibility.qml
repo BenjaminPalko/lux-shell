@@ -5,6 +5,7 @@ import Quickshell
 
 Singleton {
     property bool launcher
+    property bool pomodoro
     property bool powermenu
     property StyledPopupWindow activePopup
 

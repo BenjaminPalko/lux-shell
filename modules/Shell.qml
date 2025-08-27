@@ -1,5 +1,6 @@
 import "bar"
 import "launcher"
+import "pomodoro"
 import "powermenu"
 import Quickshell
 import Quickshell.Wayland
@@ -16,6 +17,7 @@ Variants {
 
         Bar {}
         Launcher {}
+        Pomodoro {}
         PowerMenu {}
     }
 }

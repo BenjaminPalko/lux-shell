@@ -12,6 +12,12 @@ Scope {
     }
 
     LuxShortcut {
+        name: 'pomodoro'
+        description: 'Open the Pomodoro'
+        onPressed: Visibility.pomodoro = !Visibility.pomodoro
+    }
+
+    LuxShortcut {
         name: 'power-menu'
         description: 'Open the Power Menu'
         onPressed: Visibility.powermenu = !Visibility.powermenu
