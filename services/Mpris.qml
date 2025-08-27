@@ -8,5 +8,25 @@ Singleton {
     id: root
 
     property list<MprisPlayer> players: Mpris.players.values
-    property MprisPlayer active: players.filter(player => player.isPlaying)[0] ?? players[0]
+    property MprisPlayer active: players[properties.currentIndex]
+
+    PersistentProperties {
+        id: properties
+
+        property int currentIndex: 0
+    }
+
+    function nextPlayer() {
+        if (players.length == 0) {
+            return;
+        }
+        properties.currentIndex = properties.currentIndex + 1 % players.length;
+    }
+
+    function previousPlayer() {
+        if (players.length == 0) {
+            return;
+        }
+        properties.currentIndex = properties.currentIndex - 1 % players.length;
+    }
 }
