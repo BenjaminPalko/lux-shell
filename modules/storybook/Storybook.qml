@@ -26,12 +26,7 @@ StyledWindow {
         id: rect
 
         color: Theme.palette.base300
-        implicitWidth: 800
-        implicitHeight: 1200
-        leftMargin: 48
-        rightMargin: 48
-        topMargin: 24
-        bottomMargin: 24
+        margin: 48
         radius: 8
 
         HyprlandFocusGrab {
@@ -45,6 +40,13 @@ StyledWindow {
         ColumnLayout {
 
             spacing: 12
+
+            StyledText {
+                Layout.alignment: Qt.AlignHCenter
+                text: "Components"
+                font.pixelSize: 24
+                bottomPadding: 24
+            }
 
             ColumnLayout {
                 StyledText {
