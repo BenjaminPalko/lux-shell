@@ -67,20 +67,7 @@ StyledWindow {
                 list.incrementCurrentIndex();
             }
 
-            model: [
-                {
-                    text: "󰍃 Logout",
-                    command: "hyprctl dispatch exit"
-                },
-                {
-                    text: "󰜉 Reboot",
-                    command: "systemctl reboot"
-                },
-                {
-                    text: " Shutdown",
-                    command: "systemctl poweroff"
-                }
-            ]
+            model: Config.powermenu.actions
 
             spacing: 8
 
