@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 
+import qs.components
 import qs.config
 import qs.widgets
 import QtQuick

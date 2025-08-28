@@ -1,8 +1,9 @@
+import qs.components
 import qs.config
 import qs.constants
 import qs.services
-import qs.utils
 import qs.widgets
+import qs.utils
 import QtQuick
 import QtQuick.Layouts
 
