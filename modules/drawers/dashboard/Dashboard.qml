@@ -15,11 +15,14 @@ StyledDrawer {
     visible: Visibility.dashboard
 
     WrapperRectangle {
-        color: Theme.palette.base300
+        color: Theme.palette.base200
         radius: 8
-        margin: 20
+        margin: 32
         ColumnLayout {
-            RowLayout {
+          spacing: 8
+          RowLayout {
+            spacing: 8
+
                 Layout.alignment: Qt.AlignHCenter
 
                 StyledButton {
@@ -60,7 +63,7 @@ StyledDrawer {
             }
 
             MprisController {
-                player: Mpris.active
+              player: Mpris.active
             }
         }
     }
