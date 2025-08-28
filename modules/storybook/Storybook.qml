@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 
 import qs.components
 import qs.config
+import qs.constants
 import qs.services
 import qs.widgets
 import Quickshell.Hyprland
@@ -45,7 +46,19 @@ StyledWindow {
                 Layout.alignment: Qt.AlignHCenter
                 text: "Components"
                 font.pixelSize: 24
+                font.bold: true
+                font.underline: true
                 bottomPadding: 24
+            }
+
+            ColumnLayout {
+                StyledText {
+                    text: "Switch"
+                    font.pixelSize: 18
+                }
+                StyledIconButton {
+                    text: Icons.square
+                }
             }
 
             ColumnLayout {
