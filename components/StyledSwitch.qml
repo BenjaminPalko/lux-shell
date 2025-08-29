@@ -4,6 +4,11 @@ import QtQuick.Controls
 
 Switch {
     id: control
+
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
+    }
+
     indicator: Item {
         implicitWidth: 48
         implicitHeight: 22

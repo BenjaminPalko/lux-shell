@@ -7,6 +7,10 @@ Slider {
 
     height: 24
 
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
+    }
+
     background: Rectangle {
         x: control.leftPadding
         y: control.topPadding + control.availableHeight / 2 - height / 2
@@ -18,12 +22,12 @@ Slider {
         color: Theme.palette.base100
 
         Rectangle {
-          width: control.visualPosition * parent.width
-          Behavior on width {
-            NumberAnimation {
-              duration: 75
+            width: control.visualPosition * parent.width
+            Behavior on width {
+                NumberAnimation {
+                    duration: 75
+                }
             }
-          }
             height: parent.height
             color: Theme.palette.primary
             radius: 8
