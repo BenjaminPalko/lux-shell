@@ -18,6 +18,9 @@ StyledButton {
 
     contentItem: RowLayout {
         id: row
+
+        spacing: 0
+
         Ref {
             service: SystemInfo
         }
@@ -35,7 +38,7 @@ StyledButton {
             id: text
 
             font.pixelSize: Dimensions.gpu.fontSize
-            text: ` ${(SystemInfo.gpuPerc * 100).toFixed()}%`
+            text: ` ${(SystemInfo.gpuPerc * 100).toFixed().toString().padStart(2, "_")}%`
             color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
 
             states: [
@@ -44,7 +47,7 @@ StyledButton {
                     when: root.showTemp
                     PropertyChanges {
                         text {
-                            text: ` ${(SystemInfo.gpuTemp)}℃`
+                            text: `${(SystemInfo.gpuTemp)}℃`
                         }
                     }
                 }
