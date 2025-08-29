@@ -16,6 +16,12 @@ Singleton {
         property int currentIndex: 0
     }
 
+    onPlayersChanged: {
+        if (!active) {
+            properties.currentIndex = 0;
+        }
+    }
+
     function nextPlayer() {
         if (players.length == 0) {
             return;
