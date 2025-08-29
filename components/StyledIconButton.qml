@@ -10,6 +10,8 @@ RoundButton {
         source: "../assets/lucide.woff"
     }
 
+    property alias border: rect.border
+
     font.family: loader.font.family
     font.pixelSize: 16
     radius: 8
@@ -31,6 +33,7 @@ RoundButton {
     }
 
     background: Rectangle {
+        id: rect
         color: control.hovered ? Theme.palette.primary : Theme.palette.base100
         Behavior on color {
             ColorAnimation {
