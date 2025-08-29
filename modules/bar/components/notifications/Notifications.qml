@@ -1,34 +1,22 @@
 import qs.components
-import qs.config
 import qs.constants
 import qs.services
-import qs.widgets
 import QtQuick
 
-StyledButton {
+StyledIconButton {
     id: root
 
     onClicked: {
         menu.toggle();
     }
 
-    content: StyledText {
-        id: text
+    text: Notifications.hasNotifications ? Icons.bell : Icons.bellRing
 
-        font.family: Theme.lucide.font.family
-        font.pixelSize: Dimensions.notifications.fontSize
-        font.bold: true
-        text: Icons.bell
-
-        color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-
-        states: State {
-            when: Notifications.hasNotifications
-            PropertyChanges {
-                text {
-                    text: Icons.bellRing
-                    color: root.containsMouse ? Theme.palette.base300 : Theme.palette.secondary
-                }
+    states: State {
+        when: Notifications.hasNotifications
+        PropertyChanges {
+            root {
+                text: Icons.bellRing
             }
         }
     }
