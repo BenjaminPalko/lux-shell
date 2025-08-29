@@ -1,25 +1,15 @@
-import qs.config
+import qs.components
 import qs.constants
-import qs.widgets
 import QtQuick
 import Quickshell.Io
 
-StyledButton {
+StyledIconButton {
     id: clickable
+
+    text: Icons.brickWall
 
     onClicked: {
         process.running = true;
-    }
-
-    content: StyledText {
-        id: text
-
-        font.family: Theme.lucide.font.family
-        font.pixelSize: Dimensions.caffeine.fontSize
-        font.bold: true
-        text: Icons.brickWall
-
-        color: clickable.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
     }
 
     Process {
