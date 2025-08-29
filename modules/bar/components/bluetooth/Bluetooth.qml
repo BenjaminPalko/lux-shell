@@ -1,22 +1,12 @@
-import qs.config
+import qs.components
 import qs.constants
-import qs.widgets
 
-StyledButton {
+StyledIconButton {
     id: root
 
+    text: Icons.bluetooth
+
     onClicked: popup.toggle()
-
-    content: StyledText {
-        id: text
-
-        font.family: Theme.lucide.font.family
-        font.pixelSize: Dimensions.bluetooth.fontSize
-        font.bold: true
-        text: Icons.bluetooth
-
-        color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-    }
 
     BluetoothMenu {
         id: popup
