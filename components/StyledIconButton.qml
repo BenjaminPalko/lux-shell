@@ -11,6 +11,8 @@ RoundButton {
     }
 
     property alias border: rect.border
+    property color color: hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+    property int rotation: 0
 
     font.family: loader.font.family
     font.pixelSize: 18
@@ -22,12 +24,20 @@ RoundButton {
     }
 
     contentItem: Text {
+        id: icon
         font: control.font
         text: control.text
-        color: control.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+        color: control.color
         Behavior on color {
             ColorAnimation {
                 duration: 100
+            }
+        }
+        rotation: control.rotation
+        Behavior on rotation {
+            RotationAnimation {
+                duration: 200
+                easing.type: Easing.InOutCubic
             }
         }
     }
