@@ -1,26 +1,15 @@
+import qs.components
 import qs.config
 import qs.constants
 import qs.services
-import qs.widgets
 
-StyledButton {
+StyledIconButton {
     id: root
 
-    border.color: Caffeine.enabled ? Theme.palette.secondary : 'transparent'
-    border.width: 2
+    border.color: Caffeine.enabled ? Theme.palette.secondary : root.hovered ? Theme.palette.primary : Theme.palette.base100
+    text: Icons.coffee
 
     onClicked: {
         Caffeine.toggle();
-    }
-
-    content: StyledText {
-        id: text
-
-        font.family: Theme.lucide.font.family
-        font.pixelSize: Dimensions.caffeine.fontSize
-        font.bold: true
-        text: Icons.coffee
-
-        color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
     }
 }

@@ -34,6 +34,13 @@ RoundButton {
 
     background: Rectangle {
         id: rect
+        border.color: control.hovered ? Theme.palette.primary : Theme.palette.base100
+        Behavior on border.color {
+            ColorAnimation {
+                duration: 100
+            }
+        }
+        border.width: 2
         color: control.hovered ? Theme.palette.primary : Theme.palette.base100
         Behavior on color {
             ColorAnimation {
