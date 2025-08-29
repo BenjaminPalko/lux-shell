@@ -1,7 +1,6 @@
 pragma ComponentBehavior: Bound
 
 import qs.components
-import qs.config
 import qs.widgets
 import QtQuick
 import QtQuick.Layouts
@@ -31,13 +30,11 @@ StyledLabel {
         }
 
         StyledButton {
+
             Layout.alignment: Qt.AlignRight
             hoverEnabled: !root.modelData.pairing
-            color: containsMouse ? Theme.palette.primary : Theme.palette.base200
-            content: StyledText {
-                text: 'Pair'
-                font.pixelSize: 12
-            }
+            text: 'Pair'
+
             onClicked: {
                 if (!hoverEnabled) {
                     return;

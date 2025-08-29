@@ -108,10 +108,7 @@ StyledWindow {
 
                 Layout.alignment: Qt.AlignHCenter
 
-                content: StyledText {
-                    text: "Reset"
-                    font.pixelSize: 14
-                }
+                text: "Reset"
 
                 onClicked: {
                     Pomodoro.reset();

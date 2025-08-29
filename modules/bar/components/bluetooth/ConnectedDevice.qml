@@ -80,11 +80,9 @@ StyledLabel {
 
         StyledButton {
             Layout.alignment: Qt.AlignRight
-            color: containsMouse ? Theme.palette.error : Theme.palette.base200
-            content: StyledText {
-                text: 'Disconnect'
-                font.pixelSize: 12
-            }
+            text: 'Disconnect'
+            palette.button: hovered ? Theme.palette.error : Theme.palette.base200
+
             onClicked: {
                 if (root.modelData.state != BluetoothDeviceState.Connected) {
                     return;

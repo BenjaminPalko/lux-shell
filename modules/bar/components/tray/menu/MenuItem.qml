@@ -1,13 +1,12 @@
 import qs.components
-import qs.widgets
 import Quickshell
 
 StyledButton {
     id: root
+
     property QsMenuEntry menuEntry
+
+    text: root.menuEntry.text
+
     onClicked: menuEntry.triggered()
-    content: StyledText {
-        font.pixelSize: 14
-        text: root.menuEntry.text
-    }
 }

@@ -16,7 +16,7 @@ StyledButton {
         showTemp = !showTemp;
     }
 
-    content: RowLayout {
+    contentItem: RowLayout {
         id: row
         Ref {
             service: SystemInfo
@@ -28,8 +28,7 @@ StyledButton {
             font.pixelSize: Dimensions.cpu.iconSize
             font.bold: true
             text: Icons.cpu
-
-            color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
+            color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
         }
 
         StyledText {
@@ -37,8 +36,7 @@ StyledButton {
 
             font.pixelSize: Dimensions.cpu.fontSize
             text: ` ${(SystemInfo.cpuPerc * 100).toFixed()}%`
-
-            color: root.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
+            color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
 
             states: [
                 State {

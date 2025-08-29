@@ -19,19 +19,18 @@ StyledDrawer {
         radius: 8
         margin: 32
         ColumnLayout {
-          spacing: 8
-          RowLayout {
             spacing: 8
+            RowLayout {
+                spacing: 8
 
                 Layout.alignment: Qt.AlignHCenter
 
-                StyledButton {
+                StyledIconButton {
                     id: previousPlayerButton
+
                     visible: Mpris.players.length > 1
-                    content: LucideIcon {
-                        color: previousPlayerButton.containsMouse ? Theme.palette.primarycontent : Theme.palette.basecontent
-                        text: Icons.chevronLeft
-                    }
+                    text: Icons.chevronLeft
+
                     onClicked: {
                         Mpris.previousPlayer();
                     }
@@ -52,10 +51,9 @@ StyledDrawer {
                 StyledButton {
                     id: nextPlayerButton
                     visible: Mpris.players.length > 1
-                    content: LucideIcon {
-                        color: nextPlayerButton.containsMouse ? Theme.palette.primarycontent : Theme.palette.basecontent
-                        text: Icons.chevronRight
-                    }
+
+                    text: Icons.chevronRight
+
                     onClicked: {
                         Mpris.nextPlayer();
                     }
@@ -63,7 +61,7 @@ StyledDrawer {
             }
 
             MprisController {
-              player: Mpris.active
+                player: Mpris.active
             }
         }
     }

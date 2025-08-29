@@ -34,11 +34,8 @@ StyledLabel {
             Layout.alignment: Qt.AlignRight
             StyledButton {
                 hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
-                color: containsMouse ? Theme.palette.primary : Theme.palette.base200
-                content: StyledText {
-                    text: 'Connect'
-                    font.pixelSize: 12
-                }
+                text: 'Connect'
+
                 onClicked: {
                     if (!hoverEnabled) {
                         return;
@@ -49,11 +46,10 @@ StyledLabel {
 
             StyledButton {
                 hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
-                color: containsMouse ? Theme.palette.error : Theme.palette.base200
-                content: StyledText {
-                    text: 'Unpair'
-                    font.pixelSize: 12
-                }
+                text: 'Unpair'
+
+                palette.button: hovered ? Theme.palette.error : Theme.palette.base100
+
                 onClicked: {
                     if (!hoverEnabled) {
                         return;

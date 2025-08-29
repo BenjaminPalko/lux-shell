@@ -1,32 +1,37 @@
 import qs.config
 import QtQuick
-import Quickshell.Widgets
+import QtQuick.Controls
 
-WrapperMouseArea {
+Button {
     id: root
-    required property Component content
-    property alias padding: rectangle.margin
-    property alias color: rectangle.color
     property alias border: rectangle.border
     property alias radius: rectangle.radius
 
-    hoverEnabled: true
-    cursorShape: Qt.PointingHandCursor
+    font.pixelSize: 14
+    padding: 6
 
-    WrapperRectangle {
+    palette.button: hovered ? Theme.palette.primary : Theme.palette.base100
+    Behavior on palette.button {
+        ColorAnimation {
+            duration: 100
+        }
+    }
+    palette.buttonText: hoverEnabled && hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+    Behavior on palette.buttonText {
+        ColorAnimation {
+            duration: 100
+        }
+    }
+
+    wheelEnabled: true
+
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
+    }
+
+    background: Rectangle {
         id: rectangle
-        margin: 8
+        color: root.palette.button
         radius: 8
-        color: root.containsMouse && root.hoverEnabled ? Theme.palette.primary : Theme.palette.base100
-        Behavior on color {
-            ColorAnimation {
-                duration: 200
-                easing.type: Easing.InOutQuad
-            }
-        }
-        Loader {
-            active: true
-            sourceComponent: root.content
-        }
     }
 }

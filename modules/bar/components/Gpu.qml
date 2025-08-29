@@ -16,7 +16,7 @@ StyledButton {
         root.showTemp = !root.showTemp;
     }
 
-    content: RowLayout {
+    contentItem: RowLayout {
         id: row
         Ref {
             service: SystemInfo
@@ -28,14 +28,15 @@ StyledButton {
             font.pixelSize: Dimensions.gpu.iconSize
             font.bold: true
             text: Icons.gpu
+            color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
         }
 
         StyledText {
             id: text
 
             font.pixelSize: Dimensions.gpu.fontSize
-
             text: ` ${(SystemInfo.gpuPerc * 100).toFixed()}%`
+            color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
 
             states: [
                 State {

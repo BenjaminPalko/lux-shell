@@ -7,7 +7,6 @@ import qs.widgets
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell
 import Quickshell.Widgets
 
 StyledPopupWindow {
@@ -34,11 +33,8 @@ StyledPopupWindow {
             StyledButton {
                 id: clearButton
                 Layout.alignment: Qt.AlignRight
+                text: "Clear"
                 onClicked: Notifications.clear()
-                content: StyledText {
-                    text: "Clear"
-                    color: clearButton.containsMouse ? Theme.palette.base300 : Theme.palette.basecontent
-                }
             }
         }
 
