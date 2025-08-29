@@ -24,7 +24,6 @@ StyledIconButton {
                 root {
                     rotation: 180
                     color: root.hovered ? Theme.palette.basecontent : Theme.palette.primary
-                    border.color: Theme.palette.secondary
                 }
             }
         },
