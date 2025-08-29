@@ -19,6 +19,7 @@ Singleton {
     property string gpu: "\u{E66f}"
     property string hardDrive: "\u{E0f1}"
     property string memoryStick: "\u{E44a}"
+    property string pause: "\u{E132}"
     property string play: "\u{E140}"
     property string search: "\u{E155}"
     property string skipBack: "\u{E163}"

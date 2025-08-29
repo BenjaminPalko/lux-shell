@@ -5,10 +5,14 @@ import QtQuick.Controls
 RoundButton {
     id: control
 
+    FontLoader {
+        id: loader
+        source: "../assets/lucide.woff"
+    }
+
+    font.family: loader.font.family
+    font.pixelSize: 16
     radius: 8
-    font.family: Theme.lucide.font.family
-    font.pixelSize: 15
-    font.bold: true
     padding: 8
 
     HoverHandler {
@@ -16,6 +20,7 @@ RoundButton {
     }
 
     contentItem: Text {
+        font: control.font
         text: control.text
         color: control.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
         Behavior on color {
@@ -23,7 +28,6 @@ RoundButton {
                 duration: 100
             }
         }
-        font: control.font
     }
 
     background: Rectangle {

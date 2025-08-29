@@ -7,7 +7,6 @@ import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Mpris
-import Quickshell.Widgets
 
 ColumnLayout {
     id: root
@@ -27,32 +26,23 @@ ColumnLayout {
 
     RowLayout {
         Layout.alignment: Qt.AlignHCenter
-        StyledButton {
+        StyledIconButton {
             id: backButton
-            content: LucideIcon {
-                color: backButton.containsMouse ? Theme.palette.primarycontent : Theme.palette.basecontent
-                text: Icons.skipBack
-            }
+            text: Icons.skipBack
             onClicked: {
                 root.player.previous();
             }
         }
-        StyledButton {
+        StyledIconButton {
             id: playPauseButton
-            content: LucideIcon {
-                color: playPauseButton.containsMouse ? Theme.palette.primarycontent : Theme.palette.basecontent
-                text: root.player.isPlaying ? Icons.square : Icons.play
-            }
+            text: root.player.isPlaying ? Icons.pause : Icons.play
             onClicked: {
                 root.player.isPlaying = !root.player.isPlaying;
             }
         }
-        StyledButton {
+        StyledIconButton {
             id: forwardButton
-            content: LucideIcon {
-                color: forwardButton.containsMouse ? Theme.palette.primarycontent : Theme.palette.basecontent
-                text: Icons.skipForward
-            }
+            text: Icons.skipForward
             onClicked: {
                 root.player.next();
             }
