@@ -13,9 +13,9 @@ RoundButton {
     property alias border: rect.border
 
     font.family: loader.font.family
-    font.pixelSize: 16
+    font.pixelSize: 18
     radius: 8
-    padding: 8
+    padding: 6
 
     HoverHandler {
         cursorShape: Qt.PointingHandCursor
