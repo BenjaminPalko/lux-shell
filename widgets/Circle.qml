@@ -7,7 +7,10 @@ Item {
 
     property int radius: 0
     property double percentage: 0
-    property alias color: path.strokeColor
+    property alias borderColor: fill.strokeColor
+    property alias strokeColor: path.strokeColor
+    property alias strokeWidth: path.strokeWidth
+    property alias fillColor: fill.fillColor
 
     implicitWidth: radius * 2
     implicitHeight: radius * 2
@@ -17,6 +20,8 @@ Item {
         preferredRendererType: Shape.CurveRenderer
 
         ShapePath {
+            id: fill
+
             fillColor: Theme.palette.base100
             strokeColor: Theme.palette.base200
             strokeWidth: 8
@@ -34,8 +39,8 @@ Item {
             id: path
 
             fillColor: "transparent"
-            strokeWidth: 8
-            strokeColor: "white"
+            strokeWidth: 0
+            strokeColor: "transparent"
             capStyle: ShapePath.RoundCap
 
             PathAngleArc {

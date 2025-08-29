@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 
+import qs.components
 import qs.config
 import qs.constants
 import qs.services
@@ -49,56 +50,58 @@ StyledWindow {
                 font.pixelSize: 22
             }
 
-            Circle {
-                id: circle
-                radius: 150
-                color: Pomodoro.state == "timer" ? Theme.palette.primary : Theme.palette.warning
-                percentage: (Pomodoro.state == "timer" ? (Pomodoro.initialTime - Pomodoro.remainingTime) : Pomodoro.remainingTime) / Pomodoro.initialTime % 1
+            Item {
+                implicitWidth: circle.width
+                implicitHeight: circle.height
 
-                WrapperRectangle {
-                    color: "transparent"
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    ColumnLayout {
-                        spacing: 18
-                        StyledButton {
+                Circle {
+                    id: circle
+                    radius: 150
+                    borderColor: Theme.palette.base100
+                    strokeColor: Pomodoro.state == "timer" ? Theme.palette.primary : Theme.palette.warning
+                    strokeWidth: 12
+                    fillColor: button.hovered ? Theme.palette.primary : "transparent"
+                    percentage: (Pomodoro.state == "timer" ? (Pomodoro.initialTime - Pomodoro.remainingTime) : Pomodoro.remainingTime) / Pomodoro.initialTime % 1
+                }
 
-                            Layout.alignment: Qt.AlignHCenter
+                StyledIconButton {
+                    id: button
 
-                            focus: root.visible
+                    anchors.centerIn: circle
 
-                            content: LucideIcon {
-                                text: Pomodoro.running ? Icons.square : Icons.play
-                                font.pixelSize: 20
-                            }
+                    radius: 9999
 
-                            onClicked: {
-                                Pomodoro.toggle();
-                            }
+                    focus: root.visible
+                    text: Pomodoro.running ? Icons.square : Icons.play
+                    font.pixelSize: 48
 
-                            Keys.onSpacePressed: event => {
-                                event.accepted = true;
-                                Pomodoro.toggle();
-                            }
-                            Keys.onEscapePressed: event => {
-                                event.accepted = true;
-                                Visibility.pomodoro = false;
-                            }
-                            Keys.onTabPressed: event => {
-                                event.accepted = true;
-                                Pomodoro.reset();
-                            }
-                        }
-                        StyledText {
-                            Layout.alignment: Qt.AlignHCenter
-                            text: {
-                                const date = new Date(Pomodoro.remainingTime);
-                                return `${date.getMinutes().toString().padStart(2, "0")}:${(date.getSeconds() % 3600).toString().padStart(2, "0")}`;
-                            }
-                            font.pixelSize: 16
-                        }
+                    background: undefined
+                    onClicked: {
+                        Pomodoro.toggle();
+                    }
+
+                    Keys.onSpacePressed: event => {
+                        event.accepted = true;
+                        Pomodoro.toggle();
+                    }
+                    Keys.onEscapePressed: event => {
+                        event.accepted = true;
+                        Visibility.pomodoro = false;
+                    }
+                    Keys.onTabPressed: event => {
+                        event.accepted = true;
+                        Pomodoro.reset();
                     }
                 }
+            }
+
+            StyledText {
+                Layout.alignment: Qt.AlignHCenter
+                text: {
+                    const date = new Date(Pomodoro.remainingTime);
+                    return `${date.getMinutes().toString().padStart(2, "0")}:${(date.getSeconds() % 3600).toString().padStart(2, "0")}`;
+                }
+                font.pixelSize: 16
             }
 
             StyledButton {
