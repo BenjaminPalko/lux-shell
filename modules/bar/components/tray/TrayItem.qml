@@ -1,20 +1,20 @@
 pragma ComponentBehavior: Bound
 
-import qs.widgets
+import qs.components
 import QtQuick
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
 import "menu/"
 
-StyledButton {
+StyledIconButton {
     id: root
 
     property SystemTrayItem trayItem
 
     onClicked: menu.toggle()
 
-    content: IconImage {
+    contentItem: IconImage {
         id: icon
         asynchronous: true
         implicitSize: 18
