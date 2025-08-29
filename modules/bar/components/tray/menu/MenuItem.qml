@@ -1,3 +1,4 @@
+import qs.components
 import qs.widgets
 import Quickshell
 
@@ -7,6 +8,6 @@ StyledButton {
     onClicked: menuEntry.triggered()
     content: StyledText {
         font.pixelSize: 14
-        text: root.menuEntry.text 
+        text: root.menuEntry.text
     }
 }
