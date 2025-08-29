@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import qs.config
 import qs.constants
 import qs.widgets
@@ -5,6 +7,7 @@ import QtQuick
 import Quickshell.Hyprland
 
 Loader {
+    id: root
     required property HyprlandWorkspace modelData
 
     active: modelData.id > 0
@@ -13,7 +16,7 @@ Loader {
     property Component workspace: StyledButton {
         id: clickable
 
-        onClicked: modelData.activate()
+        onClicked: root.modelData.activate()
 
         content: Text {
             id: icon
@@ -28,7 +31,7 @@ Loader {
             states: [
                 State {
                     name: "focused"
-                    when: modelData.focused
+                    when: root.modelData.focused
                     PropertyChanges {
                         icon {
                             rotation: 180
@@ -38,7 +41,7 @@ Loader {
                 },
                 State {
                     name: "active"
-                    when: modelData.active
+                    when: root.modelData.active
                     PropertyChanges {
                         icon {
                             text: Icons.triangleDashed
