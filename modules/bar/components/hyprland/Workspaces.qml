@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import qs.config
 import QtQuick
 import QtQuick.Layouts
@@ -12,6 +14,16 @@ RowLayout {
 
         model: Hyprland.workspaces
 
-        Workspace {}
+        Loader {
+            id: loader
+            required property HyprlandWorkspace modelData
+
+            active: modelData.id > 0
+
+            sourceComponent: workspace
+            property Component workspace: Workspace {
+                workspace: loader.modelData
+            }
+        }
     }
 }

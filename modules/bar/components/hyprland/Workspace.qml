@@ -1,70 +1,43 @@
-pragma ComponentBehavior: Bound
-
+import qs.components
 import qs.config
 import qs.constants
-import qs.widgets
 import QtQuick
 import Quickshell.Hyprland
 
-Loader {
+StyledIconButton {
     id: root
-    required property HyprlandWorkspace modelData
 
-    active: modelData.id > 0
+    required property HyprlandWorkspace workspace
 
-    sourceComponent: workspace
-    property Component workspace: StyledButton {
-        id: clickable
+    text: Icons.triangle
+    font.bold: true
+    font.pixelSize: 17
+    padding: 8
 
-        onClicked: root.modelData.activate()
+    onClicked: root.workspace.activate()
 
-        content: Text {
-            id: icon
-
-            font.family: Theme.lucide.font.family
-            font.pixelSize: Dimensions.workspace.iconSize
-            font.bold: true
-            text: Icons.triangle
-
-            color: Theme.palette.basecontent
-
-            states: [
-                State {
-                    name: "focused"
-                    when: root.modelData.focused
-                    PropertyChanges {
-                        icon {
-                            rotation: 180
-                            color: clickable.hovered ? Theme.palette.basecontent : Theme.palette.primary
-                        }
-                    }
-                },
-                State {
-                    name: "active"
-                    when: root.modelData.active
-                    PropertyChanges {
-                        icon {
-                            text: Icons.triangleDashed
-                            rotation: 180
-                            color: clickable.hovered ? Theme.palette.basecontent : Theme.palette.primary
-                        }
-                    }
+    states: [
+        State {
+            name: "focused"
+            when: root.workspace.focused
+            PropertyChanges {
+                root {
+                    rotation: 180
+                    color: root.hovered ? Theme.palette.basecontent : Theme.palette.primary
+                    border.color: Theme.palette.secondary
                 }
-            ]
-
-            transitions: Transition {
-                reversible: true
-                ParallelAnimation {
-                    RotationAnimation {
-                        duration: 200
-                        easing.type: Easing.InOutCubic
-                    }
-                    ColorAnimation {
-                        duration: 200
-                        easing.type: Easing.OutCubic
-                    }
+            }
+        },
+        State {
+            name: "active"
+            when: root.workspace.active
+            PropertyChanges {
+                root {
+                    text: Icons.triangleDashed
+                    rotation: 180
+                    color: root.hovered ? Theme.palette.basecontent : Theme.palette.primary
                 }
             }
         }
-    }
+    ]
 }
