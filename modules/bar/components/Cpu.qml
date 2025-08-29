@@ -47,7 +47,7 @@ StyledButton {
                     when: root.showTemp
                     PropertyChanges {
                         text {
-                            text: `${(SystemInfo.cpuTemp)}℃`
+                            text: ` ${SystemInfo.cpuTemp.toFixed().toString().padStart(2, "_")}℃`
                         }
                     }
                 }
