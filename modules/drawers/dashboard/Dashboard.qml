@@ -1,22 +1,18 @@
 pragma ComponentBehavior: Bound
 
 import qs.components
-import qs.config
 import qs.constants
 import qs.services
 import qs.widgets
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Widgets
 
 StyledDrawer {
     id: root
 
     visible: Visibility.dashboard
 
-    WrapperRectangle {
-        color: Theme.palette.base200
-        radius: 8
+    StyledWrapperRectangle {
         margin: 32
         ColumnLayout {
             spacing: 8

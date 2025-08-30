@@ -7,7 +7,6 @@ import qs.widgets
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell.Widgets
 
 StyledPopupWindow {
     id: root
@@ -48,14 +47,10 @@ StyledPopupWindow {
                 implicitWidth: 300
                 clip: true
 
-                header: WrapperRectangle {
-                    margin: 8
-                    color: 'transparent'
-                    StyledText {
-                        text: "Notifications"
-                        font.bold: true
-                        font.pixelSize: 16
-                    }
+                header: StyledText {
+                    text: "Notifications"
+                    font.bold: true
+                    font.pixelSize: 16
                 }
                 model: Notifications.list
                 delegate: NotificationItem {}

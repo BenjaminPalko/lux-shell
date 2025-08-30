@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 
+import qs.components
 import qs.config
 import qs.widgets
 import QtQuick
@@ -7,7 +8,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Bluetooth
-import Quickshell.Widgets
 
 StyledPopupWindow {
     id: root
@@ -18,10 +18,8 @@ StyledPopupWindow {
 
     content: ColumnLayout {
         spacing: 8
-        WrapperRectangle {
+        StyledWrapperRectangle {
             margin: 16
-            color: Theme.palette.base200
-            radius: 8
             Layout.fillWidth: true
             RowLayout {
                 RowLayout {
@@ -51,10 +49,8 @@ StyledPopupWindow {
             }
         }
 
-        WrapperRectangle {
+        StyledWrapperRectangle {
             margin: 16
-            color: Theme.palette.base200
-            radius: 8
             ColumnLayout {
                 spacing: 8
 

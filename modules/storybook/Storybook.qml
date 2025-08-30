@@ -1,13 +1,11 @@
 pragma ComponentBehavior: Bound
 
 import qs.components
-import qs.config
 import qs.constants
 import qs.services
 import qs.widgets
 import Quickshell.Hyprland
 import Quickshell.Wayland
-import Quickshell.Widgets
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -23,12 +21,10 @@ StyledWindow {
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
 
-    WrapperRectangle {
+    StyledWrapperRectangle {
         id: rect
 
-        color: Theme.palette.base300
         margin: 48
-        radius: 8
 
         HyprlandFocusGrab {
             active: Visibility.storybook
@@ -53,7 +49,7 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
-                    text: "Switch"
+                    text: "Icon Button"
                     font.pixelSize: 18
                 }
                 StyledIconButton {

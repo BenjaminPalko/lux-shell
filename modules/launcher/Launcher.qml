@@ -1,13 +1,13 @@
 pragma ComponentBehavior: Bound
 
 import "services"
+import qs.components
 import qs.config
 import qs.constants
 import qs.services
 import qs.widgets
 import Quickshell.Hyprland
 import Quickshell.Wayland
-import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 
@@ -36,22 +36,18 @@ StyledWindow {
         search.clear();
     }
 
-    WrapperRectangle {
+    StyledWrapperRectangle {
         id: rect
 
-        color: Theme.palette.base300
         margin: 18
-        radius: 8
 
         ColumnLayout {
-            WrapperRectangle {
+            StyledWrapperRectangle {
                 id: searchWrapper
 
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
-                color: Theme.palette.base200
                 margin: 4
-                radius: 8
 
                 RowLayout {
                     LucideIcon {

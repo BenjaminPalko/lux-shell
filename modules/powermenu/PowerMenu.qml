@@ -1,12 +1,12 @@
 pragma ComponentBehavior: Bound
 
+import qs.components
 import qs.config
 import qs.services
 import qs.widgets
 import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Wayland
-import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 
@@ -25,7 +25,7 @@ StyledWindow {
         id: process
     }
 
-    WrapperRectangle {
+    StyledWrapperRectangle {
         id: rect
 
         color: Theme.palette.base300
