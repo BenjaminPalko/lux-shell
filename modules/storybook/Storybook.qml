@@ -62,7 +62,10 @@ StyledWindow {
                     text: "Switch"
                     font.pixelSize: 18
                 }
-                StyledSwitch {}
+
+                StyledSwitch {
+                    text: "Enable"
+                }
             }
 
             ColumnLayout {

@@ -5,39 +5,51 @@ import QtQuick.Controls
 Switch {
     id: control
 
+    contentItem: Text {
+        id: text
+        rightPadding: control.indicator.width + control.spacing
+        text: control.text
+        font: control.font
+        opacity: enabled ? 1.0 : 0.3
+        color: Theme.palette.basecontent
+        elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
+    }
+
     HoverHandler {
         cursorShape: Qt.PointingHandCursor
     }
 
-    indicator: Item {
+    indicator: Rectangle {
+      id: indicator
+
+      property int padding: 8
+
         implicitWidth: 48
-        implicitHeight: 22
-        Rectangle {
-            implicitWidth: parent.width
-            implicitHeight: parent.height - 4
-            x: control.leftPadding
-            y: parent.height / 2 - height / 2
-            radius: 6
-            color: control.checked ? Theme.palette.primary : Theme.palette.base100
-            Behavior on color {
-                ColorAnimation {
-                    duration: 150
-                }
-            }
-        }
+        implicitHeight: 24
+        x: control.width - width - control.rightPadding
+        y: parent.height / 2 - height / 2
+        radius: 16
+        color: "transparent"
+        border.color: control.checked ? Theme.palette.primary : Theme.palette.basecontent
+        border.width: 2
 
         Rectangle {
-            x: control.checked ? parent.width - 3 * width / 4 : width / 4
+            anchors.margins: 4
+            x: control.checked ? parent.width - width - indicator.padding / 2 : indicator.padding / 2
             y: parent.height / 2 - height / 2
             Behavior on x {
                 NumberAnimation {
-                    duration: 150
+                    duration: 100
                 }
             }
-            width: 22
-            height: 22
-            radius: 6
-            color: Theme.palette.basecontent
+            width: parent.width / 2 - indicator.padding
+            height: parent.height - indicator.padding
+            radius: 16
+            color: control.checked ? Theme.palette.primary : Theme.palette.basecontent
+            // border.color: control.checked ? (control.down ? "#17a81a" : "#21be2b") : "#999999"
         }
     }
+
+    background: undefined
 }
