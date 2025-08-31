@@ -23,12 +23,18 @@ RowLayout {
 
     StyledText {
         text: {
-            function parseName(name) {
-                const words = name.split("-");
-                const capitalized = words.map(val => val.trim().charAt(0).toUpperCase() + val.trim().slice(1));
-                return capitalized.join(" ");
+            if (!Mpris.active) {
+                return "inactive";
             }
-            return parseName(Mpris.active?.desktopEntry ?? Mpris.active?.dbusName ?? "unknown");
+            const player = Mpris.active;
+            const displayName = player.identity ?? player.desktopEntry ?? player.dbusName ?? "unknown";
+            if (displayName.toLowerCase().includes('tidal')) {
+              return "Tidal";
+            }
+            if (displayName.toLowerCase().includes('zen')) {
+              return "Zen";
+            }
+            return displayName;
         }
         font.pixelSize: 20
     }
