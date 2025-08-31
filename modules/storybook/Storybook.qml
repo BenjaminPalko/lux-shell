@@ -98,6 +98,14 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
+                    text: "Mpris Player Selector"
+                    font.pixelSize: 18
+                }
+                MprisPlayerSelector {}
+            }
+
+            ColumnLayout {
+                StyledText {
                     text: "Mpris Controller"
                     font.pixelSize: 18
                 }
