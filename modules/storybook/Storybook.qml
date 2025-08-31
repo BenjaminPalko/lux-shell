@@ -116,6 +116,36 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
+                    text: "Menu"
+                    font.pixelSize: 18
+                }
+                Button {
+                    id: fileButton
+                    text: "File"
+                    onPressed: menu.visible ? menu.close() : menu.open()
+
+                    StyledMenu {
+                        id: menu
+                        y: fileButton.height
+
+                        StyledMenuItem {
+                            text: "New..."
+                        }
+                        StyledMenuItem {
+                            text: "Open..."
+                        }
+                        StyledMenuItem {
+                            text: "Save"
+                        }
+                        StyledMenuItem {
+                            text: "Close"
+                        }
+                    }
+                }
+            }
+
+            ColumnLayout {
+                StyledText {
                     text: "Drawer"
                     font.pixelSize: 18
                 }
