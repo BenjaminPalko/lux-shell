@@ -14,26 +14,24 @@ StyledPopupWindow {
     margins: 16
     radius: 8
 
-    content: ColumnLayout {
-        spacing: 16
+    content: GridLayout {
 
-        RowLayout {
-            Layout.fillWidth: true
+        columns: 2
 
-            StyledSwitch {
-                text: "Enabled"
-                checked: Notifications.enabled
-                onClicked: Notifications.enabled = checked
-            }
+        StyledSwitch {
+            text: "Enabled"
+            checked: Notifications.enabled
+            onClicked: Notifications.enabled = checked
+        }
 
-            StyledButton {
-                Layout.alignment: Qt.AlignRight
-                text: "Clear"
-                onClicked: Notifications.clear()
-            }
+        StyledButton {
+            Layout.alignment: Qt.AlignRight
+            text: "Clear"
+            onClicked: Notifications.clear()
         }
 
         StyledLabel {
+            Layout.columnSpan: 2
             color: Theme.palette.base200
             StyledListView {
                 id: notifications
