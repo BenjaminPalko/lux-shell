@@ -134,9 +134,7 @@ StyledWindow {
                         StyledMenuItem {
                             text: "Open..."
                         }
-                        StyledMenuItem {
-                            text: "Save"
-                        }
+                        StyledMenuSeparator {}
                         StyledMenuItem {
                             text: "Close"
                         }
