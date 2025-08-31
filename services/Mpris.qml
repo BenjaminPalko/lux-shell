@@ -8,7 +8,7 @@ Singleton {
     id: root
 
     property list<MprisPlayer> players: Mpris.players.values
-    property MprisPlayer active: players[properties.currentIndex]
+    property MprisPlayer active: players[properties.currentIndex] ?? null
 
     PersistentProperties {
         id: properties
