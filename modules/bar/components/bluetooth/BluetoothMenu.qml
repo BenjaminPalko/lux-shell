@@ -4,7 +4,6 @@ import qs.components
 import qs.config
 import qs.widgets
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Bluetooth
@@ -22,29 +21,19 @@ StyledPopupWindow {
             margin: 16
             Layout.fillWidth: true
             RowLayout {
-                RowLayout {
-                    StyledText {
-                        text: "Enabled"
-                    }
-
-                    Switch {
-                        checkable: !!Bluetooth.defaultAdapter
-                        checked: Bluetooth.defaultAdapter?.enabled ?? false
-                        onClicked: Bluetooth.defaultAdapter.enabled = checked
-                    }
+                StyledSwitch {
+                    text: "Enabled"
+                    checkable: !!Bluetooth.defaultAdapter
+                    checked: Bluetooth.defaultAdapter?.enabled ?? false
+                    onClicked: Bluetooth.defaultAdapter.enabled = checked
                 }
 
-                RowLayout {
+                StyledSwitch {
                     Layout.alignment: Qt.AlignRight
-                    StyledText {
-                        text: "Scan"
-                    }
-
-                    Switch {
-                        checkable: !!Bluetooth.defaultAdapter
-                        checked: Bluetooth.defaultAdapter?.discovering ?? false
-                        onClicked: Bluetooth.defaultAdapter.discovering = checked
-                    }
+                    text: "Scan"
+                    checkable: !!Bluetooth.defaultAdapter
+                    checked: Bluetooth.defaultAdapter?.discovering ?? false
+                    onClicked: Bluetooth.defaultAdapter.discovering = checked
                 }
             }
         }

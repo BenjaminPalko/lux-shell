@@ -5,7 +5,6 @@ import qs.config
 import qs.services
 import qs.widgets
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 
 StyledPopupWindow {
@@ -20,17 +19,14 @@ StyledPopupWindow {
 
         RowLayout {
             Layout.fillWidth: true
-            StyledText {
-                text: "Enabled"
-            }
 
-            Switch {
+            StyledSwitch {
+                text: "Enabled"
                 checked: Notifications.enabled
                 onClicked: Notifications.enabled = checked
             }
 
             StyledButton {
-                id: clearButton
                 Layout.alignment: Qt.AlignRight
                 text: "Clear"
                 onClicked: Notifications.clear()
