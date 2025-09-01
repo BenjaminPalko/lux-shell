@@ -1,4 +1,5 @@
 import qs.config
+import qs.services
 import QtQuick
 import QtQuick.Controls
 
@@ -10,6 +11,11 @@ Menu {
 
     focus: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+    popupType: Popup.Window
+
+    function toggle() {
+        visible ? close() : open();
+    }
 
     enter: Transition {
         NumberAnimation {
