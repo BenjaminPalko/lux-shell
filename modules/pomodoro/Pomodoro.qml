@@ -54,10 +54,10 @@ StyledWindow {
                     id: circle
                     radius: 150
                     borderColor: Styling.theme.base100
-                    strokeColor: Pomodoro.state == "timer" ? Styling.theme.primary : Styling.theme.warning
+                    strokeColor: PomodoroService.state == "timer" ? Theme.palette.primary : Theme.palette.warning
                     strokeWidth: 12
                     fillColor: button.hovered ? Styling.theme.primary : "transparent"
-                    percentage: (Pomodoro.state == "timer" ? (Pomodoro.initialTime - Pomodoro.remainingTime) : Pomodoro.remainingTime) / Pomodoro.initialTime % 1
+                    percentage: (PomodoroService.state == "timer" ? (PomodoroService.initialTime - PomodoroService.remainingTime) : PomodoroService.remainingTime) / PomodoroService.initialTime % 1
                 }
 
                 StyledIconButton {
@@ -68,17 +68,17 @@ StyledWindow {
                     radius: 9999
 
                     focus: root.visible
-                    text: Pomodoro.running ? Styling.lucide.icons.square : Styling.lucide.icons.play
+                    text: PomodoroService.running ? Styling.lucide.icons.square : Styling.lucide.icons.play
                     font.pixelSize: 48
 
                     background: Item {}
                     onClicked: {
-                        Pomodoro.toggle();
+                        PomodoroService.toggle();
                     }
 
                     Keys.onSpacePressed: event => {
                         event.accepted = true;
-                        Pomodoro.toggle();
+                        PomodoroService.toggle();
                     }
                     Keys.onEscapePressed: event => {
                         event.accepted = true;
@@ -86,7 +86,7 @@ StyledWindow {
                     }
                     Keys.onTabPressed: event => {
                         event.accepted = true;
-                        Pomodoro.reset();
+                        PomodoroService.reset();
                     }
                 }
             }
@@ -94,7 +94,7 @@ StyledWindow {
             StyledText {
                 Layout.alignment: Qt.AlignHCenter
                 text: {
-                    const date = new Date(Pomodoro.remainingTime);
+                    const date = new Date(PomodoroService.remainingTime);
                     return `${date.getMinutes().toString().padStart(2, "0")}:${(date.getSeconds() % 3600).toString().padStart(2, "0")}`;
                 }
                 font.pixelSize: 16
@@ -107,7 +107,7 @@ StyledWindow {
                 text: "Reset"
 
                 onClicked: {
-                    Pomodoro.reset();
+                    PomodoroService.reset();
                 }
             }
         }
