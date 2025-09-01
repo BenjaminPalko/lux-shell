@@ -3,54 +3,28 @@ import "components/bluetooth"
 import "components/hyprland"
 import "components/notifications"
 import "components/tray"
+import qs.components
 import qs.config
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Wayland
 
-PanelWindow {
-    id: parentWindow
+StyledWrapperRectangle {
+    id: root
 
-    anchors.top: true
-    anchors.left: true
-    anchors.right: true
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.leftMargin: Dimensions.bar.horizontalMargins
+    anchors.rightMargin: Dimensions.bar.horizontalMargins
+    anchors.topMargin: Dimensions.bar.verticalMargins
+    anchors.bottomMargin: Dimensions.bar.verticalMargins
 
-    implicitHeight: Dimensions.bar.height
-    color: 'transparent'
+    margin: 4
 
-    WlrLayershell.layer: WlrLayer.Top
-
-    Item {
-
-        anchors.fill: parent
-        anchors.leftMargin: Dimensions.bar.horizontalMargins
-        anchors.rightMargin: Dimensions.bar.horizontalMargins
-        anchors.topMargin: Dimensions.bar.verticalMargins
-        anchors.bottomMargin: Dimensions.bar.verticalMargins
-
-        Rectangle {
-            id: background
-            anchors.fill: parent
-            color: Theme.palette.base300
-            radius: Dimensions.radius
-
-            border {
-                color: Theme.palette.base100
-                width: Dimensions.bar.border
-                pixelAligned: true
-            }
-        }
+    RowLayout {
 
         RowLayout {
             id: leftbar
-
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-
-            anchors.leftMargin: Dimensions.bar.horizontalPadding
-            anchors.topMargin: Dimensions.bar.verticalPadding
-            anchors.bottomMargin: Dimensions.bar.verticalPadding
 
             spacing: Dimensions.bar.spacing
 
@@ -66,11 +40,7 @@ PanelWindow {
         RowLayout {
             id: centerbar
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-
-            anchors.topMargin: Dimensions.bar.verticalPadding
-            anchors.bottomMargin: Dimensions.bar.verticalPadding
+            Layout.alignment: Qt.AlignHCenter
 
             spacing: Dimensions.bar.spacing
 
@@ -80,12 +50,7 @@ PanelWindow {
         RowLayout {
             id: rightbar
 
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-
-            anchors.rightMargin: Dimensions.bar.horizontalPadding
-            anchors.topMargin: Dimensions.bar.verticalPadding
-            anchors.bottomMargin: Dimensions.bar.verticalPadding
+            Layout.alignment: Qt.AlignRight
 
             spacing: Dimensions.bar.spacing
 
