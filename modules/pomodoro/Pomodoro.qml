@@ -72,7 +72,7 @@ StyledWindow {
                     text: Pomodoro.running ? Icons.square : Icons.play
                     font.pixelSize: 48
 
-                    background: undefined
+                    background: Item {}
                     onClicked: {
                         Pomodoro.toggle();
                     }

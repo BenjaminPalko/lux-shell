@@ -51,5 +51,5 @@ Switch {
         }
     }
 
-    background: null
+    background: Item {}
 }
