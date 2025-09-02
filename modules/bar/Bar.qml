@@ -19,7 +19,7 @@ StyledWrapperRectangle {
     anchors.topMargin: Dimensions.bar.verticalMargins
     anchors.bottomMargin: Dimensions.bar.verticalMargins
 
-    margin: 4
+    margin: 6
 
     RowLayout {
 
