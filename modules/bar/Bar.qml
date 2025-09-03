@@ -107,6 +107,8 @@ PanelWindow {
 
             Gpu {}
 
+            Power {}
+
             Clock {}
 
             Notifications {}
