@@ -1,6 +1,6 @@
 import qs.services
-import qs.widgets
 import Quickshell
+import Quickshell.Hyprland
 
 Scope {
     id: root
@@ -27,5 +27,9 @@ Scope {
         name: 'storybook'
         description: 'Open the Component Storybook'
         onPressed: Visibility.storybook = !Visibility.storybook
+    }
+
+    component LuxShortcut: GlobalShortcut {
+        appid: "lux"
     }
 }
