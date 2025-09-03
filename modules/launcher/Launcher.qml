@@ -2,10 +2,8 @@ pragma ComponentBehavior: Bound
 
 import "services"
 import qs.components
-import qs.config
 import qs.constants
 import qs.services
-import qs.widgets
 import Quickshell.Hyprland
 import Quickshell.Wayland
 import QtQuick
