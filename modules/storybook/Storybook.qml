@@ -98,6 +98,21 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
+                    text: "Progress Bar"
+                    font.pixelSize: 18
+                }
+                StyledProgressBar {
+                    id: progressBar
+                    indeterminate: true
+                    implicitHeight: 10
+                    from: 0
+                    to: 100
+                    value: 50
+                }
+            }
+
+            ColumnLayout {
+                StyledText {
                     text: "Mpris Player Selector"
                     font.pixelSize: 18
                 }
