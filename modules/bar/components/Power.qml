@@ -53,7 +53,7 @@ StyledButton {
                 }
                 return Theme.palette.basecontent;
             }
-            text: `${root.laptopBattery.percentage * 100}%`
+            text: `${(root.laptopBattery.percentage.toFixed(2) * 100)}%`
         }
     }
     visible: laptopBattery
