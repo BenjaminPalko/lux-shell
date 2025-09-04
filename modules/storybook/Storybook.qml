@@ -1,6 +1,5 @@
 pragma ComponentBehavior: Bound
 
-import qs.widgets
 import qs.components
 import qs.config
 import qs.constants
@@ -22,24 +21,28 @@ StyledWindow {
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
 
+    HyprlandFocusGrab {
+        active: Visibility.storybook
+        windows: [root]
+        onCleared: {
+            Visibility.storybook = false;
+        }
+    }
+
     StyledWrapperRectangle {
         id: rect
 
         margin: 48
 
-        HyprlandFocusGrab {
-            active: Visibility.storybook
-            windows: [root]
-            onCleared: {
-                Visibility.storybook = false;
-            }
-        }
+        GridLayout {
+            id: grid
 
-        ColumnLayout {
-
-            spacing: 12
+            flow: GridLayout.TopToBottom
+            columns: 2
+            rows: 10
 
             StyledText {
+                Layout.columnSpan: grid.columns
                 Layout.alignment: Qt.AlignHCenter
                 text: "Components"
                 font.pixelSize: 24
@@ -151,7 +154,7 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
-                    text: "Menu"
+                    text: "Popup"
                     font.pixelSize: 18
                 }
                 Button {
@@ -159,19 +162,21 @@ StyledWindow {
                     text: "File"
                     onPressed: menu.visible ? menu.close() : menu.open()
 
-                    StyledMenu {
+                    StyledPopup {
                         id: menu
-                        y: fileButton.height
 
-                        StyledMenuItem {
-                            text: "New..."
-                        }
-                        StyledMenuItem {
-                            text: "Open..."
-                        }
-                        StyledMenuSeparator {}
-                        StyledMenuItem {
-                            text: "Close"
+                        anchor.item: fileButton
+
+                        Column {
+                            StyledButton {
+                                text: "New..."
+                            }
+                            StyledButton {
+                                text: "Open..."
+                            }
+                            StyledText {
+                                text: "Close"
+                            }
                         }
                     }
                 }
