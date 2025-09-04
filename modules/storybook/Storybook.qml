@@ -10,9 +10,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-StyledWindow {
+StyledPopupWindow {
     id: root
-    name: "storybook"
 
     visible: Visibility.storybook
     implicitWidth: rect.width
@@ -149,36 +148,6 @@ StyledWindow {
                 }
                 MprisController {
                     player: Mpris.active ?? null
-                }
-            }
-
-            ColumnLayout {
-                StyledText {
-                    text: "Popup"
-                    font.pixelSize: 18
-                }
-                Button {
-                    id: fileButton
-                    text: "File"
-                    onPressed: menu.visible ? menu.close() : menu.open()
-
-                    StyledPopup {
-                        id: menu
-
-                        anchor.item: fileButton
-
-                        Column {
-                            StyledButton {
-                                text: "New..."
-                            }
-                            StyledButton {
-                                text: "Open..."
-                            }
-                            StyledText {
-                                text: "Close"
-                            }
-                        }
-                    }
                 }
             }
 
