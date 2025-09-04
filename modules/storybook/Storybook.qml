@@ -1,9 +1,10 @@
 pragma ComponentBehavior: Bound
 
+import qs.widgets
 import qs.components
+import qs.config
 import qs.constants
 import qs.services
-import qs.widgets
 import Quickshell.Hyprland
 import Quickshell.Wayland
 import QtQuick
@@ -98,7 +99,7 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
-                    text: "Progress Bar"
+                    text: "ProgressBar"
                     font.pixelSize: 18
                 }
                 StyledProgressBar {
@@ -108,6 +109,25 @@ StyledWindow {
                     from: 0
                     to: 100
                     value: 50
+                }
+            }
+
+            ColumnLayout {
+                StyledText {
+                    text: "ListView"
+                    font.pixelSize: 18
+                }
+                StyledWrapperRectangle {
+                    border.color: Theme.palette.base100
+                    border.width: 2
+                    StyledListView {
+                        implicitWidth: 200
+                        implicitHeight: 100
+                        model: 10
+                        delegate: StyledText {
+                            text: "Hello world!"
+                        }
+                    }
                 }
             }
 

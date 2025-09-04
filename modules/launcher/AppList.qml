@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 
 import "items"
 import "services"
+import qs.components
 import qs.config
 import qs.widgets
 import Quickshell
@@ -21,7 +22,7 @@ StyledListView {
 
         onValuesChanged: root.currentIndex = 0
         values: Apps.query(search.text)
-      }
+    }
 
     spacing: 12
 
@@ -45,7 +46,7 @@ StyledListView {
         id: appItem
 
         AppItem {
-          active: ListView.isCurrentItem
+            active: ListView.isCurrentItem
         }
     }
 }

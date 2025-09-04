@@ -1,9 +1,15 @@
 import QtQuick
+import QtQuick.Controls
 
 ListView {
     id: root
 
+    clip: true
     maximumFlickVelocity: 3000
+
+    ScrollBar {
+        orientation: root.orientation == ListView.Vertical ? Qt.Vertical : Qt.Horizontal
+    }
 
     rebound: Transition {
         NumberAnimation {
