@@ -6,9 +6,10 @@ import Quickshell.Hyprland
 PopupWindow {
     id: root
 
-    implicitWidth: background.implicitWidth
-    implicitHeight: background.implicitHeight
+    implicitWidth: contentItem.children.reduce((prev, child) => Math.max(prev, child.width), 0)
+    implicitHeight: contentItem.children.reduce((prev, child) => prev + child.height, 0)
     color: "transparent"
+    contentItem.focus: visible
 
     function open() {
         visible = true;
@@ -18,19 +19,19 @@ PopupWindow {
         visible = false;
     }
 
+    // WlrLayershell.layer: WlrLayer.Top
+    // WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
     HyprlandFocusGrab {
-        id: grab
+        active: root.visible
         windows: [root]
         onCleared: {
             root.close();
         }
-      }
+    }
 
     Rectangle {
         id: background
-        anchors.centerIn: root
-        implicitWidth: root.contentItem.children.reduce((prev, child) => Math.max(prev, child.width), 0)
-        implicitHeight: root.contentItem.children.reduce((prev, child) => prev + child.height, 0)
+        anchors.fill: parent
         color: Theme.palette.base200
         radius: 8
     }

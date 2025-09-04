@@ -78,7 +78,11 @@ Variants {
         Launcher {}
         Pomodoro {}
         PowerMenu {}
-        Storybook {}
+        Storybook {
+            anchor.window: topWindow
+            anchor.rect.x: topWindow.width / 2 - width / 2
+            anchor.rect.y: topWindow.height / 4
+        }
         Drawers {}
     }
 }
