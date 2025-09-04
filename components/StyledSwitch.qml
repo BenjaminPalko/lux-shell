@@ -21,9 +21,9 @@ Switch {
     }
 
     indicator: Rectangle {
-      id: indicator
+        id: indicator
 
-      property int padding: 8
+        property int padding: 8
 
         implicitWidth: 48
         implicitHeight: 24
@@ -51,5 +51,5 @@ Switch {
         }
     }
 
-    background: undefined
+    background: null
 }
