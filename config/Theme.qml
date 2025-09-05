@@ -8,9 +8,6 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    property var lucide: FontLoader {
-        source: "../assets/lucide.woff"
-    }
     property string fontFamily: "JetBrainsMono Nerd Font"
     property var palette: theme.palette
 

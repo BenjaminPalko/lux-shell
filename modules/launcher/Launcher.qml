@@ -3,7 +3,6 @@ pragma ComponentBehavior: Bound
 import "services"
 import qs.config
 import qs.components
-import qs.constants
 import qs.services
 import Quickshell.Hyprland
 import Quickshell.Wayland
@@ -54,7 +53,7 @@ StyledWindow {
                     LucideIcon {
                         id: icon
                         Layout.leftMargin: 8
-                        text: Icons.search
+                        text: Styling.lucide.icons.search
                     }
 
                     StyledTextField {

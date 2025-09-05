@@ -1,9 +1,7 @@
 import qs.components
 import qs.config
-import qs.constants
 import qs.services
 import qs.utils
-import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 
@@ -24,13 +22,8 @@ StyledButton {
         Ref {
             service: SystemInfo
         }
-        StyledText {
-            id: icon
-
-            font.family: Theme.lucide.font.family
-            font.pixelSize: Dimensions.gpu.iconSize
-            font.bold: true
-            text: Icons.gpu
+        LucideIcon {
+            text: Styling.lucide.icons.gpu
             color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
         }
 

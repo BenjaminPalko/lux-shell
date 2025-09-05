@@ -1,9 +1,7 @@
 import qs.components
 import qs.config
-import qs.constants
 import qs.services
 import qs.utils
-import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 
@@ -12,13 +10,10 @@ StyledLabel {
         Ref {
             service: NetworkService
         }
-        StyledText {
+        LucideIcon {
             id: icon
 
-            font.family: Theme.lucide.font.family
-            font.pixelSize: Dimensions.network.iconSize
-            font.bold: true
-            text: Icons.wifiOff
+            text: Styling.lucide.icons.wifiOff
 
             states: [
                 State {
@@ -26,7 +21,7 @@ StyledLabel {
                     when: NetworkService.active?.strength > 50
                     PropertyChanges {
                         icon {
-                            text: Icons.wifi
+                            text: Styling.lucide.icons.wifi
                         }
                     }
                 },
@@ -35,7 +30,7 @@ StyledLabel {
                     when: NetworkService.active?.strength > 25
                     PropertyChanges {
                         icon {
-                            text: Icons.wifiHigh
+                            text: Styling.lucide.icons.wifiHigh
                         }
                     }
                 },
@@ -44,7 +39,7 @@ StyledLabel {
                     when: NetworkService.active?.strength > 0
                     PropertyChanges {
                         icon {
-                            text: Icons.wifiLow
+                            text: Styling.lucide.icons.wifiLow
                         }
                     }
                 }

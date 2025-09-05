@@ -2,8 +2,6 @@ pragma ComponentBehavior: Bound
 
 import qs.components
 import qs.config
-import qs.constants
-import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -34,12 +32,9 @@ StyledLabel {
         Loader {
             active: root.modelData.batteryAvailable
             sourceComponent: RowLayout {
-                StyledText {
+                LucideIcon {
                     id: icon
-                    font.family: Theme.lucide.font.family
-                    font.pixelSize: Dimensions.cpu.iconSize
-                    font.bold: true
-                    text: Icons.batteryFull
+                    text: Styling.lucide.icons.batteryFull
                     states: [
                         State {
                             name: "full"
@@ -50,7 +45,7 @@ StyledLabel {
                             when: root.modelData.battery > 0.33
                             PropertyChanges {
                                 icon {
-                                    text: Icons.batteryFull
+                                    text: Styling.lucide.icons.batteryFull
                                 }
                             }
                         },
@@ -59,7 +54,7 @@ StyledLabel {
                             when: root.modelData.battery > 0.10
                             PropertyChanges {
                                 icon {
-                                    text: Icons.batteryFull
+                                    text: Styling.lucide.icons.batteryFull
                                 }
                             }
                         },
@@ -68,7 +63,7 @@ StyledLabel {
                             when: root.modelData.battery > 0.10
                             PropertyChanges {
                                 icon {
-                                    text: Icons.batteryWarning
+                                    text: Styling.lucide.icons.batteryWarning
                                     color: Theme.palette.error
                                 }
                             }

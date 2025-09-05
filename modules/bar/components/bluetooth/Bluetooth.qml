@@ -1,10 +1,10 @@
 import qs.components
-import qs.constants
+import qs.config
 
 StyledIconButton {
     id: root
 
-    text: Icons.bluetooth
+    text: Styling.lucide.icons.bluetooth
 
     onClicked: popup.toggle()
 

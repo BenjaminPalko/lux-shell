@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 
 import qs.components
 import qs.config
-import qs.constants
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Mpris
@@ -29,21 +28,21 @@ Loader {
             Layout.alignment: Qt.AlignHCenter
             StyledIconButton {
                 id: backButton
-                text: Icons.skipBack
+                text: Styling.lucide.icons.skipBack
                 onClicked: {
                     root.player.previous();
                 }
             }
             StyledIconButton {
                 id: playPauseButton
-                text: root.player.isPlaying ? Icons.pause : Icons.play
+                text: root.player.isPlaying ? Styling.lucide.icons.pause : Styling.lucide.icons.play
                 onClicked: {
                     root.player.isPlaying = !root.player.isPlaying;
                 }
             }
             StyledIconButton {
                 id: forwardButton
-                text: Icons.skipForward
+                text: Styling.lucide.icons.skipForward
                 onClicked: {
                     root.player.next();
                 }

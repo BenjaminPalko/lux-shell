@@ -2,13 +2,13 @@ import qs.config
 import QtQuick
 
 Text {
+    font.family: Styling.lucide.font.family
+    font.pixelSize: 16
+
     color: Theme.palette.basecontent
     Behavior on color {
         ColorAnimation {
             duration: Styling.animations.speed.fast
         }
     }
-    font.family: Theme.lucide.font.family
-    font.pixelSize: Dimensions.gpu.iconSize
-    font.bold: true
 }

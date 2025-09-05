@@ -1,6 +1,5 @@
 import qs.components
 import qs.config
-import qs.constants
 import QtQuick
 import Quickshell.Hyprland
 
@@ -9,7 +8,7 @@ StyledIconButton {
 
     required property HyprlandWorkspace workspace
 
-    text: Icons.triangle
+    text: Styling.lucide.icons.triangle
     font.bold: true
     font.pixelSize: 17
     padding: 8
@@ -32,7 +31,7 @@ StyledIconButton {
             when: root.workspace.active
             PropertyChanges {
                 root {
-                    text: Icons.triangleDashed
+                    text: Styling.lucide.icons.triangleDashed
                     rotation: 180
                     color: root.hovered ? Theme.palette.basecontent : Theme.palette.primary
                 }

@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 
 import qs.components
 import qs.config
-import qs.constants
 import qs.services
 import Quickshell.Hyprland
 import Quickshell.Wayland
@@ -57,7 +56,7 @@ StyledWindow {
                     font.pixelSize: 18
                 }
                 StyledIconButton {
-                    text: Icons.square
+                    text: Styling.lucide.icons.square
                 }
             }
 

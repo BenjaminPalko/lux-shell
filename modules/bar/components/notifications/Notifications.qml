@@ -1,5 +1,5 @@
 import qs.components
-import qs.constants
+import qs.config
 import qs.services
 import QtQuick
 
@@ -10,13 +10,13 @@ StyledIconButton {
         menu.toggle();
     }
 
-    text: Notifications.hasNotifications ? Icons.bell : Icons.bellRing
+    text: Notifications.hasNotifications ? Styling.lucide.icons.bell : Styling.lucide.icons.bellRing
 
     states: State {
         when: Notifications.hasNotifications
         PropertyChanges {
             root {
-                text: Icons.bellRing
+                text: Styling.lucide.icons.bellRing
             }
         }
     }

@@ -1,5 +1,5 @@
+import qs.config
 import qs.components
-import qs.constants
 import qs.services
 import QtQuick
 import QtQuick.Layouts
@@ -13,7 +13,7 @@ RowLayout {
         id: previousPlayerButton
 
         visible: Mpris.players.length > 1
-        text: Icons.chevronLeft
+        text: Styling.lucide.icons.chevronLeft
 
         onClicked: {
             Mpris.previousPlayer();
@@ -42,7 +42,7 @@ RowLayout {
         id: nextPlayerButton
 
         visible: Mpris.players.length > 1
-        text: Icons.chevronRight
+        text: Styling.lucide.icons.chevronRight
 
         onClicked: {
             Mpris.nextPlayer();

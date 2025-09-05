@@ -1,12 +1,12 @@
 import qs.components
-import qs.constants
+import qs.config
 import QtQuick
 import Quickshell.Io
 
 StyledIconButton {
     id: clickable
 
-    text: Icons.brickWall
+    text: Styling.lucide.icons.brickWall
 
     onClicked: {
         process.running = true;

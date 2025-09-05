@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 
 import qs.components
 import qs.config
-import qs.constants
 import qs.services
 import qs.widgets
 import Quickshell.Hyprland
@@ -69,7 +68,7 @@ StyledWindow {
                     radius: 9999
 
                     focus: root.visible
-                    text: Pomodoro.running ? Icons.square : Icons.play
+                    text: Pomodoro.running ? Styling.lucide.icons.square : Styling.lucide.icons.play
                     font.pixelSize: 48
 
                     background: Item {}

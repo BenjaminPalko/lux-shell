@@ -1,6 +1,5 @@
 import qs.components
 import qs.config
-import qs.constants
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.UPower
@@ -26,18 +25,18 @@ StyledButton {
             font.pixelSize: 16
             text: {
                 if (root.laptopBattery?.state == UPowerDeviceState.Charging) {
-                    return Icons.batteryCharging;
+                    return Styling.lucide.icons.batteryCharging;
                 }
                 if (root.isCritical) {
-                    return Icons.batteryWarning;
+                    return Styling.lucide.icons.batteryWarning;
                 }
                 if (root.laptopBattery?.percentage < 0.33) {
-                    return Icons.batteryLow;
+                    return Styling.lucide.icons.batteryLow;
                 }
                 if (root.laptopBattery?.percentage < 0.66) {
-                    return Icons.batteryMedium;
+                    return Styling.lucide.icons.batteryMedium;
                 }
-                return Icons.batteryFull;
+                return Styling.lucide.icons.batteryFull;
             }
         }
 
