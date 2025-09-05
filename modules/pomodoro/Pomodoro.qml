@@ -53,10 +53,10 @@ StyledWindow {
                 Circle {
                     id: circle
                     radius: 150
-                    borderColor: Theme.palette.base100
-                    strokeColor: Pomodoro.state == "timer" ? Theme.palette.primary : Theme.palette.warning
+                    borderColor: Styling.theme.base100
+                    strokeColor: Pomodoro.state == "timer" ? Styling.theme.primary : Styling.theme.warning
                     strokeWidth: 12
-                    fillColor: button.hovered ? Theme.palette.primary : "transparent"
+                    fillColor: button.hovered ? Styling.theme.primary : "transparent"
                     percentage: (Pomodoro.state == "timer" ? (Pomodoro.initialTime - Pomodoro.remainingTime) : Pomodoro.remainingTime) / Pomodoro.initialTime % 1
                 }
 

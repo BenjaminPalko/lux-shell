@@ -22,7 +22,7 @@ StyledIconButton {
             PropertyChanges {
                 root {
                     rotation: 180
-                    color: root.hovered ? Theme.palette.basecontent : Theme.palette.primary
+                    color: root.hovered ? Styling.theme.basecontent : Styling.theme.primary
                 }
             }
         },
@@ -33,7 +33,7 @@ StyledIconButton {
                 root {
                     text: Styling.lucide.icons.triangleDashed
                     rotation: 180
-                    color: root.hovered ? Theme.palette.basecontent : Theme.palette.primary
+                    color: root.hovered ? Styling.theme.basecontent : Styling.theme.primary
                 }
             }
         }

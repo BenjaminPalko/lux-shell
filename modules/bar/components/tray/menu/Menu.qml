@@ -9,7 +9,7 @@ import Quickshell
 StyledPopupWindow {
     id: window
 
-    backgroundColor: Theme.palette.base300
+    backgroundColor: Styling.theme.base300
     margins: 14
     radius: 8
 
@@ -32,7 +32,7 @@ StyledPopupWindow {
                 property Component menuSeperator: Rectangle {
                     implicitHeight: 2
 
-                    color: Theme.palette.base100
+                    color: Styling.theme.base100
                 }
                 property Component menuItem: MenuItem {
                     menuEntry: loader.modelData

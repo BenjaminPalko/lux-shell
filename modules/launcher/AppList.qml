@@ -31,7 +31,7 @@ StyledListView {
     highlightResizeDuration: 0
     highlight: Rectangle {
         radius: 8
-        color: Theme.palette.primary
+        color: Styling.theme.primary
     }
 
     header: StyledText {

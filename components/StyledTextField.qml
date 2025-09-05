@@ -4,6 +4,6 @@ import QtQuick.Controls
 
 TextField {
 
-    color: Theme.palette.basecontent
+    color: Styling.theme.basecontent
     background: Item {}
 }

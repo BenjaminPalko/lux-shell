@@ -11,7 +11,7 @@ Switch {
         text: control.text
         font: control.font
         opacity: enabled ? 1.0 : 0.3
-        color: Theme.palette.basecontent
+        color: Styling.theme.basecontent
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
     }
@@ -31,7 +31,7 @@ Switch {
         y: parent.height / 2 - height / 2
         radius: 16
         color: "transparent"
-        border.color: control.checked ? Theme.palette.primary : Theme.palette.basecontent
+        border.color: control.checked ? Styling.theme.primary : Styling.theme.basecontent
         border.width: 2
 
         Rectangle {
@@ -46,7 +46,7 @@ Switch {
             width: parent.width / 2 - indicator.padding
             height: parent.height - indicator.padding
             radius: 16
-            color: control.checked ? Theme.palette.primary : Theme.palette.basecontent
+            color: control.checked ? Styling.theme.primary : Styling.theme.basecontent
         }
     }
 

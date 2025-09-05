@@ -22,8 +22,8 @@ Item {
         ShapePath {
             id: fill
 
-            fillColor: Theme.palette.base100
-            strokeColor: Theme.palette.base200
+            fillColor: Styling.theme.base100
+            strokeColor: Styling.theme.base200
             strokeWidth: 8
 
             PathAngleArc {

@@ -6,7 +6,7 @@ RoundButton {
     id: control
 
     property alias border: rect.border
-    property color color: hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+    property color color: hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
     property int rotation: 0
 
     font.family: Styling.lucide.font.family
@@ -39,14 +39,14 @@ RoundButton {
 
     background: Rectangle {
         id: rect
-        border.color: control.hovered ? Theme.palette.base300 : Theme.palette.base200
+        border.color: control.hovered ? Styling.theme.base300 : Styling.theme.base200
         Behavior on border.color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal
             }
         }
         border.width: 0
-        color: control.hovered ? Theme.palette.primary : Theme.palette.base200
+        color: control.hovered ? Styling.theme.primary : Styling.theme.base200
         Behavior on color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal

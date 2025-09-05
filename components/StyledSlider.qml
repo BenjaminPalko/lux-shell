@@ -19,7 +19,7 @@ Slider {
         width: control.availableWidth
         height: implicitHeight
         radius: 8
-        color: Theme.palette.base200
+        color: Styling.theme.base200
 
         Rectangle {
             width: control.visualPosition * parent.width
@@ -29,7 +29,7 @@ Slider {
                 }
             }
             height: parent.height
-            color: Theme.palette.primary
+            color: Styling.theme.primary
             radius: 8
         }
     }

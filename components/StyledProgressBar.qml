@@ -15,7 +15,7 @@ ProgressBar {
     background: Rectangle {
         implicitWidth: 200
         implicitHeight: 6
-        color: Theme.palette.base100
+        color: Styling.theme.base100
         radius: 8
     }
 
@@ -28,7 +28,7 @@ ProgressBar {
             width: control.visualPosition * parent.width
             height: parent.height
             radius: 8
-            color: Theme.palette.primary
+            color: Styling.theme.primary
             visible: !control.indeterminate
         }
 
@@ -41,7 +41,7 @@ ProgressBar {
             Row {
                 Rectangle {
                     id: rect
-                    color: Theme.palette.primary
+                    color: Styling.theme.primary
                     width: 40
                     height: control.height
                 }

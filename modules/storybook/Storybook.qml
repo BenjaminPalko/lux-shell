@@ -137,7 +137,7 @@ StyledWindow {
                     font.pixelSize: 18
                 }
                 StyledWrapperRectangle {
-                    border.color: Theme.palette.base100
+                    border.color: Styling.theme.base100
                     border.width: 2
                     StyledListView {
                         implicitWidth: 200

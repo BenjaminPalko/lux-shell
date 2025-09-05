@@ -28,7 +28,7 @@ StyledButton {
             when: Pipewire.muted
             PropertyChanges {
                 root {
-                    palette.button: Theme.palette.error
+                    palette.button: Styling.theme.error
                 }
             }
         }

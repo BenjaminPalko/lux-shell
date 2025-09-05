@@ -11,13 +11,13 @@ Button {
     verticalPadding: 6
     horizontalPadding: 8
 
-    palette.button: hovered ? Theme.palette.primary : Theme.palette.base200
+    palette.button: hovered ? Styling.theme.primary : Styling.theme.base200
     Behavior on palette.button {
         ColorAnimation {
             duration: Styling.animations.speed.normal
         }
     }
-    palette.buttonText: hoverEnabled && hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+    palette.buttonText: hoverEnabled && hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
     Behavior on palette.buttonText {
         ColorAnimation {
             duration: Styling.animations.speed.normal

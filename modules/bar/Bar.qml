@@ -32,11 +32,11 @@ PanelWindow {
         Rectangle {
             id: background
             anchors.fill: parent
-            color: Theme.palette.base100
+            color: Styling.theme.base100
             radius: Dimensions.radius
 
             border {
-                color: Theme.palette.base200
+                color: Styling.theme.base200
                 width: Dimensions.bar.border
                 pixelAligned: true
             }

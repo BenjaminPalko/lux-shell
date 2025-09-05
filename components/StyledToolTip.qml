@@ -9,13 +9,13 @@ ToolTip {
     contentItem: Text {
         text: control.text
         font: control.font
-        color: Theme.palette.basecontent
+        color: Styling.theme.basecontent
     }
 
     background: Rectangle {
         radius: 8
-        color: Theme.palette.base100
-        border.color: Theme.palette.base200
+        color: Styling.theme.base100
+        border.color: Styling.theme.base200
         border.width: 2
     }
 }

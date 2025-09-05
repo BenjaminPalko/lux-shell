@@ -10,7 +10,7 @@ import QtQuick.Layouts
 StyledPopupWindow {
     id: root
 
-    backgroundColor: Theme.palette.base300
+    backgroundColor: Styling.theme.base300
     margins: 16
     radius: 8
 
@@ -32,7 +32,7 @@ StyledPopupWindow {
 
         StyledLabel {
             Layout.columnSpan: 2
-            color: Theme.palette.base200
+            color: Styling.theme.base200
             StyledListView {
                 id: notifications
 

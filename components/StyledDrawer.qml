@@ -20,6 +20,6 @@ Drawer {
                 topRightRadius = 8;
             }
         }
-        color: Theme.palette.base100
+        color: Styling.theme.base100
     }
 }

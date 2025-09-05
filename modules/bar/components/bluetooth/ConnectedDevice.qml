@@ -64,7 +64,7 @@ StyledLabel {
                             PropertyChanges {
                                 icon {
                                     text: Styling.lucide.icons.batteryWarning
-                                    color: Theme.palette.error
+                                    color: Styling.theme.error
                                 }
                             }
                         }
@@ -76,7 +76,7 @@ StyledLabel {
         StyledButton {
             Layout.alignment: Qt.AlignRight
             text: 'Disconnect'
-            palette.button: hovered ? Theme.palette.error : Theme.palette.base200
+            palette.button: hovered ? Styling.theme.error : Styling.theme.base200
 
             onClicked: {
                 if (root.modelData.state != BluetoothDeviceState.Connected) {

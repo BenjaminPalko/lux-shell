@@ -5,8 +5,8 @@ import QtQuick.Controls
 Menu {
     id: root
 
-    palette.window: Theme.palette.base100
-    palette.base: Theme.palette.base100
+    palette.window: Styling.theme.base100
+    palette.base: Styling.theme.base100
 
     focus: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent

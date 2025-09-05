@@ -76,7 +76,7 @@ StyledWindow {
             highlightResizeDuration: 0
             highlight: Rectangle {
                 radius: 8
-                color: Theme.palette.primary
+                color: Styling.theme.primary
             }
 
             onCurrentItemChanged: {
@@ -103,7 +103,7 @@ StyledWindow {
                 }
 
                 padding: 16
-                color: list.currentIndex == index ? Theme.palette.primarycontent : Theme.palette.basecontent
+                color: list.currentIndex == index ? Styling.theme.primarycontent : Styling.theme.basecontent
                 text: modelData.text
                 font.pixelSize: 18
                 font.bold: true

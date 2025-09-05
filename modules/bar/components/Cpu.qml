@@ -24,7 +24,7 @@ StyledButton {
         }
         LucideIcon {
             text: Styling.lucide.icons.cpu
-            color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+            color: root.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
         }
 
         StyledText {
@@ -32,7 +32,7 @@ StyledButton {
 
             font.pixelSize: Dimensions.cpu.fontSize
             text: ` ${(SystemInfo.cpuPerc * 100).toFixed().toString().padStart(2, "_")}%`
-            color: root.hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
+            color: root.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
 
             states: [
                 State {

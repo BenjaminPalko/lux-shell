@@ -15,12 +15,12 @@ StyledButton {
             Layout.alignment: Qt.AlignVCenter
             color: {
                 if (root.isCritical) {
-                    return Theme.palette.error;
+                    return Styling.theme.error;
                 }
                 if (root.hovered) {
-                    return Theme.palette.primarycontent;
+                    return Styling.theme.primarycontent;
                 }
-                return Theme.palette.basecontent;
+                return Styling.theme.basecontent;
             }
             font.pixelSize: 16
             text: {
@@ -44,12 +44,12 @@ StyledButton {
             Layout.alignment: Qt.AlignVCenter
             color: {
                 if (root.isCritical) {
-                    return Theme.palette.error;
+                    return Styling.theme.error;
                 }
                 if (root.hovered) {
-                    return Theme.palette.primarycontent;
+                    return Styling.theme.primarycontent;
                 }
-                return Theme.palette.basecontent;
+                return Styling.theme.basecontent;
             }
             text: `${(root.laptopBattery?.percentage.toFixed(2) * 100)}%`
         }

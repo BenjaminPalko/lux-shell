@@ -48,7 +48,7 @@ StyledLabel {
                 hoverEnabled: root.modelData.state == BluetoothDeviceState.Disconnected
                 text: 'Unpair'
 
-                palette.button: hovered ? Theme.palette.error : Theme.palette.base100
+                palette.button: hovered ? Styling.theme.error : Styling.theme.base100
 
                 onClicked: {
                     if (!hoverEnabled) {

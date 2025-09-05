@@ -42,7 +42,7 @@ Item {
 
             Layout.alignment: Qt.AlignBottom
             Layout.fillWidth: true
-            color: root.active ? Theme.palette.primarycontent : Theme.palette.basecontent
+            color: root.active ? Styling.theme.primarycontent : Styling.theme.basecontent
             font.pixelSize: 14
             font.bold: true
         }
@@ -52,7 +52,7 @@ Item {
 
             Layout.alignment: Qt.AlignTop
             Layout.fillWidth: true
-            color: root.active ? Theme.palette.primarycontent : Theme.palette.basecontent
+            color: root.active ? Styling.theme.primarycontent : Styling.theme.basecontent
             font.pixelSize: 10
             elide: Text.ElideRight
         }

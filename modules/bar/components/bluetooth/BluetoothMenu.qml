@@ -11,7 +11,7 @@ import Quickshell.Bluetooth
 StyledPopupWindow {
     id: root
 
-    backgroundColor: Theme.palette.base300
+    backgroundColor: Styling.theme.base300
     margins: 16
     radius: 8
 

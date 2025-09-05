@@ -47,7 +47,7 @@ StyledWindow {
                 Layout.alignment: Qt.AlignTop
                 margin: 4
 
-                color: Theme.palette.base200
+                color: Styling.theme.base200
 
                 RowLayout {
                     LucideIcon {

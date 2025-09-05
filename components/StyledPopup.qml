@@ -31,7 +31,7 @@ PopupWindow {
         anchors.centerIn: root
         implicitWidth: root.contentItem.children.reduce((prev, child) => Math.max(prev, child.width), 0)
         implicitHeight: root.contentItem.children.reduce((prev, child) => prev + child.height, 0)
-        color: Theme.palette.base200
+        color: Styling.theme.base200
         radius: 8
     }
 }

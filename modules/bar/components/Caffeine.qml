@@ -6,7 +6,7 @@ StyledIconButton {
     id: root
 
     border.width: 2
-    border.color: Caffeine.enabled ? Theme.palette.secondary : root.hovered ? Theme.palette.primary : Theme.palette.base300
+    border.color: Caffeine.enabled ? Styling.theme.secondary : root.hovered ? Styling.theme.primary : Styling.theme.base300
     text: Styling.lucide.icons.coffee
 
     onClicked: {

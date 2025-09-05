@@ -8,6 +8,7 @@ Singleton {
 
     readonly property Lucide lucide: Lucide {}
     readonly property Animations animations: Animations {}
+    readonly property var theme: Theme.palette
 
     component Animations: QtObject {
         property AnimationSpeed speed: AnimationSpeed {}
