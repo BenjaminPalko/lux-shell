@@ -16,7 +16,7 @@ Singleton {
 
     Process {
         running: true
-        command: ["bash", "-c", `inotifywait -m -r ~/.config/lux -e modify,move,create,delete | while read dir action; do ls -m "$dir"; done`]
+        command: ["bash", "-c", `inotifywait -m -r ~/.config/lux/themes/ -e modify,move,create,delete | while read dir action; do ls -m "$dir"; done`]
         stderr: StdioCollector {
             onStreamFinished: console.log(`line read: ${this.text}`)
         }
