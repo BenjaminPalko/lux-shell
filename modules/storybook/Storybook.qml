@@ -63,6 +63,23 @@ StyledWindow {
 
             ColumnLayout {
                 StyledText {
+                    text: "Theme Selector"
+                    font.pixelSize: 18
+                }
+                RowLayout {
+                    Repeater {
+                        model: Theme.themes
+                        delegate: StyledButton {
+                            required property var modelData
+                            text: modelData
+                            onClicked: Theme.currentTheme = modelData
+                        }
+                    }
+                }
+            }
+
+            ColumnLayout {
+                StyledText {
                     text: "Switch"
                     font.pixelSize: 18
                 }
