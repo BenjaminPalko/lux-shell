@@ -7,8 +7,9 @@ WrapperRectangle {
     margin: 8
     radius: 8
     color: Theme.palette.base200
-    ColorAnimation on color {
-        duration: 200
-        easing.type: Easing.InOutQuad
+    Behavior on color {
+        ColorAnimation {
+            duration: Styling.animations.speed.normal
+        }
     }
 }

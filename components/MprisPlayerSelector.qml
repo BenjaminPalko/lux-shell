@@ -1,7 +1,6 @@
 import qs.components
 import qs.constants
 import qs.services
-import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 
@@ -29,10 +28,10 @@ RowLayout {
             const player = Mpris.active;
             const displayName = player.identity ?? player.desktopEntry ?? player.dbusName ?? "unknown";
             if (displayName.toLowerCase().includes('tidal')) {
-              return "Tidal";
+                return "Tidal";
             }
             if (displayName.toLowerCase().includes('zen')) {
-              return "Zen";
+                return "Zen";
             }
             return displayName;
         }

@@ -28,26 +28,34 @@ RoundButton {
         font: control.font
         text: control.text
         color: control.color
-        ColorAnimation on color {
-            duration: 100
+        Behavior on color {
+            ColorAnimation {
+                duration: Styling.animations.speed.normal
+            }
         }
         rotation: control.rotation
-        RotationAnimation on rotation {
-            duration: 200
-            easing.type: Easing.InOutCubic
+        Behavior on rotation {
+            RotationAnimation {
+                duration: Styling.animations.speed.slow
+                easing.type: Easing.InOutCubic
+            }
         }
     }
 
     background: Rectangle {
         id: rect
         border.color: control.hovered ? Theme.palette.base300 : Theme.palette.base200
-        ColorAnimation on border.color {
-            duration: 100
+        Behavior on border.color {
+            ColorAnimation {
+                duration: Styling.animations.speed.normal
+            }
         }
         border.width: 0
         color: control.hovered ? Theme.palette.primary : Theme.palette.base200
-        ColorAnimation on color {
-            duration: 100
+        Behavior on color {
+            ColorAnimation {
+                duration: Styling.animations.speed.normal
+            }
         }
         radius: control.radius
     }

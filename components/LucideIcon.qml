@@ -5,7 +5,7 @@ Text {
     color: Theme.palette.basecontent
     Behavior on color {
         ColorAnimation {
-            duration: 100
+            duration: Styling.animations.speed.fast
         }
     }
     font.family: Theme.lucide.font.family

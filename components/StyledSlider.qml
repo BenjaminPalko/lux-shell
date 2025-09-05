@@ -19,13 +19,13 @@ Slider {
         width: control.availableWidth
         height: implicitHeight
         radius: 8
-        color: Theme.palette.base100
+        color: Theme.palette.base200
 
         Rectangle {
             width: control.visualPosition * parent.width
             Behavior on width {
                 NumberAnimation {
-                    duration: 75
+                    duration: Styling.animations.speed.fast
                 }
             }
             height: parent.height

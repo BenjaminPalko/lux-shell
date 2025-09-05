@@ -40,14 +40,13 @@ Switch {
             y: parent.height / 2 - height / 2
             Behavior on x {
                 NumberAnimation {
-                    duration: 100
+                    duration: Styling.animations.speed.fast
                 }
             }
             width: parent.width / 2 - indicator.padding
             height: parent.height - indicator.padding
             radius: 16
             color: control.checked ? Theme.palette.primary : Theme.palette.basecontent
-            // border.color: control.checked ? (control.down ? "#17a81a" : "#21be2b") : "#999999"
         }
     }
 

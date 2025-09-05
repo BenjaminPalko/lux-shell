@@ -40,15 +40,15 @@ ProgressBar {
 
             Row {
                 Rectangle {
-                  id: rect
-                        color: Theme.palette.primary
-                        width: 40
-                        height: control.height
-                    }
+                    id: rect
+                    color: Theme.palette.primary
+                    width: 40
+                    height: control.height
+                }
                 XAnimator on x {
                     from: control.width + rect.width
                     to: -rect.width
-                    duration: 1000
+                    duration: Styling.animations.speed.verySlow
                     loops: Animation.Infinite
                     running: control.indeterminate
                 }

@@ -12,12 +12,16 @@ Button {
     horizontalPadding: 8
 
     palette.button: hovered ? Theme.palette.primary : Theme.palette.base200
-    ColorAnimation on palette.button {
-        duration: 100
+    Behavior on palette.button {
+        ColorAnimation {
+            duration: Styling.animations.speed.normal
+        }
     }
     palette.buttonText: hoverEnabled && hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
-    ColorAnimation on palette.buttonText {
-        duration: 100
+    Behavior on palette.buttonText {
+        ColorAnimation {
+            duration: Styling.animations.speed.normal
+        }
     }
 
     wheelEnabled: true
