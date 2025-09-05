@@ -15,9 +15,9 @@ RoundButton {
     property int rotation: 0
 
     font.family: loader.font.family
-    font.pixelSize: 18
+    font.pixelSize: 19
     radius: 8
-    padding: 6
+    padding: 8
 
     HoverHandler {
         cursorShape: Qt.PointingHandCursor
@@ -28,34 +28,26 @@ RoundButton {
         font: control.font
         text: control.text
         color: control.color
-        Behavior on color {
-            ColorAnimation {
-                duration: 100
-            }
+        ColorAnimation on color {
+            duration: 100
         }
         rotation: control.rotation
-        Behavior on rotation {
-            RotationAnimation {
-                duration: 200
-                easing.type: Easing.InOutCubic
-            }
+        RotationAnimation on rotation {
+            duration: 200
+            easing.type: Easing.InOutCubic
         }
     }
 
     background: Rectangle {
         id: rect
-        border.color: control.hovered ? Theme.palette.primary : Theme.palette.base100
-        Behavior on border.color {
-            ColorAnimation {
-                duration: 100
-            }
+        border.color: control.hovered ? Theme.palette.base300 : Theme.palette.base200
+        ColorAnimation on border.color {
+            duration: 100
         }
-        border.width: 2
-        color: control.hovered ? Theme.palette.primary : Theme.palette.base100
-        Behavior on color {
-            ColorAnimation {
-                duration: 100
-            }
+        border.width: 0
+        color: control.hovered ? Theme.palette.primary : Theme.palette.base200
+        ColorAnimation on color {
+            duration: 100
         }
         radius: control.radius
     }

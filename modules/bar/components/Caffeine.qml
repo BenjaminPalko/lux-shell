@@ -6,7 +6,8 @@ import qs.services
 StyledIconButton {
     id: root
 
-    border.color: Caffeine.enabled ? Theme.palette.secondary : root.hovered ? Theme.palette.primary : Theme.palette.base100
+    border.width: 2
+    border.color: Caffeine.enabled ? Theme.palette.secondary : root.hovered ? Theme.palette.primary : Theme.palette.base300
     text: Icons.coffee
 
     onClicked: {

@@ -4,7 +4,6 @@ import "items"
 import "services"
 import qs.components
 import qs.config
-import qs.widgets
 import Quickshell
 import QtQuick
 import QtQuick.Controls

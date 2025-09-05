@@ -3,7 +3,6 @@ pragma ComponentBehavior: Bound
 import qs.components
 import qs.config
 import qs.services
-import qs.widgets
 import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Wayland
@@ -28,7 +27,6 @@ StyledWindow {
     StyledWrapperRectangle {
         id: rect
 
-        color: Theme.palette.base300
         margin: 14
         radius: 8
 

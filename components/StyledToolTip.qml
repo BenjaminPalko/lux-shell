@@ -14,6 +14,6 @@ ToolTip {
 
     background: Rectangle {
         radius: 8
-        color: Theme.palette.base200
+        color: Theme.palette.base100
     }
 }

@@ -4,13 +4,14 @@ import qs.components
 import qs.services
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Widgets
 
 StyledDrawer {
     id: root
 
     visible: Visibility.dashboard
 
-    StyledWrapperRectangle {
+    WrapperItem {
         margin: 32
         ColumnLayout {
             spacing: 8

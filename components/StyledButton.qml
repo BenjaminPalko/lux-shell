@@ -8,19 +8,16 @@ Button {
     property alias radius: rectangle.radius
 
     font.pixelSize: 14
-    padding: 6
+    verticalPadding: 6
+    horizontalPadding: 8
 
-    palette.button: hovered ? Theme.palette.primary : Theme.palette.base100
-    Behavior on palette.button {
-        ColorAnimation {
-            duration: 100
-        }
+    palette.button: hovered ? Theme.palette.primary : Theme.palette.base200
+    ColorAnimation on palette.button {
+        duration: 100
     }
     palette.buttonText: hoverEnabled && hovered ? Theme.palette.primarycontent : Theme.palette.basecontent
-    Behavior on palette.buttonText {
-        ColorAnimation {
-            duration: 100
-        }
+    ColorAnimation on palette.buttonText {
+        duration: 100
     }
 
     wheelEnabled: true

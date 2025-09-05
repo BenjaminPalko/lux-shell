@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import "services"
+import qs.config
 import qs.components
 import qs.constants
 import qs.services
@@ -46,6 +47,8 @@ StyledWindow {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
                 margin: 4
+
+                color: Theme.palette.base200
 
                 RowLayout {
                     LucideIcon {

@@ -4,11 +4,9 @@ import Quickshell.Widgets
 
 WrapperRectangle {
     radius: 8
-    color: Theme.palette.base300
-    Behavior on color {
-        ColorAnimation {
-            duration: 200
-            easing.type: Easing.InOutQuad
-        }
+    color: Theme.palette.base100
+    ColorAnimation on color {
+        duration: 200
+        easing.type: Easing.InOutQuad
     }
 }
