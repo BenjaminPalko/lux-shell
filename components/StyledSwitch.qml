@@ -29,7 +29,7 @@ Switch {
         implicitHeight: 24
         x: control.width - width - control.rightPadding
         y: parent.height / 2 - height / 2
-        radius: 16
+        radius: Styling.theme.radiusSelector
         color: "transparent"
         border.color: control.checked ? Styling.theme.primary : Styling.theme.basecontent
         border.width: 2
@@ -45,7 +45,7 @@ Switch {
             }
             width: parent.width / 2 - indicator.padding
             height: parent.height - indicator.padding
-            radius: 16
+            radius: Styling.theme.radiusSelector
             color: control.checked ? Styling.theme.primary : Styling.theme.basecontent
         }
     }

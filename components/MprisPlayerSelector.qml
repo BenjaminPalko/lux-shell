@@ -5,7 +5,7 @@ import QtQuick
 import QtQuick.Layouts
 
 RowLayout {
-    spacing: 8
+    spacing: Styling.layout.spacing.xl
 
     Layout.alignment: Qt.AlignHCenter
 
@@ -21,6 +21,7 @@ RowLayout {
     }
 
     StyledText {
+        font.pixelSize: Styling.typography.textSize.xl
         text: {
             if (!Mpris.active) {
                 return "inactive";
@@ -35,7 +36,6 @@ RowLayout {
             }
             return displayName;
         }
-        font.pixelSize: 20
     }
 
     StyledIconButton {

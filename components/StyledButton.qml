@@ -7,7 +7,7 @@ Button {
     property alias border: rectangle.border
     property alias radius: rectangle.radius
 
-    font.pixelSize: 14
+    font.pixelSize: Styling.typography.textSize.base
     verticalPadding: 6
     horizontalPadding: 8
 
@@ -33,6 +33,6 @@ Button {
     background: Rectangle {
         id: rectangle
         color: root.palette.button
-        radius: 8
+        radius: Styling.theme.radiusField
     }
 }

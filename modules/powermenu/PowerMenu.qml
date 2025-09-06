@@ -28,7 +28,6 @@ StyledWindow {
         id: rect
 
         margin: 14
-        radius: 8
 
         HyprlandFocusGrab {
             active: Visibility.powermenu
@@ -67,7 +66,7 @@ StyledWindow {
 
             model: Config.powermenu.actions
 
-            spacing: 8
+            spacing: Styling.layout.spacing.base
 
             implicitWidth: 220
             implicitHeight: 185
@@ -105,7 +104,7 @@ StyledWindow {
                 padding: 16
                 color: list.currentIndex == index ? Styling.theme.primarycontent : Styling.theme.basecontent
                 text: modelData.text
-                font.pixelSize: 18
+                font.pixelSize: Styling.typography.textSize.lg
                 font.bold: true
             }
         }

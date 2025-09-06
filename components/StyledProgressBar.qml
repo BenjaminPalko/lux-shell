@@ -16,7 +16,7 @@ ProgressBar {
         implicitWidth: 200
         implicitHeight: 6
         color: Styling.theme.base100
-        radius: 8
+        radius: Styling.theme.radiusField
     }
 
     contentItem: Item {
@@ -27,7 +27,7 @@ ProgressBar {
         Rectangle {
             width: control.visualPosition * parent.width
             height: parent.height
-            radius: 8
+            radius: Styling.theme.radiusField
             color: Styling.theme.primary
             visible: !control.indeterminate
         }

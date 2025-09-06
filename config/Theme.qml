@@ -86,6 +86,11 @@ Singleton {
                 property color warningcontent: "#793205"
                 property color error: "#ff627d"
                 property color errorcontent: "#4d0218"
+
+                property int radiusSelector: 8
+                property int radiusField: 8
+                property int radiusBox: 8
+                property int border: 2
             }
         }
     }

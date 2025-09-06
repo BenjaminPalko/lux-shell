@@ -14,35 +14,43 @@ Loader {
     active: player != null
 
     sourceComponent: ColumnLayout {
-        spacing: 12
+        spacing: Styling.layout.spacing.xl
         implicitWidth: 800
 
         StyledText {
             id: text
+
             Layout.alignment: Qt.AlignHCenter
-            text: `${root.player.trackTitle} - ${root.player.trackArtist}`
+
             font.pixelSize: Styling.typography.textSize.base
+            text: `${root.player.trackTitle} - ${root.player.trackArtist}`
         }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
             StyledIconButton {
                 id: backButton
+
                 text: Styling.lucide.icons.skipBack
+
                 onClicked: {
                     root.player.previous();
                 }
             }
             StyledIconButton {
                 id: playPauseButton
+
                 text: root.player.isPlaying ? Styling.lucide.icons.pause : Styling.lucide.icons.play
+
                 onClicked: {
                     root.player.isPlaying = !root.player.isPlaying;
                 }
             }
             StyledIconButton {
                 id: forwardButton
+
                 text: Styling.lucide.icons.skipForward
+
                 onClicked: {
                     root.player.next();
                 }
@@ -51,21 +59,24 @@ Loader {
 
         StyledText {
             Layout.alignment: Qt.AlignHCenter
+
+            font.pixelSize: Styling.typography.textSize.sm
             text: {
                 function formatTime(num) {
                     return Math.floor(num).toString().padStart(2, "0");
                 }
                 return `${formatTime(root.player.position / 60)}:${formatTime(root.player.position % 60)} - ${formatTime(root.player.length / 60)}:${formatTime(root.player.length % 60)}`;
             }
-            font.pixelSize: Styling.typography.textSize.sm
         }
 
         StyledSlider {
+            Layout.fillWidth: true
+
             from: 0
             to: root.player.length ?? 0
             value: root.player.position
             implicitHeight: 6
-            Layout.fillWidth: true
+
             onMoved: {
                 root.player.position = value;
             }

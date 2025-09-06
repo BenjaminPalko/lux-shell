@@ -8,6 +8,7 @@ Singleton {
 
     readonly property Animations animations: Animations {}
     readonly property Typography typography: Typography {}
+    readonly property Layout layout: Layout {}
     readonly property var theme: Theme.palette
     readonly property Lucide lucide: Lucide {}
 
@@ -31,6 +32,16 @@ Singleton {
         readonly property int base: 14
         readonly property int lg: 18
         readonly property int xl: 24
+    }
+
+    component Layout: QtObject {
+        readonly property LayoutSpacing spacing: LayoutSpacing {}
+    }
+    component LayoutSpacing: QtObject {
+        readonly property int sm: 2
+        readonly property int base: 4
+        readonly property int lg: 8
+        readonly property int xl: 12
     }
 
     component Lucide: Item {

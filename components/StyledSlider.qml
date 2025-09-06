@@ -18,7 +18,7 @@ Slider {
         implicitHeight: control.height
         width: control.availableWidth
         height: implicitHeight
-        radius: 8
+        radius: Styling.theme.radiusField
         color: Styling.theme.base200
 
         Rectangle {
@@ -30,7 +30,7 @@ Slider {
             }
             height: parent.height
             color: Styling.theme.primary
-            radius: 8
+            radius: Styling.theme.radiusField
         }
     }
     handle: null

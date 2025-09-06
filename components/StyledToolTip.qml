@@ -13,9 +13,9 @@ ToolTip {
     }
 
     background: Rectangle {
-        radius: 8
+        radius: Styling.theme.radiusBox
         color: Styling.theme.base100
         border.color: Styling.theme.base200
-        border.width: 2
+        border.width: Styling.theme.border
     }
 }

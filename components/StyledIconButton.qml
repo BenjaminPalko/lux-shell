@@ -11,7 +11,7 @@ RoundButton {
 
     font.family: Styling.lucide.font.family
     font.pixelSize: 16
-    radius: 8
+    radius: Styling.theme.radiusField
     padding: 8
 
     HoverHandler {

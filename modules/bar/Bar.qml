@@ -16,7 +16,7 @@ PanelWindow {
     anchors.left: true
     anchors.right: true
 
-    implicitHeight: Dimensions.bar.height
+    implicitHeight: 50
     color: 'transparent'
 
     WlrLayershell.layer: WlrLayer.Top
@@ -24,20 +24,20 @@ PanelWindow {
     Item {
 
         anchors.fill: parent
-        anchors.leftMargin: Dimensions.bar.horizontalMargins
-        anchors.rightMargin: Dimensions.bar.horizontalMargins
-        anchors.topMargin: Dimensions.bar.verticalMargins
-        anchors.bottomMargin: Dimensions.bar.verticalMargins
+        anchors.leftMargin: 8
+        anchors.rightMargin: 8
+        anchors.topMargin: 4
+        anchors.bottomMargin: 4
 
         Rectangle {
             id: background
             anchors.fill: parent
             color: Styling.theme.base100
-            radius: Dimensions.radius
+            radius: Styling.theme.radiusBox
 
             border {
                 color: Styling.theme.base200
-                width: Dimensions.bar.border
+                width: Styling.theme.border
                 pixelAligned: true
             }
         }
@@ -48,11 +48,11 @@ PanelWindow {
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
 
-            anchors.leftMargin: Dimensions.bar.horizontalPadding
-            anchors.topMargin: Dimensions.bar.verticalPadding
-            anchors.bottomMargin: Dimensions.bar.verticalPadding
+            anchors.leftMargin: 8
+            anchors.topMargin: 4
+            anchors.bottomMargin: 4
 
-            spacing: Dimensions.bar.spacing
+            spacing: Styling.layout.spacing.base
 
             SystemLogo {
                 implicitSize: 22
@@ -69,10 +69,10 @@ PanelWindow {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
 
-            anchors.topMargin: Dimensions.bar.verticalPadding
-            anchors.bottomMargin: Dimensions.bar.verticalPadding
+            anchors.topMargin: 4
+            anchors.bottomMargin: 4
 
-            spacing: Dimensions.bar.spacing
+            spacing: Styling.layout.spacing.base
 
             Mpris {}
         }
@@ -83,11 +83,11 @@ PanelWindow {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            anchors.rightMargin: Dimensions.bar.horizontalPadding
-            anchors.topMargin: Dimensions.bar.verticalPadding
-            anchors.bottomMargin: Dimensions.bar.verticalPadding
+            anchors.rightMargin: 8
+            anchors.topMargin: 4
+            anchors.bottomMargin: 4
 
-            spacing: Dimensions.bar.spacing
+            spacing: Styling.layout.spacing.base
 
             Pywal {}
 
