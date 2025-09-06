@@ -10,7 +10,7 @@ RoundButton {
     property int rotation: 0
 
     font.family: Styling.lucide.font.family
-    font.pixelSize: 19
+    font.pixelSize: 16
     radius: 8
     padding: 8
 

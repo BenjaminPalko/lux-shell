@@ -21,7 +21,7 @@ Loader {
             id: text
             Layout.alignment: Qt.AlignHCenter
             text: `${root.player.trackTitle} - ${root.player.trackArtist}`
-            font.pixelSize: Dimensions.mpris.fontSize
+            font.pixelSize: Styling.typography.textSize.base
         }
 
         RowLayout {
@@ -57,7 +57,7 @@ Loader {
                 }
                 return `${formatTime(root.player.position / 60)}:${formatTime(root.player.position % 60)} - ${formatTime(root.player.length / 60)}:${formatTime(root.player.length % 60)}`;
             }
-            font.pixelSize: Dimensions.mpris.fontSize
+            font.pixelSize: Styling.typography.textSize.sm
         }
 
         StyledSlider {

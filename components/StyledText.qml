@@ -2,7 +2,8 @@ import qs.config
 import QtQuick
 
 Text {
-    font.family: Theme.fontFamily
+    font.family: Styling.typography.fontFamily
+    font.pixelSize: Styling.typography.textSize.base
     color: Styling.theme.basecontent
     Behavior on color {
         ColorAnimation {

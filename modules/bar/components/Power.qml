@@ -9,10 +9,16 @@ StyledButton {
     property UPowerDevice laptopBattery: UPower.devices.values.find(device => device.isLaptopBattery) ?? null
     property bool isCritical: laptopBattery?.percentage < 0.10
 
+    visible: laptopBattery
+
     contentItem: RowLayout {
+
         spacing: 4
+
         LucideIcon {
+
             Layout.alignment: Qt.AlignVCenter
+
             color: {
                 if (root.isCritical) {
                     return Styling.theme.error;
@@ -22,7 +28,6 @@ StyledButton {
                 }
                 return Styling.theme.basecontent;
             }
-            font.pixelSize: 16
             text: {
                 if (root.laptopBattery?.state == UPowerDeviceState.Charging) {
                     return Styling.lucide.icons.batteryCharging;
@@ -41,7 +46,9 @@ StyledButton {
         }
 
         StyledText {
+
             Layout.alignment: Qt.AlignVCenter
+
             color: {
                 if (root.isCritical) {
                     return Styling.theme.error;
@@ -54,5 +61,4 @@ StyledButton {
             text: `${(root.laptopBattery?.percentage.toFixed(2) * 100)}%`
         }
     }
-    visible: laptopBattery
 }

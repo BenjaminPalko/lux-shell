@@ -6,15 +6,16 @@ import QtQuick
 import QtQuick.Layouts
 
 StyledLabel {
+
     RowLayout {
+
         Ref {
             service: NetworkService
         }
+
         LucideIcon {
             id: icon
-
             text: Styling.lucide.icons.wifiOff
-
             states: [
                 State {
                     name: "high"
@@ -48,7 +49,6 @@ StyledLabel {
 
         StyledText {
             id: text
-            font.pixelSize: Dimensions.network.fontSize
             text: ` ${(NetworkService.active?.strength ?? 0).toFixed()}%`
         }
     }

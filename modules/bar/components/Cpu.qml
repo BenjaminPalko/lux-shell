@@ -15,13 +15,13 @@ StyledButton {
     }
 
     contentItem: RowLayout {
-        id: row
 
         spacing: 0
 
         Ref {
             service: SystemInfo
         }
+
         LucideIcon {
             text: Styling.lucide.icons.cpu
             color: root.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
@@ -30,10 +30,8 @@ StyledButton {
         StyledText {
             id: text
 
-            font.pixelSize: Dimensions.cpu.fontSize
             text: ` ${(SystemInfo.cpuPerc * 100).toFixed().toString().padStart(2, "_")}%`
             color: root.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
-
             states: [
                 State {
                     name: "showTemp"

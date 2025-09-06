@@ -1,6 +1,5 @@
 pragma ComponentBehavior: Bound
 
-import qs.config
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
@@ -8,7 +7,7 @@ import Quickshell.Hyprland
 RowLayout {
     id: root
 
-    spacing: Dimensions.workspace.spacing
+    spacing: 4
 
     Repeater {
 

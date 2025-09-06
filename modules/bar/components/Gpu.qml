@@ -11,17 +11,17 @@ StyledButton {
     property bool showTemp: false
 
     onClicked: {
-        root.showTemp = !root.showTemp;
+        showTemp = !showTemp;
     }
 
     contentItem: RowLayout {
-        id: row
 
         spacing: 0
 
         Ref {
             service: SystemInfo
         }
+
         LucideIcon {
             text: Styling.lucide.icons.gpu
             color: root.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
@@ -30,10 +30,8 @@ StyledButton {
         StyledText {
             id: text
 
-            font.pixelSize: Dimensions.gpu.fontSize
             text: ` ${(SystemInfo.gpuPerc * 100).toFixed().toString().padStart(2, "_")}%`
             color: root.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
-
             states: [
                 State {
                     name: "temp"

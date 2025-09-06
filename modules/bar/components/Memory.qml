@@ -6,17 +6,18 @@ import QtQuick
 import QtQuick.Layouts
 
 StyledLabel {
+
     RowLayout {
+
         Ref {
             service: SystemInfo
         }
+
         LucideIcon {
             text: Styling.lucide.icons.memoryStick
         }
 
         StyledText {
-            id: text
-            font.pixelSize: Dimensions.memory.fontSize
             text: ` ${(SystemInfo.memPerc * 100).toFixed()}%`
         }
     }
