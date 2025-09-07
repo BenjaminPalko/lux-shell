@@ -6,6 +6,12 @@ Scope {
     id: root
 
     LuxShortcut {
+        name: 'configuration'
+        description: 'Open the configuration screen'
+        onPressed: Visibility.configuration = !Visibility.configuration
+    }
+
+    LuxShortcut {
         name: 'launcher'
         description: 'Open the application launcher'
         onPressed: Visibility.launcher = !Visibility.launcher

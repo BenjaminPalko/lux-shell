@@ -1,4 +1,5 @@
 import "bar"
+import "configuration"
 import "drawers"
 import "launcher"
 import "pomodoro"
@@ -75,6 +76,7 @@ Variants {
                 }
             }
         }
+        Configuration {}
         Launcher {}
         Pomodoro {}
         PowerMenu {}
