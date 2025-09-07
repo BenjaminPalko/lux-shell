@@ -1,6 +1,6 @@
 pragma Singleton
 
-import qs.widgets
+import qs.components
 import Quickshell
 
 Singleton {
