@@ -9,7 +9,7 @@ import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 
-StyledWindow {
+StyledPanelWindow {
     id: root
     name: "launcher"
 

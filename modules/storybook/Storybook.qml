@@ -9,7 +9,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-StyledWindow {
+StyledPanelWindow {
     id: root
     name: "storybook"
 
