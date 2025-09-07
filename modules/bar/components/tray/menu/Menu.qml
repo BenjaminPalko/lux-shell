@@ -9,10 +9,6 @@ import Quickshell
 StyledPopupWindow {
     id: window
 
-    backgroundColor: Styling.theme.base300
-    margins: 14
-    radius: 8
-
     property QsMenuOpener menuOpener
 
     content: ColumnLayout {

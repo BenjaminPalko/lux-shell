@@ -1,39 +1,34 @@
+import qs.config
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import Quickshell.Widgets
 
 PopupWindow {
     id: root
-    property bool opened: false
-    property int animationDuration: 200
-    property alias margins: background.margin
-    property alias backgroundColor: background.color
-    property alias radius: background.radius
-    property alias state: background.state
+
     required property Component content
 
+    implicitWidth: background.width
+    implicitHeight: background.height
     color: "transparent"
-
-    function toggle() {
-        root.state = root.state == "opened" ? "closed" : "opened";
-    }
 
     HyprlandFocusGrab {
         id: grab
         active: root.visible
         windows: [root]
         onCleared: {
-            root.state = "closed";
+            background.state = "closed";
         }
     }
 
-    implicitWidth: background.width
-    implicitHeight: background.height
+    function toggle() {
+        background.state = background.state == "opened" ? "closed" : "opened";
+    }
 
-    WrapperRectangle {
+    StyledWrapperRectangle {
         id: background
 
+        margin: 16
         focus: true
         onFocusChanged: {
             if (!focus) {
@@ -43,7 +38,7 @@ PopupWindow {
 
         Behavior on opacity {
             NumberAnimation {
-                duration: root.animationDuration
+                duration: Styling.animations.speed.normal
             }
         }
 

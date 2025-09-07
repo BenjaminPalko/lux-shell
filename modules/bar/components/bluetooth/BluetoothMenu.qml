@@ -1,7 +1,6 @@
 pragma ComponentBehavior: Bound
 
 import qs.components
-import qs.config
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -9,10 +8,6 @@ import Quickshell.Bluetooth
 
 StyledPopupWindow {
     id: root
-
-    backgroundColor: Styling.theme.base300
-    margins: 16
-    radius: 8
 
     content: ColumnLayout {
         spacing: 8

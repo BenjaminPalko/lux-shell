@@ -9,10 +9,6 @@ import QtQuick.Layouts
 StyledPopupWindow {
     id: root
 
-    backgroundColor: Styling.theme.base300
-    margins: 16
-    radius: 8
-
     content: GridLayout {
 
         columns: 2
