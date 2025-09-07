@@ -11,28 +11,28 @@ import Quickshell.Wayland
 import Quickshell.Widgets
 
 StyledPanelWindow {
-    id: root
+    id: window
     name: "launcher"
 
     visible: Visibility.launcher
+    onVisibleChanged: {
+        if (!visible) {
+            list.currentIndex = 0;
+            search.clear();
+        }
+    }
     implicitWidth: rect.width
     implicitHeight: rect.height
 
     WlrLayershell.layer: WlrLayer.Top
-    WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
+    WlrLayershell.keyboardFocus: window.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
 
     HyprlandFocusGrab {
-        active: root.visible
-        windows: [search]
+        active: Visibility.launcher
+        windows: [window]
         onCleared: {
-            root.reset();
+            Visibility.launcher = false;
         }
-    }
-
-    function reset() {
-        Visibility.launcher = false;
-        list.currentIndex = 0;
-        search.clear();
     }
 
     WrapperItem {
@@ -46,13 +46,11 @@ StyledPanelWindow {
 
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
-                margin: 4
 
                 color: Styling.theme.base200
 
                 RowLayout {
                     LucideIcon {
-                        id: icon
                         Layout.leftMargin: 8
                         text: Styling.lucide.icons.search
                     }
@@ -63,19 +61,19 @@ StyledPanelWindow {
                         Layout.fillWidth: true
                         implicitHeight: 40
                         cursorVisible: true
-                        focus: root.visible
+                        focus: window.visible
 
                         placeholderText: "Applications"
                         placeholderTextColor: "grey"
 
                         Keys.onEscapePressed: event => {
                             event.accepted = true;
-                            root.reset();
+                            Visibility.launcher = false;
                         }
                         Keys.onReturnPressed: event => {
                             event.accepted = true;
                             Apps.launch(list.currentItem.modelData);
-                            root.reset();
+                            Visibility.launcher = false;
                         }
                         Keys.onUpPressed: event => {
                             event.accepted = true;
