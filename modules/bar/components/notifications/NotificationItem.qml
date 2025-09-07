@@ -7,7 +7,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 
-StyledLabel {
+StyledRectangle {
     id: root
 
     required property var modelData

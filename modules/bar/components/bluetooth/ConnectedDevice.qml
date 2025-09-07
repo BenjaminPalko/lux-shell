@@ -8,7 +8,7 @@ import Quickshell
 import Quickshell.Bluetooth
 import Quickshell.Widgets
 
-StyledLabel {
+StyledRectangle {
     id: root
     required property BluetoothDevice modelData
 

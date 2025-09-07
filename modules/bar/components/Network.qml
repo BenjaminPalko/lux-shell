@@ -5,7 +5,7 @@ import qs.utils
 import QtQuick
 import QtQuick.Layouts
 
-StyledLabel {
+StyledRectangle {
 
     RowLayout {
 

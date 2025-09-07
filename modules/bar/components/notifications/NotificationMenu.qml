@@ -29,7 +29,7 @@ StyledPopupWindow {
             onClicked: Notifications.clear()
         }
 
-        StyledLabel {
+        StyledRectangle {
             Layout.columnSpan: 2
             color: Styling.theme.base200
             StyledListView {

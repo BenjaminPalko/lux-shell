@@ -1,7 +1,7 @@
 import qs.components
 import Quickshell
 
-StyledLabel {
+StyledRectangle {
     StyledText {
         text: ` ${Qt.formatDateTime(clock.date, "hh:mm:ss AP")}`
         SystemClock {
