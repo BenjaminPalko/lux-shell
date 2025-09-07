@@ -3,54 +3,30 @@ import "components/bluetooth"
 import "components/hyprland"
 import "components/notifications"
 import "components/tray"
+import qs.components
 import qs.config
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Wayland
 
-PanelWindow {
-    id: parentWindow
+StyledWrapperRectangle {
+    id: root
 
-    anchors.top: true
-    anchors.left: true
-    anchors.right: true
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.margins: 6
+    anchors.leftMargin: 10
+    anchors.rightMargin: 10
 
-    implicitHeight: 50
-    color: 'transparent'
+    border.width: 3
+    border.color: Styling.theme.base200
 
-    WlrLayershell.layer: WlrLayer.Top
+    margin: 4
 
-    Item {
-
-        anchors.fill: parent
-        anchors.leftMargin: 8
-        anchors.rightMargin: 8
-        anchors.topMargin: 4
-        anchors.bottomMargin: 4
-
-        Rectangle {
-            id: background
-            anchors.fill: parent
-            color: Styling.theme.base100
-            radius: Styling.theme.radiusBox
-
-            border {
-                color: Styling.theme.base200
-                width: Styling.theme.border
-                pixelAligned: true
-            }
-        }
+    RowLayout {
 
         RowLayout {
             id: leftbar
-
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-
-            anchors.leftMargin: 8
-            anchors.topMargin: 4
-            anchors.bottomMargin: 4
 
             spacing: Styling.layout.spacing.base
 
@@ -66,11 +42,7 @@ PanelWindow {
         RowLayout {
             id: centerbar
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-
-            anchors.topMargin: 4
-            anchors.bottomMargin: 4
+            Layout.alignment: Qt.AlignHCenter
 
             spacing: Styling.layout.spacing.base
 
@@ -80,12 +52,7 @@ PanelWindow {
         RowLayout {
             id: rightbar
 
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-
-            anchors.rightMargin: 8
-            anchors.topMargin: 4
-            anchors.bottomMargin: 4
+            Layout.alignment: Qt.AlignRight
 
             spacing: Styling.layout.spacing.base
 

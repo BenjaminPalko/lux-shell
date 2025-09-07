@@ -10,4 +10,11 @@ WrapperRectangle {
             duration: Styling.animations.speed.fast
         }
     }
+    border.width: 2
+    border.color: Styling.theme.base100
+    Behavior on border.color {
+        ColorAnimation {
+            duration: Styling.animations.speed.fast
+        }
+    }
 }
