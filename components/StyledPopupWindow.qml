@@ -1,6 +1,6 @@
-import qs.services
 import QtQuick
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Widgets
 
 PopupWindow {
@@ -16,87 +16,82 @@ PopupWindow {
     color: "transparent"
 
     function toggle() {
-        Visibility.togglePopup(this);
+        root.state = root.state == "opened" ? "closed" : "opened";
+    }
+
+    HyprlandFocusGrab {
+        id: grab
+        active: root.visible
+        windows: [root]
+        onCleared: {
+            root.state = "closed";
+        }
     }
 
     implicitWidth: background.width
-    Behavior on implicitWidth {
-        NumberAnimation {
-            duration: 100
-        }
-    }
     implicitHeight: background.height
-    Behavior on implicitHeight {
-        NumberAnimation {
-            duration: 100
-        }
-    }
 
-    Timer {
-        id: timer
-        interval: 750
-        onTriggered: {
-            if (!root.visible) {
-                return;
+    WrapperRectangle {
+        id: background
+
+        focus: true
+        onFocusChanged: {
+            if (!focus) {
+                grab.active = false;
             }
-            root.toggle();
         }
-    }
 
-    WrapperMouseArea {
-        hoverEnabled: true
-        onExited: {
-            timer.start();
+        Behavior on opacity {
+            NumberAnimation {
+                duration: root.animationDuration
+            }
         }
-        onEntered: {
-            timer.stop();
-        }
-        WrapperRectangle {
-            id: background
 
-            opacity: 0
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: root.animationDuration
+        state: "closed"
+        states: [
+            State {
+                name: "closed"
+                PropertyChanges {
+                    background {
+                        opacity: 0
+                    }
                 }
-            }
-
-            states: State {
+            },
+            State {
                 name: "opened"
-                when: root.opened
                 PropertyChanges {
                     background {
                         opacity: 1
                     }
                 }
             }
+        ]
 
-            transitions: [
-                Transition {
-                    from: ""
-                    to: "opened"
-                    ScriptAction {
-                        script: root.visible = true
+        transitions: [
+            Transition {
+                from: "closed"
+                to: "opened"
+                ScriptAction {
+                    script: root.visible = true
+                }
+            },
+            Transition {
+                from: "opened"
+                to: "closed"
+                SequentialAnimation {
+                    PauseAnimation {
+                        duration: root.animationDuration
                     }
-                },
-                Transition {
-                    from: "opened"
-                    to: ""
-                    SequentialAnimation {
-                        PauseAnimation {
-                            duration: root.animationDuration
-                        }
-                        ScriptAction {
-                            script: root.visible = false
-                        }
+                    ScriptAction {
+                        script: root.visible = false
                     }
                 }
-            ]
-
-            Loader {
-                active: root.visible
-                sourceComponent: root.content
             }
+        ]
+
+        Loader {
+            active: root.visible
+            sourceComponent: root.content
         }
     }
 }
