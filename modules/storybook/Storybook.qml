@@ -177,24 +177,6 @@ StyledWindow {
                     id: fileButton
                     text: "File"
                     onPressed: menu.visible ? menu.close() : menu.open()
-
-                    StyledPopup {
-                        id: menu
-
-                        anchor.item: fileButton
-
-                        Column {
-                            StyledButton {
-                                text: "New..."
-                            }
-                            StyledButton {
-                                text: "Open..."
-                            }
-                            StyledText {
-                                text: "Close"
-                            }
-                        }
-                    }
                 }
             }
 
