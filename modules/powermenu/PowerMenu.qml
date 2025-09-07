@@ -4,10 +4,11 @@ import qs.components
 import qs.config
 import qs.services
 import Quickshell.Hyprland
-import Quickshell.Io
-import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Widgets
 
 StyledPanelWindow {
     id: root
@@ -24,7 +25,7 @@ StyledPanelWindow {
         id: process
     }
 
-    StyledWrapperRectangle {
+    WrapperItem {
         id: rect
 
         margin: 14

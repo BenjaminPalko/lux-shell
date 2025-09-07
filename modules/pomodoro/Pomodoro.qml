@@ -4,10 +4,11 @@ import qs.components
 import qs.config
 import qs.services
 import qs.widgets
-import Quickshell.Hyprland
-import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import Quickshell.Widgets
 
 StyledPanelWindow {
     id: root
@@ -20,7 +21,7 @@ StyledPanelWindow {
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
 
-    StyledWrapperRectangle {
+    WrapperItem {
         id: rect
 
         leftMargin: 48

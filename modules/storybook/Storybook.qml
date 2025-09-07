@@ -3,11 +3,12 @@ pragma ComponentBehavior: Bound
 import qs.components
 import qs.config
 import qs.services
-import Quickshell.Hyprland
-import Quickshell.Wayland
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import Quickshell.Widgets
 
 StyledPanelWindow {
     id: root
@@ -28,7 +29,7 @@ StyledPanelWindow {
         }
     }
 
-    StyledWrapperRectangle {
+    WrapperItem {
         id: rect
 
         margin: 48

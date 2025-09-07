@@ -4,10 +4,11 @@ import "services"
 import qs.config
 import qs.components
 import qs.services
-import Quickshell.Hyprland
-import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import Quickshell.Widgets
 
 StyledPanelWindow {
     id: root
@@ -34,7 +35,7 @@ StyledPanelWindow {
         search.clear();
     }
 
-    StyledWrapperRectangle {
+    WrapperItem {
         id: rect
 
         margin: 18
