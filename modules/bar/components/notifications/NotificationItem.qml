@@ -1,18 +1,16 @@
 pragma ComponentBehavior: Bound
 
 import qs.components
-import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 
-StyledRectangle {
+StyledWrapperRectangle {
     id: root
 
     required property var modelData
 
-    margin: 16
     anchors.left: parent.left
     anchors.right: parent.right
 

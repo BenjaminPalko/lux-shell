@@ -1,7 +1,6 @@
 pragma ComponentBehavior: Bound
 
 import qs.components
-import qs.config
 import qs.services
 import QtQuick
 import QtQuick.Layouts
@@ -25,9 +24,8 @@ StyledPopupWindow {
             onClicked: Notifications.clear()
         }
 
-        StyledRectangle {
+        StyledWrapperRectangle {
             Layout.columnSpan: 2
-            color: Styling.theme.base200
             StyledListView {
                 id: notifications
 

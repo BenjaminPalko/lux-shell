@@ -5,20 +5,17 @@ import qs.utils
 import QtQuick
 import QtQuick.Layouts
 
-StyledRectangle {
+RowLayout {
 
-    RowLayout {
+    Ref {
+        service: SystemInfo
+    }
 
-        Ref {
-            service: SystemInfo
-        }
+    LucideIcon {
+        text: Styling.lucide.icons.memoryStick
+    }
 
-        LucideIcon {
-            text: Styling.lucide.icons.memoryStick
-        }
-
-        StyledText {
-            text: ` ${(SystemInfo.memPerc * 100).toFixed()}%`
-        }
+    StyledText {
+        text: ` ${(SystemInfo.memPerc * 100).toFixed()}%`
     }
 }

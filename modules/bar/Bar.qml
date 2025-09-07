@@ -22,6 +22,7 @@ StyledWrapperRectangle {
     border.color: Styling.theme.base200
 
     margin: 4
+    color: Styling.theme.base100
 
     RowLayout {
 

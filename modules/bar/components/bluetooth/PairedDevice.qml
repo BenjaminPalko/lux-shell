@@ -2,21 +2,20 @@ pragma ComponentBehavior: Bound
 
 import qs.components
 import qs.config
-import qs.widgets
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Bluetooth
 import Quickshell.Widgets
 
-StyledRectangle {
+StyledWrapperRectangle {
     id: root
     required property BluetoothDevice modelData
 
     RowLayout {
         id: row
 
-        spacing: 8
+        spacing: Styling.layout.spacing.base
 
         Loader {
             active: root.modelData?.icon != undefined
