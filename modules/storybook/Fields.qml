@@ -1,21 +1,33 @@
 import qs.components
 import qs.config
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 
-GridLayout {
-    flow: GridLayout.TopToBottom
-    columns: 2
-    rows: 10
+ColumnLayout {
+
+    spacing: Styling.layout.spacing.xl
+
+    ColumnLayout {
+        StyledText {
+            text: "Button"
+            font.pixelSize: 18
+        }
+        StyledPane {
+            StyledButton {
+                text: "Button"
+            }
+        }
+    }
 
     ColumnLayout {
         StyledText {
             text: "Icon Button"
             font.pixelSize: 18
         }
-        StyledIconButton {
-            text: Styling.lucide.icons.square
+        StyledPane {
+            StyledIconButton {
+                text: Styling.lucide.icons.square
+            }
         }
     }
 
@@ -24,11 +36,18 @@ GridLayout {
             text: "Slider"
             font.pixelSize: 18
         }
-        StyledSlider {
-            id: slider
-            from: 0
-            to: 100
-            value: 50
+        StyledPane {
+            StyledSlider {
+                id: slider
+                from: 0
+                to: 100
+                value: 50
+            }
         }
+    }
+
+    component FieldElement: QtObject {
+        property string title
+        property Component component
     }
 }

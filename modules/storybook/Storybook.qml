@@ -27,15 +27,17 @@ StyledPanelWindow {
         }
     }
 
-    ColumnLayout {
+    Item {
         id: layout
-
         anchors.fill: parent
-        spacing: 0
 
         StyledTabBar {
             id: tabs
-            Layout.fillWidth: true
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: stack.top
+
             StyledTabButton {
                 text: "Fields"
             }
@@ -48,20 +50,26 @@ StyledPanelWindow {
         }
 
         StackLayout {
+            id: stack
+
+            anchors.top: tabs.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+
             currentIndex: tabs.currentIndex
 
             ScrollView {
-                Layout.maximumHeight: 400
+                Layout.fillWidth: true
                 padding: 36
                 Fields {}
             }
             ScrollView {
-                Layout.maximumHeight: 400
                 padding: 36
                 Selectors {}
             }
             ScrollView {
-                Layout.maximumHeight: 400
+                Layout.fillWidth: true
                 padding: 36
                 Components {}
             }
