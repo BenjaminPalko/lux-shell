@@ -1,29 +1,18 @@
 import qs.config
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Controls.Basic
 
-RoundButton {
+TabButton {
     id: control
-
-    property alias border: rect.border
-    property color color: hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
-    property int rotation: 0
-
-    font.family: Styling.lucide.font.family
-    font.pixelSize: 16
-    radius: Styling.theme.radiusField
-    padding: 8
-
-    HoverHandler {
-        cursorShape: Qt.PointingHandCursor
-    }
 
     contentItem: Text {
         id: icon
-        font: control.font
+        font.pixelSize: Styling.typography.textSize.base
+        font.family: Styling.typography.fontFamily
         text: control.text
         verticalAlignment: Text.AlignVCenter
-        color: control.color
+        horizontalAlignment: Text.AlignHCenter
+        color: control.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
         Behavior on color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal
@@ -39,20 +28,17 @@ RoundButton {
     }
 
     background: Rectangle {
-        id: rect
-        border.color: control.hovered ? Styling.theme.base300 : Styling.theme.base200
-        Behavior on border.color {
-            ColorAnimation {
-                duration: Styling.animations.speed.normal
-            }
-        }
-        border.width: 0
+        id: rectangle
         color: control.hovered ? Styling.theme.primary : Styling.theme.base200
         Behavior on color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal
             }
         }
-        radius: control.radius
+        // radius: Styling.theme.radiusField
+    }
+
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
     }
 }

@@ -8,6 +8,7 @@ Button {
     property alias radius: rectangle.radius
 
     font.pixelSize: Styling.typography.textSize.base
+    font.family: Styling.typography.fontFamily
     verticalPadding: 6
     horizontalPadding: 8
 
