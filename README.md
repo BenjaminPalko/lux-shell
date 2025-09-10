@@ -12,13 +12,11 @@ Run the shell
 quickshell -c shell
 ```
 
-Run app launcher
-
-```shell
-quickshell -c launcher
-```
-
 ## Dependencies
 
 - `quickshell`
+- `qt6-wayland`
 - `app2unit`
+- `meson`
+- `ninja`
+- `python3`
