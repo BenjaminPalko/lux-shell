@@ -1,7 +1,7 @@
 pragma Singleton
 
 import Quickshell
-import Quickshell.Io
+import Quickshell.Wayland
 
 Singleton {
 
@@ -16,16 +16,14 @@ Singleton {
 
     function toggle() {
         if (properties.enabled) {
-            process.signal(888);
             properties.enabled = false;
         } else {
             properties.enabled = true;
         }
     }
 
-    Process {
-        id: process
-        running: properties.enabled
-        command: ["sh", "-c", "systemd-inhibit --what=idle --who=Caffeine --why='Caffeine module is active' --mode=block sleep inf"]
+    IdleInhibitor {
+        id: inhibitor
+        enabled: properties.enabled
     }
 }
