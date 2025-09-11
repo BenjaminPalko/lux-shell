@@ -1,5 +1,4 @@
 import qs.components
-import qs.config
 import QtQuick
 import QtQuick.Layouts
 
@@ -14,8 +13,10 @@ GridLayout {
             font.pixelSize: 18
         }
 
-        StyledSwitch {
-            text: "Enable"
+        StyledPane {
+            StyledSwitch {
+                text: "Enable"
+            }
         }
     }
 }
