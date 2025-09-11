@@ -5,12 +5,12 @@ import QtQuick.Controls
 Pane {
     id: pane
 
-    padding: 24
+    padding: 8
     background: Rectangle {
         color: "transparent"
         border.width: Styling.theme.border
         border.color: pane.hovered ? Styling.theme.accent : Styling.theme.basecontent
-        opacity: 0.2
+        opacity: 0.33
         Behavior on border.color {
             ColorAnimation {
                 duration: Styling.animations.speed.fast
