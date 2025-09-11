@@ -36,7 +36,8 @@ TabButton {
                 duration: Styling.animations.speed.normal
             }
         }
-        // radius: Styling.theme.radiusField
+        border.width: 2
+        border.color: control.checked ? Styling.theme.accent : "transparent"
     }
 
     HoverHandler {
