@@ -6,7 +6,6 @@ TabButton {
     id: control
 
     contentItem: Text {
-        id: icon
         font.pixelSize: Styling.typography.textSize.base
         font.family: Styling.typography.fontFamily
         text: control.text
