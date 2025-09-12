@@ -1,9 +1,7 @@
 import qs.components
-import qs.config
 import qs.services
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
 
 StyledPanelWindow {
     id: window
@@ -14,53 +12,52 @@ StyledPanelWindow {
     implicitWidth: 800
     implicitHeight: 400
 
-    ColumnLayout {
-        spacing: 0
-        anchors.fill: parent
-        StyledText {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+    StyledTabBar {
+        id: tabs
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.right: view.left
 
-            text: "Configurations"
-            font.pixelSize: Styling.typography.textSize.xl
-            padding: 8
+        implicitWidth: 200
+        orientation: ListView.Vertical
+
+        StyledTabButton {
+            anchors.left: parent.left
+            anchors.right: parent.right
+
+            text: "General"
         }
-
-        StyledRectangle {
-            id: titleBar
-
-            Layout.fillWidth: true
-            Layout.preferredHeight: 4
-        }
-
-        ScrollView {
-            id: view
-
-            Layout.fillHeight: true
-            padding: 24
-            background: Item {}
-
-            GridLayout {
-
-                columnSpacing: Styling.layout.spacing.xl
-
-                StyledText {
-                    text: "Theme"
-                    // font.bold: true
-                    font.pixelSize: Styling.typography.textSize.lg
-                }
-
-                StyledComboBox {
-                    currentIndex: Theme.themes.indexOf(Theme.currentTheme)
-                    model: Theme.themes
-                    onActivated: index => {
-                        Theme.currentTheme = Theme.themes[index];
-                    }
-                }
-            }
+        StyledTabButton {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: "Styling"
         }
     }
 
-    component Menus: QtObject {
-        property Component theme
+    SwipeView {
+        id: view
+
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.left: tabs.right
+
+        clip: true
+        orientation: Qt.Vertical
+
+        currentIndex: tabs.currentIndex
+
+        ScrollView {
+            padding: 36
+            StyledPane {
+                anchors.left: parent.left
+                anchors.right: parent.right
+            }
+        }
+        ScrollView {
+            padding: 36
+            StylingView {}
+        }
     }
 }

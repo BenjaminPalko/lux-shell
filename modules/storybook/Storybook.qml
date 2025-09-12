@@ -60,7 +60,6 @@ StyledPanelWindow {
             currentIndex: tabs.currentIndex
 
             ScrollView {
-                Layout.fillWidth: true
                 padding: 36
                 Fields {}
             }
@@ -69,7 +68,6 @@ StyledPanelWindow {
                 Selectors {}
             }
             ScrollView {
-                Layout.fillWidth: true
                 padding: 36
                 Components {}
             }
