@@ -36,7 +36,7 @@ StyledPanelWindow {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.bottom: stack.top
+            anchors.bottom: view.top
 
             StyledTabButton {
                 text: "Fields"
@@ -49,8 +49,8 @@ StyledPanelWindow {
             }
         }
 
-        StackLayout {
-            id: stack
+        SwipeView {
+            id: view
 
             anchors.top: tabs.bottom
             anchors.left: parent.left
