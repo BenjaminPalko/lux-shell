@@ -13,7 +13,7 @@ TabButton {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         padding: 6
-        color: control.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
+        color: control.hovered ? Styling.theme.primarycontent : control.checked ? Styling.theme.accent : Styling.theme.basecontent
         Behavior on color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal
