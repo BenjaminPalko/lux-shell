@@ -26,7 +26,7 @@ StyledPanelWindow {
             anchors.left: parent.left
             anchors.right: parent.right
 
-            text: "General"
+            text: "Audio"
         }
         StyledTabButton {
             anchors.left: parent.left
@@ -49,14 +49,11 @@ StyledPanelWindow {
         currentIndex: tabs.currentIndex
 
         ScrollView {
-            padding: 36
-            StyledPane {
-                anchors.left: parent.left
-                anchors.right: parent.right
-            }
+            padding: 24
+            AudioView {}
         }
         ScrollView {
-            padding: 36
+            padding: 24
             StylingView {}
         }
     }
