@@ -55,6 +55,8 @@ Singleton {
         }
     }
     component LucideIcons: QtObject {
+        readonly property string activity: "\u{E038}"
+        readonly property string audioLines: "\u{E55F}"
         readonly property string batteryCharging: "\u{E058}"
         readonly property string batteryFull: "\u{E059}"
         readonly property string batteryMedium: "\u{E05b}"
@@ -71,14 +73,16 @@ Singleton {
         readonly property string cpu: "\u{E0ad}"
         readonly property string gpu: "\u{E66f}"
         readonly property string hardDrive: "\u{E0f1}"
+        readonly property string layoutDashboard: "\u{E1C1}"
         readonly property string memoryStick: "\u{E44a}"
         readonly property string pause: "\u{E132}"
         readonly property string play: "\u{E140}"
         readonly property string search: "\u{E155}"
         readonly property string skipBack: "\u{E163}"
         readonly property string skipForward: "\u{E164}"
-        readonly property string stop: "\u{E132}"
         readonly property string square: "\u{E16B}"
+        readonly property string stop: "\u{E132}"
+        readonly property string swatchBook: "\u{E5A4}"
         readonly property string wifiOff: "\u{E1af}"
         readonly property string wifiLow: "\u{E5fd}"
         readonly property string wifiHigh: "\u{E5fc}"
