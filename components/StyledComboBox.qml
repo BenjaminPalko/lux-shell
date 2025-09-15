@@ -26,11 +26,21 @@ ComboBox {
         contentItem: StyledText {
             text: delegate.model[control.textRole]
             color: delegate.highlighted ? palette.highlightedText : palette.buttonText
+            Behavior on color {
+                ColorAnimation {
+                    duration: Styling.animations.speed.fast
+                }
+            }
             elide: Text.ElideRight
             verticalAlignment: Text.AlignVCenter
         }
         background: Rectangle {
             color: delegate.highlighted ? palette.highlight : palette.button
+            Behavior on color {
+                ColorAnimation {
+                    duration: Styling.animations.speed.fast
+                }
+            }
             radius: Styling.theme.radiusSelector
         }
         highlighted: control.highlightedIndex === index
@@ -41,6 +51,11 @@ ComboBox {
 
         text: control.displayText
         color: control.hovered || control.down ? palette.highlightedText : palette.buttonText
+        Behavior on color {
+            ColorAnimation {
+                duration: Styling.animations.speed.fast
+            }
+        }
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
     }
@@ -49,6 +64,11 @@ ComboBox {
         implicitWidth: 120
         implicitHeight: 40
         color: control.hovered || control.down ? palette.highlight : palette.button
+        Behavior on color {
+            ColorAnimation {
+                duration: Styling.animations.speed.fast
+            }
+        }
         border.color: Styling.theme.base100
         border.width: control.visualFocus ? 2 : 1
         radius: Styling.theme.radiusSelector
@@ -72,6 +92,11 @@ ComboBox {
 
         background: Rectangle {
             color: palette.window
+            Behavior on color {
+                ColorAnimation {
+                    duration: Styling.animations.speed.fast
+                }
+            }
             bottomLeftRadius: Styling.theme.radiusField
             bottomRightRadius: Styling.theme.radiusField
         }
