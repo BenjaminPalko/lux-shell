@@ -26,6 +26,8 @@ StyledWrapperRectangle {
 
     RowLayout {
 
+        uniformCellSizes: true
+
         RowLayout {
             id: leftbar
 
