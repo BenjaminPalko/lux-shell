@@ -1,4 +1,3 @@
-import qs.config
 import QtQuick
 import QtQuick.Controls.Basic
 
@@ -11,10 +10,10 @@ TabBar {
         id: view
         model: control.contentModel
         currentIndex: control.currentIndex
+        spacing: control.spacing
         orientation: ListView.Horizontal
         boundsBehavior: Flickable.StopAtBounds
     }
-    background: Rectangle {
-      color: Styling.theme.base200
-    }
+
+    background: Item {}
 }
