@@ -23,7 +23,7 @@ ColumnLayout {
             StyledText {
                 Layout.column: 1
                 Layout.row: 1
-                text: "Speakers"
+                text: "Device"
             }
 
             StyledComboBox {
@@ -34,6 +34,23 @@ ColumnLayout {
                 model: Pipewire.sinks.map(sink => sink.nickname ?? sink.name)
                 onActivated: index => {
                     Pipewire.setSink(Pipewire.sinks[index]);
+                }
+            }
+
+            StyledText {
+                Layout.column: 1
+                Layout.row: 2
+                text: "Volume"
+            }
+
+            StyledSlider {
+                Layout.column: 2
+                Layout.row: 2
+                from: 0.0
+                to: 1.0
+                value: Pipewire.volume
+                onMoved: {
+                    Pipewire.setVolume(value);
                 }
             }
         }
