@@ -55,7 +55,7 @@ StyledPanelWindow {
                     id: circle
                     radius: 150
                     borderColor: Styling.theme.base100
-                    strokeColor: PomodoroService.state == "timer" ? Theme.palette.primary : Theme.palette.warning
+                    strokeColor: PomodoroService.state == "timer" ? Styling.theme.primary : Styling.theme.warning
                     strokeWidth: 12
                     fillColor: button.hovered ? Styling.theme.primary : "transparent"
                     percentage: (PomodoroService.state == "timer" ? (PomodoroService.initialTime - PomodoroService.remainingTime) : PomodoroService.remainingTime) / PomodoroService.initialTime % 1
