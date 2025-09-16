@@ -8,7 +8,6 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    property string fontFamily: "JetBrainsMono Nerd Font"
     property var palette: theme.palette
 
     property alias themes: cache.themes
