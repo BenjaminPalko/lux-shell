@@ -19,7 +19,7 @@ Singleton {
     function setVolume(volume: real): void {
         if (sink?.ready && sink?.audio) {
             sink.audio.muted = false;
-            sink.audio.volume = volume;
+            sink.audio.volume = Math.min(volume, 1.0);
         }
     }
 
