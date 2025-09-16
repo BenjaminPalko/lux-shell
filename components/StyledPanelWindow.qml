@@ -7,11 +7,13 @@ PanelWindow {
     id: window
 
     required property string name
+    property alias background: background
 
     WlrLayershell.namespace: `lux-${name}`
     color: "transparent"
 
     Rectangle {
+        id: background
         anchors.fill: parent
         radius: Styling.theme.radiusBox
         Behavior on radius {
