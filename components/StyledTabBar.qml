@@ -5,6 +5,7 @@ TabBar {
     id: control
 
     property alias orientation: view.orientation
+    spacing: 12
 
     contentItem: Item {
         ListView {

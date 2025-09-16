@@ -6,6 +6,8 @@ TabButton {
     id: control
 
     property alias radius: rectangle.radius
+    padding: 10
+    radius: Styling.theme.radiusField
 
     contentItem: Text {
         font.pixelSize: Styling.typography.textSize.base
