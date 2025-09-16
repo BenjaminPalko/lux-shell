@@ -6,8 +6,6 @@ import qs.services
 import qs.widgets
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Hyprland
-import Quickshell.Wayland
 import Quickshell.Widgets
 
 StyledPanelWindow {
@@ -18,8 +16,9 @@ StyledPanelWindow {
     implicitWidth: rect.width
     implicitHeight: rect.height
 
-    WlrLayershell.layer: WlrLayer.Top
-    WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
+    onFocusedChanged: {
+        Visibility.pomodoro = focused;
+    }
 
     WrapperItem {
         id: rect
@@ -28,14 +27,6 @@ StyledPanelWindow {
         rightMargin: 48
         topMargin: 24
         bottomMargin: 24
-
-        HyprlandFocusGrab {
-            active: Visibility.pomodoro
-            windows: [root]
-            onCleared: {
-                Visibility.pomodoro = false;
-            }
-        }
 
         ColumnLayout {
 

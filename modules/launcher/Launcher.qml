@@ -6,8 +6,6 @@ import qs.components
 import qs.services
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Hyprland
-import Quickshell.Wayland
 import Quickshell.Widgets
 
 StyledPanelWindow {
@@ -20,20 +18,10 @@ StyledPanelWindow {
             list.currentIndex = 0;
             search.clear();
         }
+        Visibility.launcher = focused;
     }
     implicitWidth: rect.width
     implicitHeight: rect.height
-
-    WlrLayershell.layer: WlrLayer.Top
-    WlrLayershell.keyboardFocus: window.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
-
-    HyprlandFocusGrab {
-        active: Visibility.launcher
-        windows: [window]
-        onCleared: {
-            Visibility.launcher = false;
-        }
-    }
 
     WrapperItem {
         id: rect

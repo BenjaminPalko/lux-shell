@@ -3,11 +3,9 @@ pragma ComponentBehavior: Bound
 import qs.components
 import qs.config
 import qs.services
-import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
-import Quickshell.Wayland
 import Quickshell.Widgets
 
 StyledPanelWindow {
@@ -18,25 +16,18 @@ StyledPanelWindow {
     implicitWidth: rect.width
     implicitHeight: rect.height
 
-    WlrLayershell.layer: WlrLayer.Top
-    WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
-
     Process {
         id: process
+    }
+
+    onFocusedChanged: {
+        Visibility.powermenu = focused;
     }
 
     WrapperItem {
         id: rect
 
         margin: 14
-
-        HyprlandFocusGrab {
-            active: Visibility.powermenu
-            windows: [root]
-            onCleared: {
-                Visibility.powermenu = false;
-            }
-        }
 
         StyledListView {
             id: list
