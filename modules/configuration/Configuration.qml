@@ -2,6 +2,8 @@ import qs.components
 import qs.services
 import QtQuick
 import QtQuick.Controls
+import Quickshell.Hyprland
+import Quickshell.Wayland
 
 StyledPanelWindow {
     id: window
@@ -11,6 +13,17 @@ StyledPanelWindow {
     visible: Visibility.configuration
     implicitWidth: 800
     implicitHeight: 400
+
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.keyboardFocus: window.visible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
+
+    HyprlandFocusGrab {
+        active: Visibility.configuration
+        windows: [window]
+        onCleared: {
+            Visibility.configuration = false;
+        }
+    }
 
     StyledTabBar {
         id: tabs
