@@ -1,6 +1,6 @@
 import qs.config
 import QtQuick
-import QtQuick.Controls.Basic
+import QtQuick.Controls
 
 TabButton {
     id: control
@@ -14,31 +14,28 @@ TabButton {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         padding: 6
-        color: control.hovered ? Styling.theme.primarycontent : control.checked ? Styling.theme.accent : Styling.theme.basecontent
+        color: control.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
         Behavior on color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal
-            }
-        }
-        rotation: control.rotation
-        Behavior on rotation {
-            RotationAnimation {
-                duration: Styling.animations.speed.slow
-                easing.type: Easing.OutQuad
             }
         }
     }
 
     background: Rectangle {
         id: rectangle
-        color: control.hovered ? Styling.theme.primary : Styling.theme.base200
+        color: control.hovered ? Styling.theme.primary : Styling.theme.base100
         Behavior on color {
             ColorAnimation {
                 duration: Styling.animations.speed.normal
             }
         }
-        border.width: 2
-        border.color: control.checked ? Styling.theme.accent : "transparent"
+        opacity: control.checked || control.hovered ? 1.0 : 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: Styling.animations.speed.normal
+            }
+        }
     }
 
     HoverHandler {
