@@ -5,6 +5,8 @@ import QtQuick.Controls.Basic
 TabButton {
     id: control
 
+    property alias radius: rectangle.radius
+
     contentItem: Text {
         font.pixelSize: Styling.typography.textSize.base
         font.family: Styling.typography.fontFamily
