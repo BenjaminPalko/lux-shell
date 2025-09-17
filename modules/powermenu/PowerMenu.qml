@@ -16,10 +16,6 @@ StyledPanelWindow {
     implicitWidth: rect.width
     implicitHeight: rect.height
 
-    Process {
-        id: process
-    }
-
     onFocusedChanged: {
         Visibility.powermenu = focused;
     }
@@ -28,6 +24,10 @@ StyledPanelWindow {
         id: rect
 
         margin: 14
+
+        Process {
+            id: process
+        }
 
         StyledListView {
             id: list
