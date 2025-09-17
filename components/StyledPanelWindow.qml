@@ -7,10 +7,12 @@ import Quickshell.Wayland
 PanelWindow {
     id: window
 
+    default property alias content: contentItem.children
     property alias background: background
     required property string name
     property bool canFocus: true
     property bool focused: false
+    property int padding: 4
 
     WlrLayershell.namespace: `lux-${name}`
     WlrLayershell.layer: WlrLayer.Top
@@ -54,11 +56,19 @@ PanelWindow {
             }
         }
         border.width: 2
-        border.color: Styling.theme.base200
+        border.color: Styling.theme.base300
         Behavior on border.color {
             ColorAnimation {
                 duration: Styling.animations.speed.fast
             }
         }
+    }
+
+    Item {
+        id: contentItem
+
+        anchors.centerIn: parent
+        implicitWidth: parent.width - 2 * window.padding
+        implicitHeight: parent.height - 2 * window.padding
     }
 }
