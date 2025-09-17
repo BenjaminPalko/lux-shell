@@ -20,14 +20,14 @@ StyledPanelWindow {
         Visibility.powermenu = focused;
     }
 
+    Process {
+        id: process
+    }
+
     WrapperItem {
         id: rect
 
         margin: 14
-
-        Process {
-            id: process
-        }
 
         StyledListView {
             id: list

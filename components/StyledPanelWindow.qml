@@ -7,7 +7,7 @@ import Quickshell.Wayland
 PanelWindow {
     id: window
 
-    default property alias content: contentItem.children
+    default property alias content: contentItem.data
     property alias background: background
     required property string name
     property bool canFocus: true
