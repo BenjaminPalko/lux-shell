@@ -6,7 +6,7 @@ TabButton {
     id: control
 
     property alias radius: rectangle.radius
-    padding: 10
+    padding: 8
     radius: Styling.theme.radiusField
 
     contentItem: Text {
@@ -15,7 +15,6 @@ TabButton {
         text: control.text
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        padding: 6
         color: control.hovered ? Styling.theme.primarycontent : Styling.theme.basecontent
         Behavior on color {
             ColorAnimation {

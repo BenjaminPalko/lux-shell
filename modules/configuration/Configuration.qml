@@ -4,6 +4,7 @@ import qs.services
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Quickshell.Widgets
 
 StyledPanelWindow {
     id: window
@@ -13,86 +14,86 @@ StyledPanelWindow {
     visible: Visibility.configuration
     implicitWidth: 800
     implicitHeight: 400
+    padding: 8
     background.color: Styling.theme.base200
 
     onFocusedChanged: {
         Visibility.configuration = focused;
     }
 
-    StyledTabBar {
-        id: tabs
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        anchors.right: view.left
+    GridLayout {
 
-        implicitWidth: 150
-        orientation: ListView.Vertical
+        anchors.fill: parent
 
-        Repeater {
-            model: views.data
-            delegate: StyledTabButton {
-                id: tabButton
-                required property ConfigurationView modelData
-                anchors.left: parent.left
-                anchors.right: parent.right
-                contentItem: RowLayout {
-                    states: [
-                        State {
-                            when: tabButton.hovered
-                            PropertyChanges {
-                                tabIcon.color: Styling.theme.primarycontent
-                                tabText.color: Styling.theme.primarycontent
+        StyledTabBar {
+            id: tabs
+
+            Layout.preferredWidth: 150
+            Layout.fillHeight: true
+            Layout.margins: 2
+            orientation: ListView.Vertical
+            spacing: 12
+
+            Repeater {
+                model: views.data
+                delegate: StyledTabButton {
+                    id: tabButton
+                    required property ConfigurationView modelData
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    contentItem: RowLayout {
+                        states: [
+                            State {
+                                when: tabButton.hovered
+                                PropertyChanges {
+                                    tabIcon.color: Styling.theme.primarycontent
+                                    tabText.color: Styling.theme.primarycontent
+                                }
                             }
+                        ]
+                        LucideIcon {
+                            id: tabIcon
+                            text: tabButton.modelData.icon
+                            font.pixelSize: Styling.typography.textSize.lg
                         }
-                    ]
-                    LucideIcon {
-                        id: tabIcon
-                        text: tabButton.modelData.icon
-                        font.pixelSize: Styling.typography.textSize.lg
+                        StyledText {
+                            id: tabText
+                            text: tabButton.modelData.title
+                            font.pixelSize: Styling.typography.textSize.lg
+                        }
                     }
-                    StyledText {
-                        id: tabText
-                        text: tabButton.modelData.title
-                        font.pixelSize: Styling.typography.textSize.lg
-                    }
+                    text: tabButton.modelData.title
                 }
-                text: tabButton.modelData.title
             }
         }
-    }
 
-    SwipeView {
-        id: view
+        SwipeView {
+            id: view
 
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.left: tabs.right
-        anchors.topMargin: 4
-        anchors.rightMargin: 4
-        anchors.bottomMargin: 4
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-        clip: true
-        orientation: Qt.Vertical
+            clip: true
+            orientation: Qt.Vertical
 
-        currentIndex: tabs.currentIndex
+            currentIndex: tabs.currentIndex
 
-        background: Rectangle {
-            color: Styling.theme.base100
-            radius: Styling.theme.radiusBox
-        }
+            background: Rectangle {
+                color: Styling.theme.base100
+                radius: Styling.theme.radiusBox
+            }
 
-        Repeater {
-            model: views.data
-            delegate: ScrollView {
-                id: scrollView
-                required property ConfigurationView modelData
-                padding: 24
-                Loader {
-                    anchors.fill: parent
-                    active: scrollView.modelData.view
-                    sourceComponent: scrollView.modelData.view
+            Repeater {
+                model: views.data
+                delegate: ScrollView {
+                    id: scrollView
+                    required property ConfigurationView modelData
+                    padding: 24
+                    Loader {
+                        anchors.fill: parent
+                        active: scrollView.modelData.view
+                        sourceComponent: scrollView.modelData.view
+                    }
                 }
             }
         }
