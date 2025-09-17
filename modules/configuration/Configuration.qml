@@ -12,9 +12,8 @@ StyledPanelWindow {
     name: "configuration"
 
     visible: Visibility.configuration
-    implicitWidth: 800
-    implicitHeight: 400
-    padding: 8
+    implicitWidth: 1000
+    implicitHeight: 600
     background.color: Styling.theme.base200
 
     onFocusedChanged: {
