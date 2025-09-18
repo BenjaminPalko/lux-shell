@@ -112,6 +112,12 @@ StyledPanelWindow {
             title: "Styling"
             view: StylingView {}
         }
+
+        ConfigurationView {
+            icon: Styling.lucide.icons.swatchBook
+            title: "Wallpapers"
+            view: Wallpaper {}
+        }
     }
 
     component ConfigurationView: QtObject {
