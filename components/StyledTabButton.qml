@@ -2,10 +2,11 @@ import qs.config
 import QtQuick
 import QtQuick.Controls
 
-TabButton {
+Button {
     id: control
 
     property alias radius: rectangle.radius
+
     padding: 8
     radius: Styling.theme.radiusField
 

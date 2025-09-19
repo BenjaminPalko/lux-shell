@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
-TabBar {
+Container {
     id: control
 
     property alias orientation: view.orientation

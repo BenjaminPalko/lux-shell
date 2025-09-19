@@ -30,12 +30,15 @@ StyledPanelWindow {
 
         StyledTabButton {
             text: "Fields"
+            onClicked: tabs.setCurrentIndex(0)
         }
         StyledTabButton {
             text: "Selectors"
+            onClicked: tabs.setCurrentIndex(1)
         }
         StyledTabButton {
             text: "Components"
+            onClicked: tabs.setCurrentIndex(2)
         }
     }
 

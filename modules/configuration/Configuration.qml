@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import qs.components
 import qs.config
 import qs.services
@@ -20,7 +22,7 @@ StyledPanelWindow {
         Visibility.configuration = focused;
     }
 
-    GridLayout {
+    RowLayout {
 
         anchors.fill: parent
 
@@ -40,6 +42,8 @@ StyledPanelWindow {
                     required property ConfigurationView modelData
                     anchors.left: parent.left
                     anchors.right: parent.right
+                    required property int index
+
                     contentItem: RowLayout {
                         states: [
                             State {
@@ -62,6 +66,8 @@ StyledPanelWindow {
                         }
                     }
                     text: tabButton.modelData.title
+
+                    onClicked: tabs.setCurrentIndex(index)
                 }
             }
         }
