@@ -14,8 +14,6 @@ Singleton {
     readonly property url cache: `${StandardPaths.standardLocations(StandardPaths.GenericCacheLocation)[0]}/lux`
     readonly property url config: `${StandardPaths.standardLocations(StandardPaths.GenericConfigLocation)[0]}/lux`
 
-    readonly property url imagecache: `${cache}/imagecache`
-
     function stringify(path: url): string {
         let str = path.toString();
         if (str.startsWith("root:/"))
