@@ -5,6 +5,7 @@ import "launcher"
 import "pomodoro"
 import "powermenu"
 import "storybook"
+import "wallpaper"
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
@@ -16,6 +17,23 @@ Variants {
         id: scope
 
         required property ShellScreen modelData
+
+        PanelWindow {
+            id: background
+
+            // visible: false
+            anchors.top: true
+            anchors.left: true
+            anchors.right: true
+            anchors.bottom: true
+
+            color: "transparent"
+
+            WlrLayershell.exclusionMode: ExclusionMode.Ignore
+            WlrLayershell.layer: WlrLayer.Background
+
+            Wallpaper {}
+        }
 
         PanelWindow {
             id: exclusionZone
