@@ -7,6 +7,7 @@ Singleton {
     id: root
 
     readonly property alias powermenu: adapter.powermenu
+    readonly property alias wallpaper: adapter.wallpaper
 
     FileView {
         path: `${Paths.config}/shell.json`
@@ -19,6 +20,7 @@ Singleton {
             id: adapter
 
             property var powermenu: PowerMenu {}
+            property var wallpaper: Wallpaper {}
         }
     }
 
@@ -29,5 +31,9 @@ Singleton {
     component PowerMenuItem: JsonObject {
         property string text
         property string command
+    }
+
+    component Wallpaper: JsonObject {
+        property string directory
     }
 }

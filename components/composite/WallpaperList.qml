@@ -19,7 +19,7 @@ ListView {
     implicitHeight: 90
     model: FolderListModel {
         nameFilters: ["*.jpg"]
-        folder: `${Paths.home}/Wallpapers`
+        folder: `file://${Paths.expandTilde(Config.wallpaper.directory)}`
         showDirs: false
     }
     delegate: Item {
