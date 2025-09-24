@@ -26,6 +26,9 @@ StackView {
         Image {}
     }
 
+    Component.onCompleted: stack.replace(img, {
+        "source": stack.wallpaper
+    })
     onWallpaperChanged: stack.replace(img, {
         "source": stack.wallpaper
     })
