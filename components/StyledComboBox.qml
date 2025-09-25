@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import qs.config
 import QtQuick
 import QtQuick.Controls
+import Quickshell.Widgets
 
 ComboBox {
     id: control
@@ -41,7 +42,6 @@ ComboBox {
                     duration: Styling.animations.speed.fast
                 }
             }
-            radius: Styling.theme.radiusSelector
         }
         highlighted: control.highlightedIndex === index
     }
@@ -81,13 +81,17 @@ ComboBox {
         height: Math.min(contentItem.implicitHeight, control.Window.height - topMargin - bottomMargin)
         padding: 1
 
-        contentItem: ListView {
-            clip: true
-            implicitHeight: contentHeight + 2
-            model: control.popup.visible ? control.delegateModel : null
-            currentIndex: control.highlightedIndex
+        contentItem: ClippingWrapperRectangle {
+            radius: Styling.theme.radiusField
 
-            ScrollIndicator.vertical: ScrollIndicator {}
+            ListView {
+                clip: true
+                implicitHeight: contentHeight + 2
+                model: control.popup.visible ? control.delegateModel : null
+                currentIndex: control.highlightedIndex
+
+                ScrollIndicator.vertical: ScrollIndicator {}
+            }
         }
 
         background: Rectangle {
@@ -97,8 +101,7 @@ ComboBox {
                     duration: Styling.animations.speed.fast
                 }
             }
-            bottomLeftRadius: Styling.theme.radiusField
-            bottomRightRadius: Styling.theme.radiusField
+            radius: Styling.theme.radiusField
         }
     }
 }
